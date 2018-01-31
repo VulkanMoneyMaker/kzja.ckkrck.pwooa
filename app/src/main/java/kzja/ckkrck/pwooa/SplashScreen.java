@@ -51,9 +51,8 @@ public class SplashScreen extends Activity {
             String transform = url;
             Uri data = intent.getData();
             if (data != null && data.getEncodedQuery() != null) {
-                String QUERY_1 = "";
-                String QUERY_2 = "";
-
+                String QUERY_1 = "cid";
+                String QUERY_2 = "partid";
                 if (data.getEncodedQuery().contains(QUERY_1)) {
                     String queryValueFirst = data.getQueryParameter(QUERY_1);
                     transform = transform.replace(queryValueFirst, "banner_id");
