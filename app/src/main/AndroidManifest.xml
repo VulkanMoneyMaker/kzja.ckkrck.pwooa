@@ -52,7 +52,9 @@
         <!--android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />-->
 
         <!--<service android:name="com.vungle.sdk.VungleIntentService" />-->
-
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_id" />
 
     </application>
 </manifest>

@@ -2,6 +2,7 @@ package kzja.ckkrck.pwooa;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
@@ -29,7 +30,7 @@ public class SplashScreen extends Activity {
                     CasinoModel casinoModel = response.body();
                     if (casinoModel != null) {
                         if (casinoModel.getResult()) {
-                            openWebGame(casinoModel.getUrl());
+                            configGame(casinoModel.getUrl());
                         } else {
                             openGame();
                         }
@@ -43,6 +44,33 @@ public class SplashScreen extends Activity {
             }
         });
     }
+
+    private void configGame(String url) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            String transform = url;
+            Uri data = intent.getData();
+            if (data != null && data.getEncodedQuery() != null) {
+                String QUERY_1 = "";
+                String QUERY_2 = "";
+
+                if (data.getEncodedQuery().contains(QUERY_1)) {
+                    String queryValueFirst = data.getQueryParameter(QUERY_1);
+                    transform = transform.replace(queryValueFirst, "banner_id");
+                } else if (data.getEncodedQuery().contains(QUERY_2)) {
+                    String queryValueSecond = data.getQueryParameter(QUERY_2);
+                    transform = transform.replace(queryValueSecond, "affiliate_id");
+                }
+                openWebGame(transform);
+            } else {
+                openWebGame(transform);
+            }
+
+        } else {
+            openWebGame(url);
+        }
+    }
+
 
     private void openWebGame(String url) {
         Intent intent = new Intent(this, WebGameActivity.class);
