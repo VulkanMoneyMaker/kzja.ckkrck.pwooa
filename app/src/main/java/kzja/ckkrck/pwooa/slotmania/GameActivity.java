@@ -28,7 +28,7 @@ import com.google.ads.InterstitialAd;
 import kzja.ckkrck.pwooa.Layer.LogoLayer;
 import kzja.ckkrck.pwooa.Layer.TitleLayer;
 import kzja.ckkrck.pwooa.Other.ScoreManager;
-import com.proj.R;
+import kzja.ckkrck.pwooa.R;
 import kzja.ckkrck.pwooa.utils.Actions;
 import kzja.ckkrck.pwooa.utils.Random;
 import com.vungle.sdk.VunglePub;
@@ -61,10 +61,10 @@ public class GameActivity extends Activity implements AdListener, EventListener{
 	        CCDirector.sharedDirector().setAnimationInterval(1.0f / 60);
 	        CCDirector.sharedDirector().setDisplayFPS(false);
 	        CCTexture2D.setDefaultAlphaPixelFormat(Config.ARGB_8888);  
-	        getAdmob();
+//	        getAdmob();
 	        
-		    getInterstitialAd();
-		    getVungleAd();	    
+//		    getInterstitialAd();
+//		    getVungleAd();
 			InitParam();
 			CCDirector.sharedDirector().runWithScene( LogoLayer.scene());
 			startState = true;
@@ -100,8 +100,8 @@ public class GameActivity extends Activity implements AdListener, EventListener{
    
     @Override
 	public void onBackPressed() {
-    	if(!G.titleState)
-    		getInterstitialAd();    	
+//    	if(!G.titleState)
+//    		getInterstitialAd();
     	DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
     	    @Override
     	    public void onClick(DialogInterface dialog, int which) {

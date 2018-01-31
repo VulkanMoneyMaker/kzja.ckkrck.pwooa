@@ -13,7 +13,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
 import kzja.ckkrck.pwooa.Layer.GameResult;
-import com.proj.R;
+import kzja.ckkrck.pwooa.R;
 
 public class G {
 	public static Vector<GameResult> TGameResult = new Vector<GameResult>();

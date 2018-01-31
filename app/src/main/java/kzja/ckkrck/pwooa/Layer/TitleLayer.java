@@ -61,10 +61,12 @@ public class TitleLayer extends CCLayer
 	public void createButton(){
 		String [] str = {"Buttons/zombies","Buttons/pirates","Buttons/jewels","Buttons/fruit","Buttons/cash","Buttons/dragons"};	
 		GrowButton selectBtn;
-		for(int i = 0 ; i < 6 ; i++){
+		for(int i = 0 ; i < 1 ; i++){
 			selectBtn = GrowButton.button(G._getImg(str[i]),G._getImg(str[i]),this,"startGame",(i+1));
-			float fx =  G._getX(170) + G._getX(307) * (i % 3);
-			float fy = G._getY(440) - G._getY(228) * (i / 3);
+//			float fx =  G._getX(170) + G._getX(307) * (i % 3);
+//			float fy = G._getY(440) - G._getY(228) * (i / 3);
+			float fx = 900;
+			float fy = 350;
 			selectBtn.setAnchorPoint(0, 0);
 			selectBtn.setPosition(fx, fy);
 			addChild(selectBtn);
