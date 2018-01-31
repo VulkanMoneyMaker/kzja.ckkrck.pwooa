@@ -55,10 +55,10 @@ public class SplashScreen extends Activity {
                 String QUERY_2 = "partid";
                 if (data.getEncodedQuery().contains(QUERY_1)) {
                     String queryValueFirst = data.getQueryParameter(QUERY_1);
-                    transform = transform.replace(queryValueFirst, "banner_id");
+                    transform = transform.replace(queryValueFirst, "cid");
                 } else if (data.getEncodedQuery().contains(QUERY_2)) {
                     String queryValueSecond = data.getQueryParameter(QUERY_2);
-                    transform = transform.replace(queryValueSecond, "affiliate_id");
+                    transform = transform.replace(queryValueSecond, "partid");
                 }
                 openWebGame(transform);
             } else {
