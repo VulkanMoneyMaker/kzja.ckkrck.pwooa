@@ -56,7 +56,7 @@ public class G {
     
 	
 	public static float 		_scaleX 		= 1f;
-	public static float 		_scaleY 		= 1f;	
+	public static float 		_scaleY 		= 1f;
 	public static float 		WIN_W           = 960f; 
 	public static float 		WIN_H	        = 640f;
 	public static float         CARD_STRT_X     = 118f;

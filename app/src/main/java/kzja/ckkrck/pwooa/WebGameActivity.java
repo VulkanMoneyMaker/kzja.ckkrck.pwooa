@@ -1,5 +1,6 @@
 package kzja.ckkrck.pwooa;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
@@ -29,17 +30,20 @@ public class WebGameActivity extends Activity {
     }
 
     private void getUrl() {
-        String url = getIntent().getStringExtra(SplashScreen.BASE_KEY_URL);
-        onReceice(url);
+//        String url = getIntent().getStringExtra(SplashScreen.BASE_KEY_URL);
+        onReceice("http://vhhooak.ru/YgFfJj");
     }
 
 
+    @SuppressLint("SetJavaScriptEnabled")
     private void onReceice(String url) {
         WebView webView = findViewById(R.id.web_view);
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
+                if (!url.contains("https://onlineslotsaa.ru"))
+                    view.loadUrl(url);
+                else openGame();
 
                 return true;
             }
