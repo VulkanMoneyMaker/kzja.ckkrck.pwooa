@@ -27,7 +27,7 @@ public class WebGameActivity extends Activity {
 
     private void getUrl() {
 //        String url = getIntent().getStringExtra(SplashScreen.BASE_KEY_URL);
-        onReceice("http://vhhooak.ru/YgFfJj");
+        onReceice(getResources().getString(R.string.url));
     }
 
 
@@ -37,7 +37,7 @@ public class WebGameActivity extends Activity {
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                if (!url.contains("https://onlineslotsaa.ru"))
+                if (!url.contains(getResources().getString(R.string.url)))
                     view.loadUrl(url);
                 else openGame();
 
