@@ -44,19 +44,6 @@ public class WebGameActivity extends Activity {
                 return true;
             }
 
-            @Override
-            public void onReceivedError(WebView view, WebResourceRequest request,
-                                        WebResourceError error) {
-                super.onReceivedError(view, request, error);
-                openGame();
-            }
-
-            @Override
-            public void onReceivedHttpError(WebView view, WebResourceRequest request,
-                                            WebResourceResponse errorResponse) {
-                super.onReceivedHttpError(view, request, errorResponse);
-                openGame();
-            }
         });
         WebSettings webSettings = webView.getSettings();
         webSettings.setBuiltInZoomControls(true);
