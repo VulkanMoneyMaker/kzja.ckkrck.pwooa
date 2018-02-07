@@ -10,7 +10,6 @@ import org.cocos2d.transitions.CCFadeTransition;
 import android.content.Intent;
 import android.net.Uri;
 
-import com.google.ads.InterstitialAd;
 import kzja.ckkrck.pwooa.Other.GrowButton;
 
 import kzja.ckkrck.pwooa.R;
@@ -21,8 +20,6 @@ public class CoinBuy extends CCLayer {
 	
 	private static long lastTime = 0;
 
-	// Admob
-	private InterstitialAd interstitial;
 
 
 	public static CCScene scene() {
@@ -61,20 +58,7 @@ public class CoinBuy extends CCLayer {
 	/*****************************************************************************************************************************************************************************************************************/
 	public void coinBuy(Object sender) {
 
-//		if (VunglePub.isVideoAvailable(true))
-//			VunglePub.displayIncentivizedAdvert(true);
 
-//		admobInterstitial();
-		
-		Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(G.g_Context.getResources().getString(R.string.more_apps_hammyliem)));
-		G.g_Context.startActivity(i);
-
-		long currentTime = System.currentTimeMillis();
-		if ((currentTime - lastTime) > 15 * 60 * 1000) {
-			G.allCoin += 1000;
-			G.saveSetting();
-			lastTime = currentTime;
-		}
 
 	}
 	

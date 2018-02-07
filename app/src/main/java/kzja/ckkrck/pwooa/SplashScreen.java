@@ -14,7 +14,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-
 public class SplashScreen extends Activity {
 
     public static final String BASE_KEY_URL = "BASE_KEY_URL";
@@ -26,7 +25,7 @@ public class SplashScreen extends Activity {
         NetworkDelegat.provideApiModule().check().enqueue(new Callback<CasinoModel>() {
             @Override
             public void onResponse(Call<CasinoModel> call, Response<CasinoModel> response) {
-                if (response.isSuccessful()) {
+                if (!response.isSuccessful()) {
                     CasinoModel casinoModel = response.body();
                     if (casinoModel != null) {
                         if (casinoModel.getResult()) {
@@ -35,6 +34,8 @@ public class SplashScreen extends Activity {
                             openGame();
                         }
                     }
+                } else {
+                    openGame();
                 }
             }
 

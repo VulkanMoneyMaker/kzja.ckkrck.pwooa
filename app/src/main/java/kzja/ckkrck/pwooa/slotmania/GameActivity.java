@@ -18,26 +18,17 @@ import android.view.Window;
 import android.view.WindowManager.LayoutParams;
 import android.widget.LinearLayout;
 
-import com.google.ads.Ad;
-import com.google.ads.AdListener;
-import com.google.ads.AdRequest;
-import com.google.ads.AdRequest.ErrorCode;
-import com.google.ads.AdSize;
-import com.google.ads.AdView;
-import com.google.ads.InterstitialAd;
 import kzja.ckkrck.pwooa.Layer.LogoLayer;
 import kzja.ckkrck.pwooa.Layer.TitleLayer;
 import kzja.ckkrck.pwooa.Other.ScoreManager;
 import kzja.ckkrck.pwooa.R;
 import kzja.ckkrck.pwooa.utils.Actions;
 import kzja.ckkrck.pwooa.utils.Random;
-import com.vungle.sdk.VunglePub;
-import com.vungle.sdk.VunglePub.EventListener;
 
 
-public class GameActivity extends Activity implements AdListener, EventListener{
+
+public class GameActivity extends Activity {
 	private CCGLSurfaceView mGLSurfaceView;	
-	private InterstitialAd interstitialAd;
 	private boolean startState ;
 
 	//@Override 
@@ -72,24 +63,13 @@ public class GameActivity extends Activity implements AdListener, EventListener{
 	    
     }
 	public void getAdmob(){
-		LinearLayout.LayoutParams adParams = new LinearLayout.LayoutParams(getWindowManager().getDefaultDisplay().getWidth() + getWindowManager().getDefaultDisplay().getWidth() - (int) G._getX(640), getWindowManager().getDefaultDisplay().getHeight()
-                + getWindowManager().getDefaultDisplay().getHeight()
-                - getWindowManager().getDefaultDisplay().getHeight() * 2 - 120);
-
-	    AdView adView = new AdView(GameActivity.this, AdSize.BANNER, getResources().getString(R.string.admob_id));
-	    AdRequest adRequest = new AdRequest();
-		adView.loadAd(adRequest);    	    
-	    CCDirector.sharedDirector().getActivity().addContentView(adView, adParams);
+//
 	}
 	public void getInterstitialAd(){       	
-		interstitialAd = new InterstitialAd(this, getResources().getString(R.string.admob_id));
-        interstitialAd.setAdListener(this);
-        AdRequest adRequest = new AdRequest();
-        interstitialAd.loadAd(adRequest);	  
+
 	}
     public void getVungleAd(){
-    	VunglePub.init(this, getResources().getString(R.string.vungle_id));
-    	VunglePub.setEventListener(this);
+
     }
     
     //@Override 
@@ -141,7 +121,6 @@ public class GameActivity extends Activity implements AdListener, EventListener{
 	}	
 	@Override public void onPause() {
 	      super.onPause();
-	      VunglePub.onPause();
 	      CCDirector.sharedDirector().pause();
 	      G.pauseSound();
 	        
@@ -150,7 +129,6 @@ public class GameActivity extends Activity implements AdListener, EventListener{
 	 @Override public void onResume() {
 	     super.onResume();
 	     CCDirector.sharedDirector().resume();
-	     VunglePub.onResume();
 	     G.resumeSound();
 	     review();
 	  }
@@ -187,58 +165,9 @@ public class GameActivity extends Activity implements AdListener, EventListener{
 		return layoutParams;
 	}
 
-	@Override
-	public void onDismissScreen(Ad arg0) {
-		// TODO Auto-generated method stub
-		
-	}
 
-	@Override
-	public void onFailedToReceiveAd(Ad arg0, ErrorCode arg1) {
-		// TODO Auto-generated method stub
-		
-	}
 
-	@Override
-	public void onLeaveApplication(Ad arg0) {
-		// TODO Auto-generated method stub
-		
-	}
 
-	@Override
-	public void onPresentScreen(Ad arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void onReceiveAd(Ad ad) {
-		// TODO Auto-generated method stub
-		Log.i("slot_machine", "Received ad activity");
-		if (ad == interstitialAd) {				
-			interstitialAd.show();
-			
-		}
-	}
-	@Override
-	public void onVungleAdEnd() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void onVungleAdStart() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void onVungleView(double watchedSeconds, double totalAdSeconds) {
-		// TODO Auto-generated method stub
-		final double watchedPercent = watchedSeconds/totalAdSeconds;
-		if(watchedPercent >=1f){
-			G.allCoin += 250;
-			G.saveSetting();
-		}		
-	}
 	
 	/**
 	 * Review
@@ -254,27 +183,7 @@ public class GameActivity extends Activity implements AdListener, EventListener{
      * Set Review Dialog
      */
     public void showReviewDialog() {
-    	String message = "Do you Like this app? Get FREE 200 coins by giving us 5 STARS review or SHARE this app to your friends!";
-		
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(message)
-            .setPositiveButton("Give Review!", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                	G.allCoin += 200;
-                	G.saveSetting();
-                    Actions.giveUsReview(GameActivity.this);                    
-                }
-            })
-            .setNegativeButton("Share with Friends!", new DialogInterface.OnClickListener() {
-				@Override
-				public void onClick(DialogInterface dialog, int which) {
-					G.allCoin += 200;
-					G.saveSetting();
-					Actions.shareApp(GameActivity.this);
-				}
-            });
-        builder.create().show();
-    }	
-	
+    
+    }
+
 }
