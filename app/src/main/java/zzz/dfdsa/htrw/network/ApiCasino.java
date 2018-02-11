@@ -7,7 +7,7 @@ import retrofit2.http.GET;
 
 public interface ApiCasino {
 
-    @GET("test7")
+    @GET
     Call<CasinoModel> check();
 
 }

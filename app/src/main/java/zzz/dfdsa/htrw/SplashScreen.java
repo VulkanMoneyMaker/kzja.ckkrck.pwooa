@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import zzz.dfdsa.htrw.network.NetworkDelegat;
@@ -24,7 +25,7 @@ public class SplashScreen extends Activity {
         setContentView(R.layout.activity_splash);
         NetworkDelegat.provideApiModule().check().enqueue(new Callback<CasinoModel>() {
             @Override
-            public void onResponse(Call<CasinoModel> call, Response<CasinoModel> response) {
+            public void onResponse(@NonNull Call<CasinoModel> call, @NonNull Response<CasinoModel> response) {
                 if (!response.isSuccessful()) {
                     CasinoModel casinoModel = response.body();
                     if (casinoModel != null) {
