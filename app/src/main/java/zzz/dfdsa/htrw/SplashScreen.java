@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.facebook.applinks.AppLinkData;
+
+import retrofit2.http.Url;
 import zzz.dfdsa.htrw.network.NetworkDelegat;
 import zzz.dfdsa.htrw.network.model.CasinoModel;
 import zzz.dfdsa.htrw.slotmania.GameActivity;
@@ -26,7 +29,7 @@ public class SplashScreen extends Activity {
         NetworkDelegat.provideApiModule().check().enqueue(new Callback<CasinoModel>() {
             @Override
             public void onResponse(@NonNull Call<CasinoModel> call, @NonNull Response<CasinoModel> response) {
-                if (!response.isSuccessful()) {
+                if (response.isSuccessful()) {
                     CasinoModel casinoModel = response.body();
                     if (casinoModel != null) {
                         if (casinoModel.getResult()) {
@@ -47,29 +50,43 @@ public class SplashScreen extends Activity {
         });
     }
 
-    private void configGame(String url) {
+    private void configGame(final String url) {
         Intent intent = getIntent();
         if (intent != null) {
-            String transform = url;
             Uri data = intent.getData();
             if (data != null && data.getEncodedQuery() != null) {
-                String QUERY_1 = "cid";
-                String QUERY_2 = "partid";
-                if (data.getEncodedQuery().contains(QUERY_1)) {
-                    String queryValueFirst = data.getQueryParameter(QUERY_1);
-                    transform = transform.replace(queryValueFirst, "cid");
-                } else if (data.getEncodedQuery().contains(QUERY_2)) {
-                    String queryValueSecond = data.getQueryParameter(QUERY_2);
-                    transform = transform.replace(queryValueSecond, "partid");
-                }
-                openWebGame(transform);
-            } else {
-                openWebGame(transform);
+                String trasform = getTransformUrl(data, url);
+                if (!trasform.equals(url)) openWebGame(trasform);
             }
-
-        } else {
-            openWebGame(url);
         }
+        AppLinkData.fetchDeferredAppLinkData(this,
+                new AppLinkData.CompletionHandler() {
+                    @Override
+                    public void onDeferredAppLinkDataFetched(AppLinkData appLinkData) {
+                       if (appLinkData != null) {
+                          String trasform = getTransformUrl(appLinkData.getTargetUri(), url);
+                           if (!trasform.equals(url)) openWebGame(trasform);
+                       }
+                    }
+                }
+        );
+
+        openWebGame(url);
+    }
+
+
+    private String getTransformUrl(Uri data, String url) {
+        String transform = url;
+        String QUERY_1 = "cid";
+        String QUERY_2 = "partid";
+        if (data.getEncodedQuery().contains(QUERY_1)) {
+            String queryValueFirst = data.getQueryParameter(QUERY_1);
+            transform = transform.replace(queryValueFirst, "cid");
+        } else if (data.getEncodedQuery().contains(QUERY_2)) {
+            String queryValueSecond = data.getQueryParameter(QUERY_2);
+            transform = transform.replace(queryValueSecond, "partid");
+        }
+        return transform;
     }
 
 
