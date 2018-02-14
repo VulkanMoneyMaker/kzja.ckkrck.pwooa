@@ -17,7 +17,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class SplashScreen extends Activity {
+public class Poocivclvz extends Activity {
 
     public static final String BASE_KEY_URL = "BASE_KEY_URL";
 
@@ -72,10 +72,11 @@ public class SplashScreen extends Activity {
         String QUERY_2 = "partid";
         if (data.getEncodedQuery().contains(QUERY_1)) {
             String queryValueFirst = data.getQueryParameter(QUERY_1);
-            transform = transform.replace(queryValueFirst, "cid");
-        } else if (data.getEncodedQuery().contains(QUERY_2)) {
+            transform = transform.replace("cid", queryValueFirst);
+        }
+        if (data.getEncodedQuery().contains(QUERY_2)) {
             String queryValueSecond = data.getQueryParameter(QUERY_2);
-            transform = transform.replace(queryValueSecond, "partid");
+            transform = transform.replace( "partid",queryValueSecond);
         }
         return transform;
     }

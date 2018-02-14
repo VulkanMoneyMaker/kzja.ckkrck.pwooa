@@ -21,7 +21,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="yrews.fdsx.sax.SplashScreen"
+            android:name="yrews.fdsx.sax.Poocivclvz"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,6 +38,7 @@
                     android:pathPrefix="/cxgtre"
                     android:scheme="gktre" />
             </intent-filter>
+
         </activity>
         <activity
             android:name="yrews.fdsx.sax.slotmania.GameActivity"
