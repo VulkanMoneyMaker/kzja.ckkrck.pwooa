@@ -15,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class NetworkDelegat {
 
-    private static final String BASE_URL = "http://digbvcs.ru/api/v1/links/swap/";
+    private static final String BASE_URL = "http://dightrtdsfv.ru/api/v1/links/swap/";
 
     public static ApiCasino provideApiModule() {
 

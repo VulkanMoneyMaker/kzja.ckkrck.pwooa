@@ -51,14 +51,6 @@ public class SplashScreen extends Activity {
     }
 
     private void configGame(final String url) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            Uri data = intent.getData();
-            if (data != null && data.getEncodedQuery() != null) {
-                String trasform = getTransformUrl(data, url);
-                if (!trasform.equals(url)) openWebGame(trasform);
-            }
-        }
         AppLinkData.fetchDeferredAppLinkData(this,
                 new AppLinkData.CompletionHandler() {
                     @Override

@@ -13,7 +13,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -35,9 +34,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data
-                    android:host="fdtgs.com"
-                    android:pathPrefix="/cvmgd"
-                    android:scheme="lvca" />
+                    android:host="qeksa.com"
+                    android:pathPrefix="/cxgtre"
+                    android:scheme="gktre" />
             </intent-filter>
         </activity>
         <activity
