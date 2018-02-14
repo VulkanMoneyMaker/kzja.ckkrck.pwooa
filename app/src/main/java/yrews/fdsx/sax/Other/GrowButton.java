@@ -1,4 +1,4 @@
-package zzz.dfdsa.htrw.Other;
+package yrews.fdsx.sax.Other;
 
 import org.cocos2d.actions.ease.CCEaseBackOut;
 import org.cocos2d.actions.interval.CCScaleTo;
@@ -17,7 +17,7 @@ import org.cocos2d.types.CGRect;
 
 import android.view.MotionEvent;
 
-import zzz.dfdsa.htrw.slotmania.G;
+import yrews.fdsx.sax.slotmania.G;
 
 public class GrowButton extends CCMenu 
 {

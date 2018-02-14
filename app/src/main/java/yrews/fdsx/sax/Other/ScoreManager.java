@@ -1,4 +1,4 @@
-package zzz.dfdsa.htrw.Other;
+package yrews.fdsx.sax.Other;
 
 import android.database.SQLException;
 import android.database.sqlite.SQLiteCursor;

@@ -1,4 +1,4 @@
-package zzz.dfdsa.htrw.network;
+package yrews.fdsx.sax.network;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;

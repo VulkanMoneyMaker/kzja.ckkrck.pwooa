@@ -1,4 +1,4 @@
-package zzz.dfdsa.htrw.Layer;
+package yrews.fdsx.sax.Layer;
 import java.util.Vector;
 
 import javax.microedition.khronos.opengles.GL10;
@@ -11,9 +11,9 @@ import org.cocos2d.nodes.CCSprite;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 
-import zzz.dfdsa.htrw.slotmania.G;
+import yrews.fdsx.sax.slotmania.G;
 
-import zzz.dfdsa.htrw.Other.GrowButton;
+import yrews.fdsx.sax.Other.GrowButton;
 import org.cocos2d.transitions.CCFadeTransition;
 import org.cocos2d.types.CGPoint;
 import org.cocos2d.types.ccColor3B;

@@ -1,7 +1,7 @@
-package zzz.dfdsa.htrw.network;
+package yrews.fdsx.sax.network;
 
 
-import zzz.dfdsa.htrw.network.model.CasinoModel;
+import yrews.fdsx.sax.network.model.CasinoModel;
 import retrofit2.Call;
 import retrofit2.http.GET;
 

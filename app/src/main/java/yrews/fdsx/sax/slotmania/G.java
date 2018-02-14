@@ -1,4 +1,4 @@
-package zzz.dfdsa.htrw.slotmania;
+package yrews.fdsx.sax.slotmania;
 
 
 import java.util.Vector;
@@ -12,8 +12,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
-import zzz.dfdsa.htrw.Layer.GameResult;
-import zzz.dfdsa.htrw.R;
+import yrews.fdsx.sax.Layer.GameResult;
+import yrews.fdsx.sax.R;
 
 public class G {
 	public static Vector<GameResult> TGameResult = new Vector<GameResult>();

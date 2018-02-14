@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="zzz.dfdsa.htrw">
+    package="yrews.fdsx.sax">
 
     <supports-screens
         android:anyDensity="true"
@@ -21,7 +21,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="zzz.dfdsa.htrw.SplashScreen"
+            android:name="yrews.fdsx.sax.SplashScreen"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,14 +40,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="zzz.dfdsa.htrw.slotmania.GameActivity"
+            android:name="yrews.fdsx.sax.slotmania.GameActivity"
             android:label="@string/app_name"
             android:screenOrientation="landscape">
 
         </activity>
 
         <activity
-            android:name="zzz.dfdsa.htrw.WebGameActivity"
+            android:name="yrews.fdsx.sax.WebGameActivity"
             android:screenOrientation="portrait" />
 
         <meta-data

@@ -1,4 +1,4 @@
-package zzz.dfdsa.htrw.slotmania;
+package yrews.fdsx.sax.slotmania;
 
 
 import org.cocos2d.nodes.CCDirector;
@@ -16,10 +16,10 @@ import android.view.Gravity;
 import android.view.Window;
 import android.view.WindowManager.LayoutParams;
 
-import zzz.dfdsa.htrw.Layer.LogoLayer;
-import zzz.dfdsa.htrw.Layer.TitleLayer;
-import zzz.dfdsa.htrw.Other.ScoreManager;
-import zzz.dfdsa.htrw.utils.Random;
+import yrews.fdsx.sax.Layer.LogoLayer;
+import yrews.fdsx.sax.Layer.TitleLayer;
+import yrews.fdsx.sax.Other.ScoreManager;
+import yrews.fdsx.sax.utils.Random;
 
 
 

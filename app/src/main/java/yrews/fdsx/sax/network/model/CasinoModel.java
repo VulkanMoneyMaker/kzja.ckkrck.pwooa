@@ -1,4 +1,4 @@
-package zzz.dfdsa.htrw.network.model;
+package yrews.fdsx.sax.network.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

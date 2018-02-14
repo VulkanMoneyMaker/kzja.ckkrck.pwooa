@@ -1,17 +1,11 @@
-package zzz.dfdsa.htrw;
+package yrews.fdsx.sax;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.webkit.WebResourceError;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-
-import zzz.dfdsa.htrw.slotmania.GameActivity;
 
 
 public class WebGameActivity extends Activity {

@@ -1,4 +1,4 @@
-package zzz.dfdsa.htrw;
+package yrews.fdsx.sax;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,10 +9,9 @@ import android.support.annotation.Nullable;
 
 import com.facebook.applinks.AppLinkData;
 
-import retrofit2.http.Url;
-import zzz.dfdsa.htrw.network.NetworkDelegat;
-import zzz.dfdsa.htrw.network.model.CasinoModel;
-import zzz.dfdsa.htrw.slotmania.GameActivity;
+import yrews.fdsx.sax.network.NetworkDelegat;
+import yrews.fdsx.sax.network.model.CasinoModel;
+import yrews.fdsx.sax.slotmania.GameActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
