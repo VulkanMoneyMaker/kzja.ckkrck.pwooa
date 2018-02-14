@@ -21,7 +21,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="hfj.pwoei.prihdk.Poocivclvz"
+            android:name="hfj.pwoei.prihdk.Stargfsdfd"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,11 +34,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data
-                    android:host="qeksa.com"
-                    android:pathPrefix="/cxgtre"
-                    android:scheme="gktre" />
+                    android:host="cxldsa.com"
+                    android:pathPrefix="/bcxzcid"
+                    android:scheme="yrwqs" />
             </intent-filter>
-
         </activity>
         <activity
             android:name="hfj.pwoei.prihdk.slotmania.GameActivity"

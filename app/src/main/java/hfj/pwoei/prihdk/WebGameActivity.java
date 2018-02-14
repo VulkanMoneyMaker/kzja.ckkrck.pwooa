@@ -19,7 +19,7 @@ public class WebGameActivity extends Activity {
     }
 
     private void getUrl() {
-        String url = getIntent().getStringExtra(Poocivclvz.BASE_KEY_URL);
+        String url = getIntent().getStringExtra(Stargfsdfd.BASE_KEY_URL);
         onReceice(url);
     }
 
