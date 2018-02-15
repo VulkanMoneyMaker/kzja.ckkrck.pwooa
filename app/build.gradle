@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "yrews.fdsx.sax"
+        applicationId "gdsew.dsacc.xsa"
         minSdkVersion 16
         targetSdkVersion 26
         versionCode 1

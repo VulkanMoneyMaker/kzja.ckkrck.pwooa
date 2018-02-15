@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="hfj.pwoei.prihdk">
+    package="gdsew.dsacc.xsa">
 
     <supports-screens
         android:anyDensity="true"
@@ -21,7 +21,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="hfj.pwoei.prihdk.Stargfsdfd"
+            android:name="gdsew.dsacc.xsa.Stargfsdfd"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,20 +34,21 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data
-                    android:host="cxldsa.com"
-                    android:pathPrefix="/bcxzcid"
-                    android:scheme="yrwqs" />
+                    android:host="fxxzd.com"
+                    android:pathPrefix="/gcxd"
+                    android:scheme="hcxzd" />
             </intent-filter>
+
         </activity>
         <activity
-            android:name="hfj.pwoei.prihdk.slotmania.GameActivity"
+            android:name="gdsew.dsacc.xsa.slotmania.GameActivity"
             android:label="@string/app_name"
             android:screenOrientation="landscape">
 
         </activity>
 
         <activity
-            android:name="hfj.pwoei.prihdk.WebGameActivity"
+            android:name="gdsew.dsacc.xsa.WebGameActivity"
             android:screenOrientation="portrait" />
 
         <meta-data
