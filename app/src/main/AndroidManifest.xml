@@ -21,7 +21,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="gdsew.dsacc.xsa.Stargfsdfd"
+            android:name="gdsew.dsacc.xsa.SplashdGameTotal"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -17,7 +17,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class Stargfsdfd extends Activity {
+public class SplashdGameTotal extends Activity {
 
     public static final String BASE_KEY_URL = "BASE_KEY_URL";
 
