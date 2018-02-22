@@ -20,8 +20,6 @@ public class NetworkDelegat {
         return provideRetrofitBuilder().create(ApiCasino.class);
     }
 
-
-
     private static Retrofit provideRetrofitBuilder() {
         return new Retrofit.Builder()
                 .addConverterFactory(provideConverterFactory(provideGson()))
