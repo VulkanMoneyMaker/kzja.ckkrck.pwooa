@@ -11,9 +11,9 @@ import org.cocos2d.nodes.CCSprite;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 
+import gak.hafawq.nva.Other.NextGameButton;
 import gak.hafawq.nva.slotmania.G;
 
-import gak.hafawq.nva.Other.GrowButton;
 import org.cocos2d.transitions.CCFadeTransition;
 import org.cocos2d.types.CGPoint;
 import org.cocos2d.types.ccColor3B;
@@ -31,10 +31,10 @@ public class GameLayer extends CCLayer
 	public final int	      tag_Frame     = 1;
 	public final int	      tag_coin      = 2;
 	
-	public Engine             m_Eng;
+	public ItemEngine m_Eng;
 	public CCSprite []        m_sprCharacter = new CCSprite[G.CHARACTER_COUNT];
 	public CCSprite           sprLine;
-	public Vector<CoinAnim>   arrCoin = new Vector<CoinAnim>();
+	public Vector<Animation>   arrCoin = new Vector<Animation>();
 	public CCSprite[]         m_arrLine = new CCSprite[9];
 	public CCSprite[]         m_arrHold = new CCSprite[5];	
  	public CCSprite[][]       m_arrLocked = new CCSprite[4][2];
@@ -78,7 +78,7 @@ public class GameLayer extends CCLayer
 	{
 		super();	
 		
-		m_Eng = new Engine();
+		m_Eng = new ItemEngine();
 		initVariables();
 		initImages();
 		initButton();
@@ -125,14 +125,14 @@ public class GameLayer extends CCLayer
 	}
 /***************************************************BUTTONS LOAD*******************************************************************************************************************************************************/
 	public void initButton(){
-		GrowButton back = GrowButton.button(G._getImg("Buttons/back1"), G._getImg("Buttons/back2"),this,"onBack",0);
-		GrowButton coin = GrowButton.button(G._getImg("Buttons/addCoin1"), G._getImg("Buttons/addCoin2"),this,"onCoinBuy",0);	
-		//GrowButton paytable = GrowButton.button(G._getImg("Buttons/paytable1"), G._getImg("Buttons/paytable2"),this,"onPlayTable",0);
-		GrowButton line = GrowButton.button(G._getImg("Buttons/line1"), G._getImg("Buttons/line2"),this,"onLines",0);	
-		GrowButton maxline = GrowButton.button(G._getImg("Buttons/maxlines1"), G._getImg("Buttons/maxlines2"),this,"onMaxLines",0);
-		GrowButton bet = GrowButton.button(G._getImg("Buttons/bet1"), G._getImg("Buttons/bet2"),this,"onBet",0);	
-		GrowButton spin = GrowButton.button(G._getImg("Buttons/spin1"), G._getImg("Buttons/spin1"),this,"onSpin",0);
-		GrowButton setting = GrowButton.button(G._getImg("Buttons/setting1"), G._getImg("Buttons/setting2"), this, "setting",0);		
+		NextGameButton back = NextGameButton.button(G._getImg("Buttons/back1"), G._getImg("Buttons/back2"),this,"onBack",0);
+		NextGameButton coin = NextGameButton.button(G._getImg("Buttons/addCoin1"), G._getImg("Buttons/addCoin2"),this,"onCoinBuy",0);
+		//NextGameButton paytable = NextGameButton.button(G._getImg("Buttons/paytable1"), G._getImg("Buttons/paytable2"),this,"onPlayTable",0);
+		NextGameButton line = NextGameButton.button(G._getImg("Buttons/line1"), G._getImg("Buttons/line2"),this,"onLines",0);
+		NextGameButton maxline = NextGameButton.button(G._getImg("Buttons/maxlines1"), G._getImg("Buttons/maxlines2"),this,"onMaxLines",0);
+		NextGameButton bet = NextGameButton.button(G._getImg("Buttons/bet1"), G._getImg("Buttons/bet2"),this,"onBet",0);
+		NextGameButton spin = NextGameButton.button(G._getImg("Buttons/spin1"), G._getImg("Buttons/spin1"),this,"onSpin",0);
+		NextGameButton setting = NextGameButton.button(G._getImg("Buttons/setting1"), G._getImg("Buttons/setting2"), this, "setting",0);
 		setting.setAnchorPoint(0, 0);
 		setting.setPosition(G._getX(50),G._getY(586));
 		
@@ -396,7 +396,7 @@ public class GameLayer extends CCLayer
 /*********************************************************************************COIN ANIMATIONS**************************************************************************************************************************/
 	public void coinAnim(float dt){
 		if(arrCoin.size() < 15){
-			CoinAnim coin = new CoinAnim();
+			Animation coin = new Animation();
 			addChild(coin, z_coin, tag_coin);
 			coin.setPosition(CCDirector.sharedDirector().winSize().width / 2, G._getY(90));
 			arrCoin.add(coin);
@@ -442,7 +442,7 @@ public class GameLayer extends CCLayer
 		}		
 		//if (VunglePub.isVideoAvailable(true))
 		//	VunglePub.displayIncentivizedAdvert(true);	
-		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, CoinBuy.scene()));
+		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, ItemForBuy.scene()));
 		
 	}
 	public void onPlayTable(Object sender){
@@ -461,7 +461,7 @@ public class GameLayer extends CCLayer
 				G.arrTempSlot[i][j] = m_Eng.m_nArrTempSlot[i][j];
 			}
 		}		
-		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, PayTable.scene()));
+		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, GamingTable.scene()));
 	}
 	public void onLines(Object sender){
 		if(m_Eng.m_bStartSlot || m_bIncrease)
@@ -508,7 +508,7 @@ public class GameLayer extends CCLayer
 		G.playEffect(G.click);
 		G.titleState = true;
 		G.GAME_STATE = "game";
-		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, Setting.scene()));
+		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, CurrentGameSetting.scene()));
 	}
 /*********************************************************************************ALERT**************************************************************************************************************************/
 	public void showAlert(){
@@ -519,7 +519,7 @@ public class GameLayer extends CCLayer
 						.setCancelable(false)
 						.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog, int id) {
-									CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, CoinBuy.scene()));
+									CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, ItemForBuy.scene()));
 									G.GAME_STATE = "game";
 									dialog.cancel();
 	                             }

@@ -8,17 +8,17 @@ import org.cocos2d.transitions.CCFadeTransition;
 
 import gak.hafawq.nva.slotmania.G;
 
-public class LogoLayer extends CCLayer
+public class ForLogo extends CCLayer
 {
 	public static CCScene scene(){		
 		G.setScale();
 		G.loadSetting();
 		CCScene scene = CCScene.node();
-		scene.addChild(new LogoLayer());		
+		scene.addChild(new ForLogo());
 		return scene;
 	}
 /***************************************************************************************************************************************************************************************************************/
-	public LogoLayer()
+	public ForLogo()
 	{
 		super();		
 		CCSprite sprite = CCSprite.sprite(G._getImg("backImages/splash-hd"));

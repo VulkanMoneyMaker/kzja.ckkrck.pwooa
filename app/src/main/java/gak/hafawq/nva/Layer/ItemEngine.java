@@ -5,7 +5,7 @@ import org.cocos2d.utils.javolution.MathLib;
 
 import gak.hafawq.nva.slotmania.G;
 
-public class Engine 
+public class ItemEngine
 {	
 	public int m_nArrSlot[][] = new int[G.ROW_][G.COL_];
 	public int m_nArrTempSlot[][] = new int[G.CHARACTER_COUNT][G.COL_];
@@ -15,7 +15,7 @@ public class Engine
 	public int m_nRuleLineCount;
 	public int[] m_nRowIndex = new int[G.COL_];
 	public int m_nMaxLineCount;
-	//public int nRuleLineIndex;
+
 	public int m_nBet;
 	public int m_nWin;
 	public int m_nGameCoin;
@@ -52,7 +52,7 @@ public class Engine
 		{{1,0},{2,1},{2,2},{2,3},{1,4}},
 		{{3,0},{2,1},{2,2},{2,3},{3,4}}		
 	};	
-	public Engine()
+	public ItemEngine()
 	{
 		initVariable();
 		initSlot();
@@ -228,7 +228,7 @@ public class Engine
 				nCoin = nCardsScore[nCardType][nEqualCount - 1];
 			if(nCoin > 0){
 				m_bHit = true;
-				GameResult r = new GameResult();				
+				ResultGaming r = new ResultGaming();
 				r.nRuleLineIndex = nRuleLineIndex;
 				r.nEqualCount = nEqualCount;
 				r.nCharacterIndex = nCardType;

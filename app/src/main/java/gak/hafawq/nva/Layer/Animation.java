@@ -1,7 +1,5 @@
 package gak.hafawq.nva.Layer;
 
-///import org.cocos2d.nodes.CCDirector;
-
 import org.cocos2d.nodes.CCSprite;
 import org.cocos2d.nodes.CCDirector;
 import org.cocos2d.utils.javolution.MathLib;
@@ -9,7 +7,7 @@ import org.cocos2d.utils.javolution.MathLib;
 import gak.hafawq.nva.slotmania.G;
 
 
-public class CoinAnim extends CCSprite{
+public class Animation extends CCSprite{
 	public float m_fGravity;
 	public float m_fVx;
 	public float m_fVy;
@@ -17,7 +15,7 @@ public class CoinAnim extends CCSprite{
 	
 	
 /***************************************************************************************************************************************************************************************************************/
-	public CoinAnim(){
+	public Animation(){
 		super(G._getImg("Buttons/usd3"));
 		G.setScale(this);
 		initVar();	

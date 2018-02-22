@@ -4,18 +4,18 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteCursor;
 import android.database.sqlite.SQLiteDatabase;
 
-public class ScoreManager
+public class PlayManager
 {
     protected SQLiteDatabase	m_sqlManager	= null;
-	private	static ScoreManager _sharedScore	= null;
+	private	static PlayManager _sharedScore	= null;
 
-	public static ScoreManager sharedScoreManager()
+	public static PlayManager sharedScoreManager()
 	{
-		if (_sharedScore==null) _sharedScore = new ScoreManager();
+		if (_sharedScore==null) _sharedScore = new PlayManager();
 		return _sharedScore;
 	}
 
-	public ScoreManager()
+	public PlayManager()
 	{
 		try {
 			m_sqlManager  = SQLiteDatabase.openOrCreateDatabase(DB_NAME, null);

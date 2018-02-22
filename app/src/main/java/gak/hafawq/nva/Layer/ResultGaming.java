@@ -1,6 +1,6 @@
 package gak.hafawq.nva.Layer;
 
-public class GameResult
+public class ResultGaming
 {
 	public int nRuleLineIndex;
 	public int nEqualCount;

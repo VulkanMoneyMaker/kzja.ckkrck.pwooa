@@ -8,19 +8,19 @@ import org.cocos2d.nodes.CCSprite;
 import org.cocos2d.transitions.CCFadeTransition;
 
 
-import gak.hafawq.nva.Other.GrowButton;
+import gak.hafawq.nva.Other.NextGameButton;
 import gak.hafawq.nva.slotmania.G;
 
-public class PayTable extends CCLayer
+public class GamingTable extends CCLayer
 {
 	public static CCScene scene()
 	{
 		CCScene scene = CCScene.node();
-		scene.addChild(new PayTable());
+		scene.addChild(new GamingTable());
 		return scene;
 	}
 /***************************************************************************************************************************************************************************************************************/	
-	public PayTable()
+	public GamingTable()
 	{
 		super();
 		
@@ -30,7 +30,7 @@ public class PayTable extends CCLayer
 		im_back.setPosition(0, 0);
 		addChild(im_back);	
 		
-		GrowButton retu =GrowButton.button(G._getImg("Buttons/return"), G._getImg("Buttons/return"),this,"returnPayTable",0);
+		NextGameButton retu = NextGameButton.button(G._getImg("Buttons/return"), G._getImg("Buttons/return"),this,"returnPayTable",0);
 	
 		retu.setPosition(G._getX(889),G._getY(540));
 		addChild(retu);

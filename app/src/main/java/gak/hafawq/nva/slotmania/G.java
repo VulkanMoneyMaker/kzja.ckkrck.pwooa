@@ -12,11 +12,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
-import gak.hafawq.nva.Layer.GameResult;
+import gak.hafawq.nva.Layer.ResultGaming;
 import gak.hafawq.nva.R;
 
 public class G {
-	public static Vector<GameResult> TGameResult = new Vector<GameResult>();
+	public static Vector<ResultGaming> TGameResult = new Vector<ResultGaming>();
 	public static Activity		g_Context; 
 	
 	public static final int 	seccess 	    = R.raw.increase;

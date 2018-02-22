@@ -1,17 +1,16 @@
 package gak.hafawq.nva.Layer;
 
-///import org.cocos2d.nodes.CCDirector;
 import org.cocos2d.layers.CCLayer;
 import org.cocos2d.layers.CCScene;
 import org.cocos2d.nodes.CCDirector;
 import org.cocos2d.nodes.CCSprite;
 import org.cocos2d.transitions.CCFadeTransition;
 
-import gak.hafawq.nva.Other.GrowButton;
+import gak.hafawq.nva.Other.NextGameButton;
 
 import gak.hafawq.nva.slotmania.G;
 
-public class CoinBuy extends CCLayer {
+public class ItemForBuy extends CCLayer {
 	public int coinCount = 0;
 	
 	private static long lastTime = 0;
@@ -20,12 +19,12 @@ public class CoinBuy extends CCLayer {
 
 	public static CCScene scene() {
 		CCScene scene = CCScene.node();
-		scene.addChild(new CoinBuy());
+		scene.addChild(new ItemForBuy());
 		return scene;
 	}
 
 	/*****************************************************************************************************************************************************************************************************************/
-	public CoinBuy() {
+	public ItemForBuy() {
 		super();
 		schedule("getInfo", 1.0f / 10.0f);
 	}
@@ -38,13 +37,13 @@ public class CoinBuy extends CCLayer {
 		img_back.setPosition(0, 0);
 		addChild(img_back);
 
-		GrowButton buyBtn = GrowButton.button(G._getImg("setting/buyBtn"),
+		NextGameButton buyBtn = NextGameButton.button(G._getImg("setting/buyBtn"),
 				G._getImg("setting/buyBtn"), this, "coinBuy", 0);
 
 		buyBtn.setPosition(G._getX(717), G._getY(320));
 		addChild(buyBtn);
 
-		GrowButton backBtn = GrowButton.button(G._getImg("setting/PlusBack"),
+		NextGameButton backBtn = NextGameButton.button(G._getImg("setting/PlusBack"),
 				G._getImg("setting/PlusBack"), this, "backLayer", 0);
 		// backBtn.setColor(new ccColor3b(0,0,0));
 		backBtn.setPosition(G._getX(900), G._getY(50));

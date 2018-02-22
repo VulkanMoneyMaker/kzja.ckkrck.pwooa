@@ -16,14 +16,14 @@ import android.view.Gravity;
 import android.view.Window;
 import android.view.WindowManager.LayoutParams;
 
-import gak.hafawq.nva.Layer.LogoLayer;
+import gak.hafawq.nva.Layer.ForLogo;
 import gak.hafawq.nva.Layer.TitleLayer;
-import gak.hafawq.nva.Other.ScoreManager;
-import gak.hafawq.nva.utils.Random;
+import gak.hafawq.nva.Other.PlayManager;
+import gak.hafawq.nva.utils.RandomUtil;
 
 
 
-public class GameActivity extends Activity {
+public class ActivityStartGame extends Activity {
 	private CCGLSurfaceView mGLSurfaceView;	
 	private boolean startState ;
 
@@ -48,12 +48,9 @@ public class GameActivity extends Activity {
 	        CCDirector.sharedDirector().setAnimationInterval(1.0f / 60);
 	        CCDirector.sharedDirector().setDisplayFPS(false);
 	        CCTexture2D.setDefaultAlphaPixelFormat(Config.ARGB_8888);  
-//	        getAdmob();
-	        
-//		    getInterstitialAd();
-//		    getVungleAd();
+
 			InitParam();
-			CCDirector.sharedDirector().runWithScene( LogoLayer.scene());
+			CCDirector.sharedDirector().runWithScene( ForLogo.scene());
 			startState = true;
         }
 	    
@@ -76,8 +73,6 @@ public class GameActivity extends Activity {
    
     @Override
 	public void onBackPressed() {
-//    	if(!G.titleState)
-//    		getInterstitialAd();
     	DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
     	    @Override
     	    public void onClick(DialogInterface dialog, int which) {
@@ -89,7 +84,7 @@ public class GameActivity extends Activity {
     				}else{
     					G.stopSound();    					
     					CCDirector.sharedDirector().end();
-    			        ScoreManager.releaseScoreManager();
+    			        PlayManager.releaseScoreManager();
     			        finish();
     				}	
     	            break;
@@ -133,15 +128,14 @@ public class GameActivity extends Activity {
 	       super.onDestroy();
 	       G.stopSound();
 	       CCDirector.sharedDirector().end();
-	       ScoreManager.releaseScoreManager();
+	       PlayManager.releaseScoreManager();
 	  }
    
 	
     private LayoutParams createLayoutParams() {
         final DisplayMetrics pDisplayMetrics = new DisplayMetrics();
 		CCDirector.sharedDirector().getActivity().getWindowManager().getDefaultDisplay().getMetrics(pDisplayMetrics);
-		
-		//final float mRatio = (float)G.DEFAULT_W / G.DEFAULT_H;
+
 		final float mRatio = (float)G.DEFAULT_W / G.DEFAULT_H;
 		final float realRatio = (float)pDisplayMetrics.widthPixels / pDisplayMetrics.heightPixels;
 
@@ -169,9 +163,9 @@ public class GameActivity extends Activity {
 	 * Review
 	 */
 	private void review() {
-		int random = Random.random.nextInt(100);
+		int random = RandomUtil.random.nextInt(100);
 		if (random < 15) {
-			GameActivity.this.showReviewDialog();
+			ActivityStartGame.this.showReviewDialog();
 		}
 	}
 

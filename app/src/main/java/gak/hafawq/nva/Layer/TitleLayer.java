@@ -9,7 +9,7 @@ import org.cocos2d.nodes.CCSprite;
 import org.cocos2d.transitions.CCFadeTransition;
 import org.cocos2d.types.ccColor3B;
 import org.cocos2d.nodes.CCLabel;
-import gak.hafawq.nva.Other.GrowButton;
+import gak.hafawq.nva.Other.NextGameButton;
 import gak.hafawq.nva.slotmania.G;
 
 
@@ -60,9 +60,9 @@ public class TitleLayer extends CCLayer
 /***************************************************************************************************************************************************************************************************************/
 	public void createButton(){
 		String [] str = {"Buttons/zombies","Buttons/pirates","Buttons/jewels","Buttons/fruit","Buttons/cash","Buttons/dragons"};	
-		GrowButton selectBtn;
+		NextGameButton selectBtn;
 		for(int i = 0 ; i < 1 ; i++){
-			selectBtn = GrowButton.button(G._getImg(str[i]),G._getImg(str[i]),this,"startGame",(i+1));
+			selectBtn = NextGameButton.button(G._getImg(str[i]),G._getImg(str[i]),this,"startGame",(i+1));
 //			float fx =  G._getX(170) + G._getX(307) * (i % 3);
 //			float fy = G._getY(440) - G._getY(228) * (i / 3);
 			float fx = 900;
@@ -85,17 +85,17 @@ public class TitleLayer extends CCLayer
 		img_usd.setPosition(G._getX(40), G._getY(564));
 		addChild(img_usd);		
 		
-		GrowButton plus =GrowButton.button(G._getImg("Buttons/plus1"), G._getImg("Buttons/plus2"),this,"plusCoin",0);			
+		NextGameButton plus = NextGameButton.button(G._getImg("Buttons/plus1"), G._getImg("Buttons/plus2"),this,"plusCoin",0);
 		plus.setAnchorPoint(0, 0);
 		plus.setPosition(G._getX(288),G._getY(597));
 		addChild(plus);
 		
-		GrowButton setting = GrowButton.button(G._getImg("Buttons/setting1"), G._getImg("Buttons/setting1"), this, "setting",0);		
+		NextGameButton setting = NextGameButton.button(G._getImg("Buttons/setting1"), G._getImg("Buttons/setting1"), this, "setting",0);
 		setting.setAnchorPoint(0, 0);
 		setting.setPosition(G._getX(100),G._getY(38));
 		addChild(setting);
 		
-		//GrowButton more_game = GrowButton.button(G._getImg("Buttons/more_game"), G._getImg("Buttons/more_game"), this, "moreGame", 0);
+		//NextGameButton more_game = NextGameButton.button(G._getImg("Buttons/more_game"), G._getImg("Buttons/more_game"), this, "moreGame", 0);
 		//more_game.setAnchorPoint(0, 0);
 		//more_game.setPosition(G._getX(824),G._getY(38));
 		//addChild(more_game);
@@ -126,7 +126,7 @@ public class TitleLayer extends CCLayer
 		G.titleState = true;
 		
 		//	
-		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, CoinBuy.scene()));
+		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, ItemForBuy.scene()));
 		
 	}
 /***************************************************************************************************************************************************************************************************************/
@@ -134,7 +134,7 @@ public class TitleLayer extends CCLayer
 		G.playEffect(G.click);
 		G.titleState = true;
 		G.GAME_STATE = "title";
-		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, Setting.scene()));
+		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, CurrentGameSetting.scene()));
 	}
 /***************************************************************************************************************************************************************************************************************/
 	public void moreGame(Object sender){

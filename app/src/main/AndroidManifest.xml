@@ -19,7 +19,7 @@
         tools:ignore="AllowBackup">
 
         <activity
-            android:name="gak.hafawq.nva.slotmania.GameActivity"
+            android:name="gak.hafawq.nva.slotmania.ActivityStartGame"
             android:label="@string/app_name"
             android:screenOrientation="landscape">
 
