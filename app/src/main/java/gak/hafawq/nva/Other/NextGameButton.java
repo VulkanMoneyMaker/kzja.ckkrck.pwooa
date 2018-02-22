@@ -17,7 +17,7 @@ import org.cocos2d.types.CGRect;
 
 import android.view.MotionEvent;
 
-import gak.hafawq.nva.slotmania.G;
+import gak.hafawq.nva.ui.Resources;
 
 public class NextGameButton extends CCMenu
 {
@@ -37,7 +37,7 @@ public class NextGameButton extends CCMenu
 			normalSprite, selectSprite, target, sel);
 		//CCMenuItem menuItem = CCMenuItemSprite.
 		menuItem.setTag(index);
-		G.setScale(menuItem, true);
+		Resources.setScale(menuItem, true);
 		//Button menu = new Button(menuItem);
 		return new NextGameButton(menuItem);
 	}

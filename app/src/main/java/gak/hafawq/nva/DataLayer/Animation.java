@@ -1,10 +1,10 @@
-package gak.hafawq.nva.Layer;
+package gak.hafawq.nva.DataLayer;
 
 import org.cocos2d.nodes.CCSprite;
 import org.cocos2d.nodes.CCDirector;
 import org.cocos2d.utils.javolution.MathLib;
 
-import gak.hafawq.nva.slotmania.G;
+import gak.hafawq.nva.ui.Resources;
 
 
 public class Animation extends CCSprite{
@@ -16,18 +16,18 @@ public class Animation extends CCSprite{
 	
 /***************************************************************************************************************************************************************************************************************/
 	public Animation(){
-		super(G._getImg("Buttons/usd3"));
-		G.setScale(this);
+		super(Resources._getImg("Buttons/usd3"));
+		Resources.setScale(this);
 		initVar();	
 		schedule("firstAction", 1.0f / 60.0f);		
 	}
 /***************************************************************************************************************************************************************************************************************/
 	public void initVar(){
-		float nVelXRes = G._getX(3.0f);
-		float nVelYRes = G._getY(5.0f);
-		m_fGravity = G._getX(3.0f);
-		m_fVx = G._getX(20.0f) + MathLib.random(0, nVelXRes);
-		m_fVy = G._getX(20.0f) + MathLib.random(0, nVelYRes);
+		float nVelXRes = Resources._getX(3.0f);
+		float nVelYRes = Resources._getY(5.0f);
+		m_fGravity = Resources._getX(3.0f);
+		m_fVx = Resources._getX(20.0f) + MathLib.random(0, nVelXRes);
+		m_fVy = Resources._getX(20.0f) + MathLib.random(0, nVelYRes);
 		m_nTime = 0;
 		setScale(0.1f);
 	}		
@@ -37,10 +37,10 @@ public class Animation extends CCSprite{
 		m_fVy -= m_fGravity;
 		setPosition(getPosition().x + m_fVx, getPosition().y + m_fVy);
 		setScale(getScale() + 0.04f);
-		if(getPosition().y < G._getY(90)){
+		if(getPosition().y < Resources._getY(90)){
 			m_nTime = 0 ;
 			m_fVy = -1.5f * m_fVy;
-			m_fVx = -(getPosition().x - G._getX(250f)) / ((CCDirector.sharedDirector().winSize().height - G._getY(40.0f)) / m_fVy);
+			m_fVx = -(getPosition().x - Resources._getX(250f)) / ((CCDirector.sharedDirector().winSize().height - Resources._getY(40.0f)) / m_fVy);
 			unschedule("firstAction");
 			schedule("restAction", 1.0f / 60.0f);
 		}
@@ -56,7 +56,7 @@ public class Animation extends CCSprite{
 /***************************************************************************************************************************************************************************************************************/
 	public void secondAction(float dt){
 		setPosition(this.getPosition().x + m_fVx, getPosition().y + m_fVy);
-		if(getPosition().y > CCDirector.sharedDirector().winSize().height - G._getY(40)){
+		if(getPosition().y > CCDirector.sharedDirector().winSize().height - Resources._getY(40)){
 			setVisible(false);
 			unschedule("secondAction");
 		}

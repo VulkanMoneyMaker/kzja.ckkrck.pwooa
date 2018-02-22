@@ -1,4 +1,4 @@
-package gak.hafawq.nva.slotmania;
+package gak.hafawq.nva.ui;
 
 
 import java.util.Vector;
@@ -12,10 +12,10 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
-import gak.hafawq.nva.Layer.ResultGaming;
+import gak.hafawq.nva.DataLayer.ResultGaming;
 import gak.hafawq.nva.R;
 
-public class G {
+public class Resources {
 	public static Vector<ResultGaming> TGameResult = new Vector<ResultGaming>();
 	public static Activity		g_Context; 
 	
