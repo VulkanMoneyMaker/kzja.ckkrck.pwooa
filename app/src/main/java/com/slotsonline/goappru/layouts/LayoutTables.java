@@ -1,4 +1,4 @@
-package com.slotsonline.goappru.Layer;
+package com.slotsonline.goappru.layouts;
 
 import org.cocos2d.layers.CCLayer;
 import org.cocos2d.layers.CCScene;
@@ -8,37 +8,37 @@ import org.cocos2d.nodes.CCSprite;
 import org.cocos2d.transitions.CCFadeTransition;
 
 
-import com.slotsonline.goappru.Other.GrowButton;
-import com.slotsonline.goappru.slotmania.G;
+import com.slotsonline.goappru.models.Buttons;
+import com.slotsonline.goappru.activities.Data;
 
-public class PayTable extends CCLayer
+public class LayoutTables extends CCLayer
 {
 	public static CCScene scene()
 	{
 		CCScene scene = CCScene.node();
-		scene.addChild(new PayTable());
+		scene.addChild(new LayoutTables());
 		return scene;
 	}
 /***************************************************************************************************************************************************************************************************************/	
-	public PayTable()
+	public LayoutTables()
 	{
 		super();
 		
-		CCSprite im_back = CCSprite.sprite(G._getImg(String.format("backImages/pay_table%d-hd", G.curLevel)));
-		G.setScale(im_back);
+		CCSprite im_back = CCSprite.sprite(Data._getImg(String.format("backImages/pay_table%d-hd", Data.curLevel)));
+		Data.setScale(im_back);
 		im_back.setAnchorPoint(0, 0);
 		im_back.setPosition(0, 0);
 		addChild(im_back);	
 		
-		GrowButton retu =GrowButton.button(G._getImg("Buttons/return"), G._getImg("Buttons/return"),this,"returnPayTable",0);
+		Buttons retu = Buttons.button(Data._getImg("Buttons/return"), Data._getImg("Buttons/return"),this,"returnPayTable",0);
 	
-		retu.setPosition(G._getX(889),G._getY(540));
+		retu.setPosition(Data._getX(889), Data._getY(540));
 		addChild(retu);
 		
 	}
 /***************************************************************************************************************************************************************************************************************/	
 	public void returnPayTable(Object sender){
-		G.playEffect(G.click);
-		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, GameLayer.scene()));		
+		Data.playEffect(Data.click);
+		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, LayoutGames.scene()));
 	}
 }

@@ -1,4 +1,4 @@
-package com.slotsonline.goappru.slotmania;
+package com.slotsonline.goappru.activities;
 
 
 import java.util.Vector;
@@ -12,11 +12,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
-import com.slotsonline.goappru.Layer.GameResult;
+import com.slotsonline.goappru.layouts.LayoutResult;
 import com.slotsonline.goappru.R;
 
-public class G {
-	public static Vector<GameResult> TGameResult = new Vector<GameResult>();
+public class Data {
+	public static Vector<LayoutResult> TGameResult = new Vector<LayoutResult>();
 	public static Activity		g_Context; 
 	
 	public static final int 	seccess 	    = R.raw.increase;

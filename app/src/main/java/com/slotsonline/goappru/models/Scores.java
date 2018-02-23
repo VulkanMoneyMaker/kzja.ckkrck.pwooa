@@ -1,21 +1,21 @@
-package com.slotsonline.goappru.Other;
+package com.slotsonline.goappru.models;
 
 import android.database.SQLException;
 import android.database.sqlite.SQLiteCursor;
 import android.database.sqlite.SQLiteDatabase;
 
-public class ScoreManager
+public class Scores
 {
     protected SQLiteDatabase	m_sqlManager	= null;
-	private	static ScoreManager _sharedScore	= null;
+	private	static Scores _sharedScore	= null;
 
-	public static ScoreManager sharedScoreManager()
+	public static Scores sharedScoreManager()
 	{
-		if (_sharedScore==null) _sharedScore = new ScoreManager();
+		if (_sharedScore==null) _sharedScore = new Scores();
 		return _sharedScore;
 	}
 
-	public ScoreManager()
+	public Scores()
 	{
 		try {
 			m_sqlManager  = SQLiteDatabase.openOrCreateDatabase(DB_NAME, null);

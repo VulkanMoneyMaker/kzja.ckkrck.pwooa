@@ -1,4 +1,4 @@
-package com.slotsonline.goappru.Other;
+package com.slotsonline.goappru.models;
 
 import org.cocos2d.actions.ease.CCEaseBackOut;
 import org.cocos2d.actions.interval.CCScaleTo;
@@ -17,12 +17,12 @@ import org.cocos2d.types.CGRect;
 
 import android.view.MotionEvent;
 
-import com.slotsonline.goappru.slotmania.G;
+import com.slotsonline.goappru.activities.Data;
 
-public class GrowButton extends CCMenu 
+public class Buttons extends CCMenu
 {
 	private float scaleFactor;
-	public GrowButton(CCMenuItem...items)
+	public Buttons(CCMenuItem...items)
 	{
 		super(items);
 		scaleFactor = items[0].getScale();
@@ -38,7 +38,7 @@ public class GrowButton extends CCMenu
 		menu.m_nIndex = index;
 		return menu;
 	}*/
-	public static GrowButton button(String normalImage, String selectImage, CCNode target, String sel,int index)
+	public static Buttons button(String normalImage, String selectImage, CCNode target, String sel, int index)
 	{
 		CCSprite normalSprite = CCSprite.sprite(normalImage);
 		CCSprite selectSprite = CCSprite.sprite(selectImage);
@@ -46,9 +46,9 @@ public class GrowButton extends CCMenu
 			normalSprite, selectSprite, target, sel);
 		//CCMenuItem menuItem = CCMenuItemSprite.
 		menuItem.setTag(index);
-		G.setScale(menuItem, true);
+		Data.setScale(menuItem, true);
 		//Button menu = new Button(menuItem);
-		return new GrowButton(menuItem);
+		return new Buttons(menuItem);
 	}
 	
 	public CCMenuItem itemForTouch(MotionEvent event)

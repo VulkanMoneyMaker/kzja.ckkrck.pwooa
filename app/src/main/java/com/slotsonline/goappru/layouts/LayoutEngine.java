@@ -1,19 +1,19 @@
-package com.slotsonline.goappru.Layer;
+package com.slotsonline.goappru.layouts;
 
 
 import org.cocos2d.utils.javolution.MathLib;
 
-import com.slotsonline.goappru.slotmania.G;
+import com.slotsonline.goappru.activities.Data;
 
-public class Engine 
+public class LayoutEngine
 {	
-	public int m_nArrSlot[][] = new int[G.ROW_][G.COL_];
-	public int m_nArrTempSlot[][] = new int[G.CHARACTER_COUNT][G.COL_];
+	public int m_nArrSlot[][] = new int[Data.ROW_][Data.COL_];
+	public int m_nArrTempSlot[][] = new int[Data.CHARACTER_COUNT][Data.COL_];
 	public float m_fBetweenY;
-	public float m_fMovingY[] = new float[G.COL_];
-	public boolean m_bSloting[] = new boolean[G.COL_];
+	public float m_fMovingY[] = new float[Data.COL_];
+	public boolean m_bSloting[] = new boolean[Data.COL_];
 	public int m_nRuleLineCount;
-	public int[] m_nRowIndex = new int[G.COL_];
+	public int[] m_nRowIndex = new int[Data.COL_];
 	public int m_nMaxLineCount;
 	//public int nRuleLineIndex;
 	public int m_nBet;
@@ -23,10 +23,10 @@ public class Engine
 	public boolean m_bHit;
 	public boolean m_bLoad;
 	
-	public float[] m_fPrevStep = new float[G.COL_];
-	public int[] m_fMovingYStep = new int[G.COL_];
-	public int[] m_nSlotTick = new int[G.COL_];
-	public String[] m_strState = new String[G.COL_];
+	public float[] m_fPrevStep = new float[Data.COL_];
+	public int[] m_fMovingYStep = new int[Data.COL_];
+	public int[] m_nSlotTick = new int[Data.COL_];
+	public String[] m_strState = new String[Data.COL_];
 	public int[][] nCardsScore = {
 		{0,5,50,500,5000},
 		{0,0,5,25,50},
@@ -52,17 +52,17 @@ public class Engine
 		{{1,0},{2,1},{2,2},{2,3},{1,4}},
 		{{3,0},{2,1},{2,2},{2,3},{3,4}}		
 	};	
-	public Engine()
+	public LayoutEngine()
 	{
 		initVariable();
 		initSlot();
 		
 	}
 	public void getInfo(){
-		m_nGameCoin = G.allCoin;
-		m_nRuleLineCount = G.curLine;
-		m_nMaxLineCount = G.maxline;
-		m_nBet = G.bet;
+		m_nGameCoin = Data.allCoin;
+		m_nRuleLineCount = Data.curLine;
+		m_nMaxLineCount = Data.maxline;
+		m_nBet = Data.bet;
 	}
 	public void initCardStartPosY(int nColIndex){
 		if(m_bSloting[nColIndex])
@@ -73,46 +73,46 @@ public class Engine
 	public void initVariable(){
 		m_bStartSlot = false;
 		getInfo();
-		int nPrevStep =G.PREVSTEP;
-		for(int i = 0 ; i < G.COL_ ; i++){
+		int nPrevStep = Data.PREVSTEP;
+		for(int i = 0; i < Data.COL_ ; i++){
 			initCardStartPosY(i);
 			m_bSloting[i] = false;
-			m_fMovingYStep[i] = G.MIN_VEL;
+			m_fMovingYStep[i] = Data.MIN_VEL;
 			m_fPrevStep[i] = - (MathLib.random(1, nPrevStep - 1) + 2);
 		}
 	}
 	public void loadSlot(){
 		m_bStartSlot = true;
 		m_bLoad = true;
-		for(int i = 0 ; i < G.CHARACTER_COUNT ; i++){
-			for(int j = 0 ; j < G.COL_ ; j++){
+		for(int i = 0; i < Data.CHARACTER_COUNT ; i++){
+			for(int j = 0; j < Data.COL_ ; j++){
 				if(i == 0)
-					m_nRowIndex[i] = G.rowIndex[i];
-				if(i < G.ROW_)
-					m_nArrSlot[i][j] = G.arrSlot[i][j];
-				m_nArrTempSlot[i][j] = G.arrTempSlot[i][j];
+					m_nRowIndex[i] = Data.rowIndex[i];
+				if(i < Data.ROW_)
+					m_nArrSlot[i][j] = Data.arrSlot[i][j];
+				m_nArrTempSlot[i][j] = Data.arrTempSlot[i][j];
 			}
 		}
-		G.payTableFlag = false;
+		Data.payTableFlag = false;
 	}
 	public void initSlot(){
 		int changeVal= 0;
-		if(G.payTableFlag){
+		if(Data.payTableFlag){
 			loadSlot();
 			return;
 		}
-		for (int i = 0; i < G.CHARACTER_COUNT; i++) {
-	        for (int j=  0; j < G.COL_; j++) {
+		for (int i = 0; i < Data.CHARACTER_COUNT; i++) {
+	        for (int j = 0; j < Data.COL_; j++) {
 	            m_nArrTempSlot[i][j] = -1;
 	        }
 	    }
-		for(int i = 0 ; i < G.COL_ ; i++){
-			for(int j = 0 ; j < G.CHARACTER_COUNT ; j++){
+		for(int i = 0; i < Data.COL_ ; i++){
+			for(int j = 0; j < Data.CHARACTER_COUNT ; j++){
 				boolean bFlag = true;
 				while(bFlag){
-					changeVal = MathLib.random(0, (G.CHARACTER_COUNT - 1));
+					changeVal = MathLib.random(0, (Data.CHARACTER_COUNT - 1));
 					boolean equalState = true;
-					for(int k = 0 ; k < G.CHARACTER_COUNT ; k++){
+					for(int k = 0; k < Data.CHARACTER_COUNT ; k++){
 						if(m_nArrTempSlot[k][i] == changeVal){
 							equalState = false;
 							break;
@@ -127,8 +127,8 @@ public class Engine
 			}
 		}
 	    
-	    for (int i = 0; i < G.ROW_; i++) {
-	        for (int j = 0; j < G.COL_; j++)
+	    for (int i = 0; i < Data.ROW_; i++) {
+	        for (int j = 0; j < Data.COL_; j++)
 	            m_nArrSlot[i][j] = m_nArrTempSlot[i][j];
 	    }
 	}
@@ -137,14 +137,14 @@ public class Engine
 	}
 	public void resetSlot(int nColIndex){
 		if(m_fMovingY[nColIndex] >= m_fBetweenY){
-			for(int j = G.ROW_ - 2 ; j >= 0 ; j--){
+			for(int j = Data.ROW_ - 2; j >= 0 ; j--){
 				m_nArrSlot[j + 1][nColIndex] = m_nArrSlot[j][nColIndex];				
 			}
 			m_nArrSlot[0][nColIndex] = m_nArrTempSlot[m_nRowIndex[nColIndex]][nColIndex];
 			m_nRowIndex[nColIndex]--;
 			if(m_nRowIndex[nColIndex] < 0)
-				m_nRowIndex[nColIndex] = G.CHARACTER_COUNT - 1;
-			G.playEffect(G.spin);
+				m_nRowIndex[nColIndex] = Data.CHARACTER_COUNT - 1;
+			Data.playEffect(Data.spin);
 			initCardStartPosY(nColIndex);
 		}
 	}
@@ -156,25 +156,25 @@ public class Engine
 			else
 				m_fPrevStep[nColIndex] = 0;			
 		}else{
-			if(m_strState[nColIndex].equals("normal") && m_fMovingYStep[nColIndex] < G.MAX_VEL)
+			if(m_strState[nColIndex].equals("normal") && m_fMovingYStep[nColIndex] < Data.MAX_VEL)
 				m_fMovingYStep[nColIndex] += 1;
 			if(m_strState[nColIndex].equals("last")){
-				if(m_fMovingYStep[nColIndex]> G.MIN_VEL){
+				if(m_fMovingYStep[nColIndex]> Data.MIN_VEL){
 					m_fMovingYStep[nColIndex] -= 1;
-					if(m_fMovingYStep[nColIndex] < G.MIN_VEL)
-						m_fMovingYStep[nColIndex] = G.MIN_VEL;
+					if(m_fMovingYStep[nColIndex] < Data.MIN_VEL)
+						m_fMovingYStep[nColIndex] = Data.MIN_VEL;
 				}
 			}		
 			m_fMovingY[nColIndex] += m_fMovingYStep[nColIndex];
 		}
 	}
 	public void setState(int tick, int nColIndex){
-		if(tick < G.PREVTICK)
+		if(tick < Data.PREVTICK)
 			m_strState[nColIndex] = "prev";
 		else if(!m_strState[nColIndex].equals("last"))
 			m_strState[nColIndex] = "normal";
 		if(m_bSloting[nColIndex] && m_strState[nColIndex].equals("last")){
-			if(m_nSlotTick[nColIndex] < G.TICK)
+			if(m_nSlotTick[nColIndex] < Data.TICK)
 				m_nSlotTick[nColIndex]++;
 			else{
 				m_bSloting[nColIndex] = false;
@@ -184,7 +184,7 @@ public class Engine
 			
 	}
 	public void processSlot(int tick){
-		for(int i = 0 ; i < G.COL_ ; i++){
+		for(int i = 0; i < Data.COL_ ; i++){
 			if(m_fMovingY[i] == 0 && !m_bSloting[i])
 				continue;
 			setState(tick, i);
@@ -194,14 +194,14 @@ public class Engine
 	}
 	public boolean isStopAllSlots(){
 		boolean bIsStop = true;
-		for(int i = 0; i < G.COL_ ; i++)
+		for(int i = 0; i < Data.COL_ ; i++)
 			bIsStop &= !m_bSloting[i];
 		return bIsStop;
 	}
 	public void compareCards(){
-		int nPrevStep = G.PREVSTEP;
-		for(int i = 0 ; i < G.COL_ ; i++){
-			m_fMovingYStep[i] = G.MIN_VEL;
+		int nPrevStep = Data.PREVSTEP;
+		for(int i = 0; i < Data.COL_ ; i++){
+			m_fMovingYStep[i] = Data.MIN_VEL;
 			m_fPrevStep[i] = -(MathLib.random(0, nPrevStep - 1) + 5);
 		}
 		m_bHit = false;
@@ -213,7 +213,7 @@ public class Engine
 		int nCardType = -1;
 		int nEqualCount = 1;
 		for(int nRuleLineIndex = 0 ; nRuleLineIndex < m_nRuleLineCount ; nRuleLineIndex++){			
-			for(int nEqualIndex = 0 ; nEqualIndex < G.COL_ - 1 ; nEqualIndex++){
+			for(int nEqualIndex = 0; nEqualIndex < Data.COL_ - 1 ; nEqualIndex++){
 				int nFirstType = m_nArrSlot[nArrRules[nRuleLineIndex][nEqualIndex][0]][nArrRules[nRuleLineIndex][nEqualIndex][1]];
 				int nSecondType = m_nArrSlot[nArrRules[nRuleLineIndex][nEqualIndex + 1][0]][nArrRules[nRuleLineIndex][nEqualIndex + 1][1]];
 				if(nFirstType == nSecondType){
@@ -228,13 +228,13 @@ public class Engine
 				nCoin = nCardsScore[nCardType][nEqualCount - 1];
 			if(nCoin > 0){
 				m_bHit = true;
-				GameResult r = new GameResult();				
+				LayoutResult r = new LayoutResult();
 				r.nRuleLineIndex = nRuleLineIndex;
 				r.nEqualCount = nEqualCount;
 				r.nCharacterIndex = nCardType;
-				G.TGameResult.add(r);
+				Data.TGameResult.add(r);
 				m_nWin += nCoin * m_nBet;				
-				G.playEffect(G.seccess);
+				Data.playEffect(Data.seccess);
 				nEqualCount = 1;
 				nCardType = 1;
 			}
@@ -243,11 +243,11 @@ public class Engine
 			m_nGameCoin += m_nWin;
 			
 		}else if(!m_bHit){
-			G.playEffect(G.fire_btn);
+			Data.playEffect(Data.fire_btn);
 			m_nGameCoin -= m_nBet*m_nRuleLineCount;			
 		}
-		G.allCoin = m_nGameCoin;
-		G.saveSetting();
+		Data.allCoin = m_nGameCoin;
+		Data.saveSetting();
 	}
 	
 	

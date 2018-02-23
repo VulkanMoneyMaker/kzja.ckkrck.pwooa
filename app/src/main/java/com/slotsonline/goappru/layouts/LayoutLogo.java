@@ -1,4 +1,4 @@
-package com.slotsonline.goappru.Layer;
+package com.slotsonline.goappru.layouts;
 
 import org.cocos2d.layers.CCLayer;
 import org.cocos2d.layers.CCScene;
@@ -6,23 +6,23 @@ import org.cocos2d.nodes.CCDirector;
 import org.cocos2d.nodes.CCSprite;
 import org.cocos2d.transitions.CCFadeTransition;
 
-import com.slotsonline.goappru.slotmania.G;
+import com.slotsonline.goappru.activities.Data;
 
-public class LogoLayer extends CCLayer
+public class LayoutLogo extends CCLayer
 {
 	public static CCScene scene(){		
-		G.setScale();
-		G.loadSetting();
+		Data.setScale();
+		Data.loadSetting();
 		CCScene scene = CCScene.node();
-		scene.addChild(new LogoLayer());		
+		scene.addChild(new LayoutLogo());
 		return scene;
 	}
 /***************************************************************************************************************************************************************************************************************/
-	public LogoLayer()
+	public LayoutLogo()
 	{
 		super();		
-		CCSprite sprite = CCSprite.sprite(G._getImg("backImages/splash-hd"));
-		G.setScale(sprite);
+		CCSprite sprite = CCSprite.sprite(Data._getImg("backImages/splash-hd"));
+		Data.setScale(sprite);
 		sprite.setAnchorPoint(0, 0);
 		sprite.setPosition(0, 0);
 		addChild(sprite);
@@ -33,7 +33,7 @@ public class LogoLayer extends CCLayer
 	public void logoTimer(float dt)
 	{
 		unschedule("logoTimer");
-		G.playSound();
-		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.5f, TitleLayer.scene()));
+		Data.playSound();
+		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.5f, LayoutTitles.scene()));
 	}
 }

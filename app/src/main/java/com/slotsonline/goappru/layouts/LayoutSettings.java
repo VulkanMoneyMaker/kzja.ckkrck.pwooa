@@ -1,4 +1,4 @@
-package com.slotsonline.goappru.Layer;
+package com.slotsonline.goappru.layouts;
 
 import org.cocos2d.layers.CCLayer;
 import org.cocos2d.layers.CCScene;
@@ -8,55 +8,55 @@ import org.cocos2d.nodes.CCSprite;
 import org.cocos2d.transitions.CCFadeTransition;
 
 
-import com.slotsonline.goappru.Other.GrowButton;
-import com.slotsonline.goappru.slotmania.G;
+import com.slotsonline.goappru.models.Buttons;
+import com.slotsonline.goappru.activities.Data;
 
 
-public class Setting extends CCLayer
+public class LayoutSettings extends CCLayer
 {
-	GrowButton on1;
-	GrowButton off1;
-	GrowButton on2;
-	GrowButton off2;
+	Buttons on1;
+	Buttons off1;
+	Buttons on2;
+	Buttons off2;
 	public static CCScene scene()
 	{
 		CCScene scene = CCScene.node();
-		scene.addChild(new Setting());
+		scene.addChild(new LayoutSettings());
 		return scene;
 	}
 /*****************************************************************************************************************************************************************************************************************/	
-	public Setting()
+	public LayoutSettings()
 	{
 		super();
-		CCSprite im_back = CCSprite.sprite(G._getImg("setting/setting"));
-		G.setScale(im_back);
+		CCSprite im_back = CCSprite.sprite(Data._getImg("setting/setting"));
+		Data.setScale(im_back);
 		im_back.setAnchorPoint(0, 0);
 		im_back.setPosition(0, 0);
 		addChild(im_back);	
 		
-		on1 = GrowButton.button(G._getImg("setting/onBtn"), G._getImg("setting/onBtn"),this,"setOnOff1",0);		
-		off1= GrowButton.button(G._getImg("setting/off"), G._getImg("setting/off"),this,"setOnOff1",0);	
-		on1.setPosition(G._getX(768),G._getY(332));
-		off1.setPosition(G._getX(768),G._getY(332));
+		on1 = Buttons.button(Data._getImg("setting/onBtn"), Data._getImg("setting/onBtn"),this,"setOnOff1",0);
+		off1= Buttons.button(Data._getImg("setting/off"), Data._getImg("setting/off"),this,"setOnOff1",0);
+		on1.setPosition(Data._getX(768), Data._getY(332));
+		off1.setPosition(Data._getX(768), Data._getY(332));
 		addChild(on1);
 		addChild(off1);
 		
 		
-		on2 = GrowButton.button(G._getImg("setting/onBtn"), G._getImg("setting/onBtn"),this,"setOnOff2",0);		
-		off2= GrowButton.button(G._getImg("setting/off"), G._getImg("setting/off"),this,"setOnOff2",0);
-		on2.setPosition(G._getX(768),G._getY(194));
-		off2.setPosition(G._getX(768),G._getY(194));	
+		on2 = Buttons.button(Data._getImg("setting/onBtn"), Data._getImg("setting/onBtn"),this,"setOnOff2",0);
+		off2= Buttons.button(Data._getImg("setting/off"), Data._getImg("setting/off"),this,"setOnOff2",0);
+		on2.setPosition(Data._getX(768), Data._getY(194));
+		off2.setPosition(Data._getX(768), Data._getY(194));
 		addChild(on2);
 		addChild(off2);
 		
 		initVisible();		
-		GrowButton back = GrowButton.button(G._getImg("setting/backBtn"), G._getImg("setting/backBtn"),this,"back",0);
-		back.setPosition(G._getX(877), G._getY(55));
+		Buttons back = Buttons.button(Data._getImg("setting/backBtn"), Data._getImg("setting/backBtn"),this,"back",0);
+		back.setPosition(Data._getX(877), Data._getY(55));
 		addChild(back);		
 	}
 /*****************************************************************************************************************************************************************************************************************/
 	public void initVisible(){
-		if(G.bgmState){
+		if(Data.bgmState){
 			on2.setVisible(true);
 			off2.setVisible(false);
 		}else{
@@ -64,7 +64,7 @@ public class Setting extends CCLayer
 			off2.setVisible(true);
 		}
 		
-		if(G.effectState){
+		if(Data.effectState){
 			on1.setVisible(true);
 			off1.setVisible(false);
 		}else{
@@ -75,55 +75,55 @@ public class Setting extends CCLayer
 	}
 /*****************************************************************************************************************************************************************************************************************/
 	public void getStateBgm(){
-		if(G.bgmState){			
+		if(Data.bgmState){
 			on2.setVisible(false);
 			off2.setVisible(true);
-			G.bgmState = false;
-			G.pauseSound();
-			G.stopSound = true;			
+			Data.bgmState = false;
+			Data.pauseSound();
+			Data.stopSound = true;
 		}else{
 			on2.setVisible(true);
 			off2.setVisible(false);
-			G.bgmState = true;
-			if(G.stopSound){
-				G.resumeSound();
-				G.stopSound = false;
+			Data.bgmState = true;
+			if(Data.stopSound){
+				Data.resumeSound();
+				Data.stopSound = false;
 			}else{
-				G.playSound();					
+				Data.playSound();
 			}
 		}
-		G.saveSetting();
+		Data.saveSetting();
 	}
 /*****************************************************************************************************************************************************************************************************************/
 	public void getStateEffect(){
-		if(G.effectState){
-			G.effectState = false;
+		if(Data.effectState){
+			Data.effectState = false;
 			on1.setVisible(false);
 			off1.setVisible(true);
 		}else{
-			G.effectState = true;
+			Data.effectState = true;
 			on1.setVisible(true);
 			off1.setVisible(false);			
 		}
-		G.saveSetting();
+		Data.saveSetting();
 	}
 /*****************************************************************************************************************************************************************************************************************/
 	public void back(Object sender){	
-		G.playEffect(G.click);
-		G.titleState = false;
-		if(G.GAME_STATE.equals("title"))
-			CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, TitleLayer.scene()));
+		Data.playEffect(Data.click);
+		Data.titleState = false;
+		if(Data.GAME_STATE.equals("title"))
+			CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, LayoutTitles.scene()));
 		else
-			CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, GameLayer.scene()));		
+			CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, LayoutGames.scene()));
 	}
 /*****************************************************************************************************************************************************************************************************************/
 	public void setOnOff1(Object sender){
-		G.playEffect(G.click);
+		Data.playEffect(Data.click);
 		getStateEffect();
 	}
 /*****************************************************************************************************************************************************************************************************************/
 	public void setOnOff2(Object sender){
-		G.playEffect(G.click);
+		Data.playEffect(Data.click);
 		getStateBgm();
 	}
 }

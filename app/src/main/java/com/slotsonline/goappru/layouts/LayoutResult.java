@@ -1,6 +1,6 @@
-package com.slotsonline.goappru.Layer;
+package com.slotsonline.goappru.layouts;
 
-public class GameResult
+public class LayoutResult
 {
 	public int nRuleLineIndex;
 	public int nEqualCount;

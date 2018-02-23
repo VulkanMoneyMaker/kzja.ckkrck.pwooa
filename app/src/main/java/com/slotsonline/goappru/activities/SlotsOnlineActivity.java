@@ -1,4 +1,4 @@
-package com.slotsonline.goappru.slotmania;
+package com.slotsonline.goappru.activities;
 
 
 import org.cocos2d.nodes.CCDirector;
@@ -16,14 +16,14 @@ import android.view.Gravity;
 import android.view.Window;
 import android.view.WindowManager.LayoutParams;
 
-import com.slotsonline.goappru.Layer.LogoLayer;
-import com.slotsonline.goappru.Layer.TitleLayer;
-import com.slotsonline.goappru.Other.ScoreManager;
-import com.slotsonline.goappru.utils.Random;
+import com.slotsonline.goappru.layouts.LayoutLogo;
+import com.slotsonline.goappru.layouts.LayoutTitles;
+import com.slotsonline.goappru.models.Scores;
+import com.slotsonline.goappru.utils.Randoms;
 
 
 
-public class GameActivity extends Activity {
+public class SlotsOnlineActivity extends Activity {
 	private CCGLSurfaceView mGLSurfaceView;	
 	private boolean startState ;
 
@@ -53,7 +53,7 @@ public class GameActivity extends Activity {
 //		    getInterstitialAd();
 //		    getVungleAd();
 			InitParam();
-			CCDirector.sharedDirector().runWithScene( LogoLayer.scene());
+			CCDirector.sharedDirector().runWithScene( LayoutLogo.scene());
 			startState = true;
         }
 	    
@@ -76,20 +76,20 @@ public class GameActivity extends Activity {
    
     @Override
 	public void onBackPressed() {
-//    	if(!G.titleState)
+//    	if(!Data.titleState)
 //    		getInterstitialAd();
     	DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
     	    @Override
     	    public void onClick(DialogInterface dialog, int which) {
     	        switch (which){
     	        case DialogInterface.BUTTON_POSITIVE:
-    	        	if(G.titleState){
-    					G.titleState = false;
-    					CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.5f, TitleLayer.scene()));								
+    	        	if(Data.titleState){
+    					Data.titleState = false;
+    					CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.5f, LayoutTitles.scene()));
     				}else{
-    					G.stopSound();    					
+    					Data.stopSound();
     					CCDirector.sharedDirector().end();
-    			        ScoreManager.releaseScoreManager();
+    			        Scores.releaseScoreManager();
     			        finish();
     				}	
     	            break;
@@ -108,32 +108,32 @@ public class GameActivity extends Activity {
     
     
 	private void InitParam() { 		
-		G.g_Context = this;		
-		G.curLevel = 1;
-		G.curLine = 1;
-		G.maxline = 1;
-		G.bet = 1;		
+		Data.g_Context = this;
+		Data.curLevel = 1;
+		Data.curLine = 1;
+		Data.maxline = 1;
+		Data.bet = 1;
 		
 	}	
 	@Override public void onPause() {
 	      super.onPause();
 	      CCDirector.sharedDirector().pause();
-	      G.pauseSound();
+	      Data.pauseSound();
 	        
 	 }
 
 	 @Override public void onResume() {
 	     super.onResume();
 	     CCDirector.sharedDirector().resume();
-	     G.resumeSound();
+	     Data.resumeSound();
 	     review();
 	  }
 
 	  @Override public void onDestroy() {
 	       super.onDestroy();
-	       G.stopSound();
+	       Data.stopSound();
 	       CCDirector.sharedDirector().end();
-	       ScoreManager.releaseScoreManager();
+	       Scores.releaseScoreManager();
 	  }
    
 	
@@ -141,8 +141,8 @@ public class GameActivity extends Activity {
         final DisplayMetrics pDisplayMetrics = new DisplayMetrics();
 		CCDirector.sharedDirector().getActivity().getWindowManager().getDefaultDisplay().getMetrics(pDisplayMetrics);
 		
-		//final float mRatio = (float)G.DEFAULT_W / G.DEFAULT_H;
-		final float mRatio = (float)G.DEFAULT_W / G.DEFAULT_H;
+		//final float mRatio = (float)Data.DEFAULT_W / Data.DEFAULT_H;
+		final float mRatio = (float) Data.DEFAULT_W / Data.DEFAULT_H;
 		final float realRatio = (float)pDisplayMetrics.widthPixels / pDisplayMetrics.heightPixels;
 
 		final int width;
@@ -169,9 +169,9 @@ public class GameActivity extends Activity {
 	 * Review
 	 */
 	private void review() {
-		int random = Random.random.nextInt(100);
+		int random = Randoms.random.nextInt(100);
 		if (random < 15) {
-			GameActivity.this.showReviewDialog();
+			SlotsOnlineActivity.this.showReviewDialog();
 		}
 	}
 

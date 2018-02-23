@@ -1,6 +1,6 @@
-package com.slotsonline.goappru.Other;
+package com.slotsonline.goappru.models;
 
-public class Weapon {
+public class Weather {
 	public int			m_nAvaliableCoin;
 	public int			m_nUpgradeCoin;
 	public int			m_nGunForce;
@@ -12,9 +12,9 @@ public class Weapon {
 	public String		m_strDescription;
 	public int          m_nUpgradeTime;
 	
-	public Weapon(int m_nAvaliableCoin, int m_nUpgradeCoin, int m_nGunForce,
-		int m_nGunType, int	m_nGunFlySpeed, int	m_nPrepareTime, boolean	m_bIsBuy,
-		String	m_strName, String	m_strDescription, int m_nUpgradeTime)
+	public Weather(int m_nAvaliableCoin, int m_nUpgradeCoin, int m_nGunForce,
+				   int m_nGunType, int	m_nGunFlySpeed, int	m_nPrepareTime, boolean	m_bIsBuy,
+				   String	m_strName, String	m_strDescription, int m_nUpgradeTime)
 	{
 		this.m_nAvaliableCoin = m_nAvaliableCoin;
 		this.m_nUpgradeCoin = m_nUpgradeCoin;
