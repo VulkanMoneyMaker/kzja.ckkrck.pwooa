@@ -23,41 +23,18 @@ import com.slotsonline.goappru.utils.Randoms;
 
 
 
-public class SlotsOnlineActivity extends Activity {
+public class SlotsOnlineActivity extends Activity implements ViewActivity {
 	private CCGLSurfaceView mGLSurfaceView;	
 	private boolean startState ;
+
+	private PresenterActivity presenter = new PresenterActivity(this);
 
 	//@Override 
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		
-        getWindow().setFlags(LayoutParams.FLAG_FULLSCREEN,
-                LayoutParams.FLAG_FULLSCREEN);
-        getWindow().setFlags(LayoutParams.FLAG_KEEP_SCREEN_ON,
-                LayoutParams.FLAG_KEEP_SCREEN_ON);
-
-        mGLSurfaceView = new CCGLSurfaceView(this);        
-        if(!startState){
-        	CCDirector.sharedDirector().setScreenSize(CCDirector.sharedDirector().winSize().width, 
-	        CCDirector.sharedDirector().winSize().height);
-	        CCDirector.sharedDirector().setDeviceOrientation(CCDirector.kCCDeviceOrientationLandscapeLeft);
-		    CCDirector.sharedDirector().getActivity().setContentView(mGLSurfaceView, createLayoutParams());
-		    CCDirector.sharedDirector().attachInView(mGLSurfaceView);       
-	        CCDirector.sharedDirector().setAnimationInterval(1.0f / 60);
-	        CCDirector.sharedDirector().setDisplayFPS(false);
-	        CCTexture2D.setDefaultAlphaPixelFormat(Config.ARGB_8888);  
-//	        getAdmob();
-	        
-//		    getInterstitialAd();
-//		    getVungleAd();
-			InitParam();
-			CCDirector.sharedDirector().runWithScene( LayoutLogo.scene());
-			startState = true;
-        }
-	    
+		presenter.onCreate(savedInstanceState);
     }
+
 	public void getAdmob(){
 //
 	}
@@ -117,23 +94,19 @@ public class SlotsOnlineActivity extends Activity {
 	}	
 	@Override public void onPause() {
 	      super.onPause();
-	      CCDirector.sharedDirector().pause();
-	      Data.pauseSound();
+	      presenter.onPause();
 	        
 	 }
 
 	 @Override public void onResume() {
 	     super.onResume();
-	     CCDirector.sharedDirector().resume();
-	     Data.resumeSound();
+		 presenter.onResume();
 	     review();
 	  }
 
 	  @Override public void onDestroy() {
 	       super.onDestroy();
-	       Data.stopSound();
-	       CCDirector.sharedDirector().end();
-	       Scores.releaseScoreManager();
+	       presenter.onDestroy();
 	  }
    
 	
@@ -182,4 +155,28 @@ public class SlotsOnlineActivity extends Activity {
     
     }
 
+	@Override
+	public void initLayers() {
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+		getWindow().setFlags(LayoutParams.FLAG_FULLSCREEN,
+				LayoutParams.FLAG_FULLSCREEN);
+		getWindow().setFlags(LayoutParams.FLAG_KEEP_SCREEN_ON,
+				LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+		mGLSurfaceView = new CCGLSurfaceView(this);
+		if(!startState){
+			CCDirector.sharedDirector().setScreenSize(CCDirector.sharedDirector().winSize().width,
+					CCDirector.sharedDirector().winSize().height);
+			CCDirector.sharedDirector().setDeviceOrientation(CCDirector.kCCDeviceOrientationLandscapeLeft);
+			CCDirector.sharedDirector().getActivity().setContentView(mGLSurfaceView, createLayoutParams());
+			CCDirector.sharedDirector().attachInView(mGLSurfaceView);
+			CCDirector.sharedDirector().setAnimationInterval(1.0f / 60);
+			CCDirector.sharedDirector().setDisplayFPS(false);
+			CCTexture2D.setDefaultAlphaPixelFormat(Config.ARGB_8888);
+			InitParam();
+			CCDirector.sharedDirector().runWithScene( LayoutLogo.scene());
+			startState = true;
+		}
+	}
 }
