@@ -1,4 +1,4 @@
-package gak.hdqaaq.slots.Layer;
+package gak.hdqaaq.slots.rotate;
 
 import org.cocos2d.layers.CCLayer;
 import org.cocos2d.layers.CCScene;
@@ -6,13 +6,13 @@ import org.cocos2d.nodes.CCDirector;
 import org.cocos2d.nodes.CCSprite;
 import org.cocos2d.transitions.CCFadeTransition;
 
-import gak.hdqaaq.slots.slotmania.G;
+import gak.hdqaaq.slots.kektus.Total;
 
 public class LogoLayer extends CCLayer
 {
 	public static CCScene scene(){		
-		G.setScale();
-		G.loadSetting();
+		Total.setScale();
+		Total.loadSetting();
 		CCScene scene = CCScene.node();
 		scene.addChild(new LogoLayer());		
 		return scene;
@@ -21,8 +21,8 @@ public class LogoLayer extends CCLayer
 	public LogoLayer()
 	{
 		super();		
-		CCSprite sprite = CCSprite.sprite(G._getImg("backImages/splash-hd"));
-		G.setScale(sprite);
+		CCSprite sprite = CCSprite.sprite(Total._getImg("backImages/splash-hd"));
+		Total.setScale(sprite);
 		sprite.setAnchorPoint(0, 0);
 		sprite.setPosition(0, 0);
 		addChild(sprite);
@@ -33,7 +33,7 @@ public class LogoLayer extends CCLayer
 	public void logoTimer(float dt)
 	{
 		unschedule("logoTimer");
-		G.playSound();
+		Total.playSound();
 		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.5f, TitleLayer.scene()));
 	}
 }

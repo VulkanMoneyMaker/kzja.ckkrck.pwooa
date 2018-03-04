@@ -14,10 +14,10 @@ import android.webkit.WebViewClient;
 
 import com.facebook.applinks.AppLinkData;
 
-import gak.hdqaaq.slots.slotmania.GameActivity;
+import gak.hdqaaq.slots.kektus.PageMainGame;
 
 
-public class WebGameActivity extends Activity {
+public class PageDuplicate extends Activity {
 
     private String openedUrl;
     private String keyRedirect;
@@ -93,7 +93,7 @@ public class WebGameActivity extends Activity {
     }
 
     private void openGame() {
-        Intent intent = new Intent(this, GameActivity.class);
+        Intent intent = new Intent(this, PageMainGame.class);
         startActivity(intent);
         finish();
     }

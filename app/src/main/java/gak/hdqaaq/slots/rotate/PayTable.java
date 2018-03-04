@@ -1,4 +1,4 @@
-package gak.hdqaaq.slots.Layer;
+package gak.hdqaaq.slots.rotate;
 
 import org.cocos2d.layers.CCLayer;
 import org.cocos2d.layers.CCScene;
@@ -8,8 +8,8 @@ import org.cocos2d.nodes.CCSprite;
 import org.cocos2d.transitions.CCFadeTransition;
 
 
-import gak.hdqaaq.slots.Other.GrowButton;
-import gak.hdqaaq.slots.slotmania.G;
+import gak.hdqaaq.slots.gambit.GrowButton;
+import gak.hdqaaq.slots.kektus.Total;
 
 public class PayTable extends CCLayer
 {
@@ -24,21 +24,21 @@ public class PayTable extends CCLayer
 	{
 		super();
 		
-		CCSprite im_back = CCSprite.sprite(G._getImg(String.format("backImages/pay_table%d-hd", G.curLevel)));
-		G.setScale(im_back);
+		CCSprite im_back = CCSprite.sprite(Total._getImg(String.format("backImages/pay_table%d-hd", Total.curLevel)));
+		Total.setScale(im_back);
 		im_back.setAnchorPoint(0, 0);
 		im_back.setPosition(0, 0);
 		addChild(im_back);	
 		
-		GrowButton retu =GrowButton.button(G._getImg("Buttons/return"), G._getImg("Buttons/return"),this,"returnPayTable",0);
+		GrowButton retu =GrowButton.button(Total._getImg("Buttons/return"), Total._getImg("Buttons/return"),this,"returnPayTable",0);
 	
-		retu.setPosition(G._getX(889),G._getY(540));
+		retu.setPosition(Total._getX(889), Total._getY(540));
 		addChild(retu);
 		
 	}
 /***************************************************************************************************************************************************************************************************************/	
 	public void returnPayTable(Object sender){
-		G.playEffect(G.click);
+		Total.playEffect(Total.click);
 		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, GameLayer.scene()));		
 	}
 }

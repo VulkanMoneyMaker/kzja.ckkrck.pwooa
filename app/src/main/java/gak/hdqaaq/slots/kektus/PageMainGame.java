@@ -1,4 +1,4 @@
-package gak.hdqaaq.slots.slotmania;
+package gak.hdqaaq.slots.kektus;
 
 
 import org.cocos2d.nodes.CCDirector;
@@ -16,14 +16,14 @@ import android.view.Gravity;
 import android.view.Window;
 import android.view.WindowManager.LayoutParams;
 
-import gak.hdqaaq.slots.Layer.LogoLayer;
-import gak.hdqaaq.slots.Layer.TitleLayer;
-import gak.hdqaaq.slots.Other.ScoreManager;
+import gak.hdqaaq.slots.rotate.LogoLayer;
+import gak.hdqaaq.slots.rotate.TitleLayer;
+import gak.hdqaaq.slots.gambit.ScoreManager;
 import gak.hdqaaq.slots.utils.Random;
 
 
 
-public class GameActivity extends Activity {
+public class PageMainGame extends Activity {
 	private CCGLSurfaceView mGLSurfaceView;	
 	private boolean startState ;
 
@@ -79,11 +79,11 @@ public class GameActivity extends Activity {
     	    public void onClick(DialogInterface dialog, int which) {
     	        switch (which){
     	        case DialogInterface.BUTTON_POSITIVE:
-    	        	if(G.titleState){
-    					G.titleState = false;
+    	        	if(Total.titleState){
+    					Total.titleState = false;
     					CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.5f, TitleLayer.scene()));								
     				}else{
-    					G.stopSound();    					
+    					Total.stopSound();
     					CCDirector.sharedDirector().end();
     			        ScoreManager.releaseScoreManager();
     			        finish();
@@ -104,30 +104,30 @@ public class GameActivity extends Activity {
     
     
 	private void InitParam() { 		
-		G.g_Context = this;		
-		G.curLevel = 1;
-		G.curLine = 1;
-		G.maxline = 1;
-		G.bet = 1;		
+		Total.g_Context = this;
+		Total.curLevel = 1;
+		Total.curLine = 1;
+		Total.maxline = 1;
+		Total.bet = 1;
 		
 	}	
 	@Override public void onPause() {
 	      super.onPause();
 	      CCDirector.sharedDirector().pause();
-	      G.pauseSound();
+	      Total.pauseSound();
 	        
 	 }
 
 	 @Override public void onResume() {
 	     super.onResume();
 	     CCDirector.sharedDirector().resume();
-	     G.resumeSound();
+	     Total.resumeSound();
 	     review();
 	  }
 
 	  @Override public void onDestroy() {
 	       super.onDestroy();
-	       G.stopSound();
+	       Total.stopSound();
 	       CCDirector.sharedDirector().end();
 	       ScoreManager.releaseScoreManager();
 	  }
@@ -137,7 +137,7 @@ public class GameActivity extends Activity {
         final DisplayMetrics pDisplayMetrics = new DisplayMetrics();
 		CCDirector.sharedDirector().getActivity().getWindowManager().getDefaultDisplay().getMetrics(pDisplayMetrics);
 
-		final float mRatio = (float)G.DEFAULT_W / G.DEFAULT_H;
+		final float mRatio = (float) Total.DEFAULT_W / Total.DEFAULT_H;
 		final float realRatio = (float)pDisplayMetrics.widthPixels / pDisplayMetrics.heightPixels;
 
 		final int width;
@@ -166,7 +166,7 @@ public class GameActivity extends Activity {
 	private void review() {
 		int random = Random.random.nextInt(100);
 		if (random < 15) {
-			GameActivity.this.showReviewDialog();
+			PageMainGame.this.showReviewDialog();
 		}
 	}
 

@@ -1,4 +1,4 @@
-package gak.hdqaaq.slots.Other;
+package gak.hdqaaq.slots.gambit;
 
 import org.cocos2d.actions.ease.CCEaseBackOut;
 import org.cocos2d.actions.interval.CCScaleTo;
@@ -17,7 +17,7 @@ import org.cocos2d.types.CGRect;
 
 import android.view.MotionEvent;
 
-import gak.hdqaaq.slots.slotmania.G;
+import gak.hdqaaq.slots.kektus.Total;
 
 public class GrowButton extends CCMenu 
 {
@@ -46,7 +46,7 @@ public class GrowButton extends CCMenu
 			normalSprite, selectSprite, target, sel);
 		//CCMenuItem menuItem = CCMenuItemSprite.
 		menuItem.setTag(index);
-		G.setScale(menuItem, true);
+		Total.setScale(menuItem, true);
 		//Button menu = new Button(menuItem);
 		return new GrowButton(menuItem);
 	}

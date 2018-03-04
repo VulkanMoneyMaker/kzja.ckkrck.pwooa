@@ -1,4 +1,4 @@
-package gak.hdqaaq.slots.Other;
+package gak.hdqaaq.slots.gambit;
 
 public class Weapon {
 	public int			m_nAvaliableCoin;

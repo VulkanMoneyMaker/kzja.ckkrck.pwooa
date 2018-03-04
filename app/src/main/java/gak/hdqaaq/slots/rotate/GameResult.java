@@ -1,4 +1,4 @@
-package gak.hdqaaq.slots.Layer;
+package gak.hdqaaq.slots.rotate;
 
 public class GameResult
 {

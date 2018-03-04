@@ -1,4 +1,4 @@
-package gak.hdqaaq.slots.Layer;
+package gak.hdqaaq.slots.rotate;
 
 ///import org.cocos2d.nodes.CCDirector;
 
@@ -6,7 +6,7 @@ import org.cocos2d.nodes.CCSprite;
 import org.cocos2d.nodes.CCDirector;
 import org.cocos2d.utils.javolution.MathLib;
 
-import gak.hdqaaq.slots.slotmania.G;
+import gak.hdqaaq.slots.kektus.Total;
 
 
 public class CoinAnim extends CCSprite{
@@ -18,18 +18,18 @@ public class CoinAnim extends CCSprite{
 	
 /***************************************************************************************************************************************************************************************************************/
 	public CoinAnim(){
-		super(G._getImg("Buttons/usd3"));
-		G.setScale(this);
+		super(Total._getImg("Buttons/usd3"));
+		Total.setScale(this);
 		initVar();	
 		schedule("firstAction", 1.0f / 60.0f);		
 	}
 /***************************************************************************************************************************************************************************************************************/
 	public void initVar(){
-		float nVelXRes = G._getX(3.0f);
-		float nVelYRes = G._getY(5.0f);
-		m_fGravity = G._getX(3.0f);
-		m_fVx = G._getX(20.0f) + MathLib.random(0, nVelXRes);
-		m_fVy = G._getX(20.0f) + MathLib.random(0, nVelYRes);
+		float nVelXRes = Total._getX(3.0f);
+		float nVelYRes = Total._getY(5.0f);
+		m_fGravity = Total._getX(3.0f);
+		m_fVx = Total._getX(20.0f) + MathLib.random(0, nVelXRes);
+		m_fVy = Total._getX(20.0f) + MathLib.random(0, nVelYRes);
 		m_nTime = 0;
 		setScale(0.1f);
 	}		
@@ -39,10 +39,10 @@ public class CoinAnim extends CCSprite{
 		m_fVy -= m_fGravity;
 		setPosition(getPosition().x + m_fVx, getPosition().y + m_fVy);
 		setScale(getScale() + 0.04f);
-		if(getPosition().y < G._getY(90)){
+		if(getPosition().y < Total._getY(90)){
 			m_nTime = 0 ;
 			m_fVy = -1.5f * m_fVy;
-			m_fVx = -(getPosition().x - G._getX(250f)) / ((CCDirector.sharedDirector().winSize().height - G._getY(40.0f)) / m_fVy);
+			m_fVx = -(getPosition().x - Total._getX(250f)) / ((CCDirector.sharedDirector().winSize().height - Total._getY(40.0f)) / m_fVy);
 			unschedule("firstAction");
 			schedule("restAction", 1.0f / 60.0f);
 		}
@@ -58,7 +58,7 @@ public class CoinAnim extends CCSprite{
 /***************************************************************************************************************************************************************************************************************/
 	public void secondAction(float dt){
 		setPosition(this.getPosition().x + m_fVx, getPosition().y + m_fVy);
-		if(getPosition().y > CCDirector.sharedDirector().winSize().height - G._getY(40)){
+		if(getPosition().y > CCDirector.sharedDirector().winSize().height - Total._getY(40)){
 			setVisible(false);
 			unschedule("secondAction");
 		}

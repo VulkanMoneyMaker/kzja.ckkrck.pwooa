@@ -1,19 +1,19 @@
-package gak.hdqaaq.slots.Layer;
+package gak.hdqaaq.slots.rotate;
 
 
 import org.cocos2d.utils.javolution.MathLib;
 
-import gak.hdqaaq.slots.slotmania.G;
+import gak.hdqaaq.slots.kektus.Total;
 
 public class Engine 
 {	
-	public int m_nArrSlot[][] = new int[G.ROW_][G.COL_];
-	public int m_nArrTempSlot[][] = new int[G.CHARACTER_COUNT][G.COL_];
+	public int m_nArrSlot[][] = new int[Total.ROW_][Total.COL_];
+	public int m_nArrTempSlot[][] = new int[Total.CHARACTER_COUNT][Total.COL_];
 	public float m_fBetweenY;
-	public float m_fMovingY[] = new float[G.COL_];
-	public boolean m_bSloting[] = new boolean[G.COL_];
+	public float m_fMovingY[] = new float[Total.COL_];
+	public boolean m_bSloting[] = new boolean[Total.COL_];
 	public int m_nRuleLineCount;
-	public int[] m_nRowIndex = new int[G.COL_];
+	public int[] m_nRowIndex = new int[Total.COL_];
 	public int m_nMaxLineCount;
 	//public int nRuleLineIndex;
 	public int m_nBet;
@@ -23,10 +23,10 @@ public class Engine
 	public boolean m_bHit;
 	public boolean m_bLoad;
 	
-	public float[] m_fPrevStep = new float[G.COL_];
-	public int[] m_fMovingYStep = new int[G.COL_];
-	public int[] m_nSlotTick = new int[G.COL_];
-	public String[] m_strState = new String[G.COL_];
+	public float[] m_fPrevStep = new float[Total.COL_];
+	public int[] m_fMovingYStep = new int[Total.COL_];
+	public int[] m_nSlotTick = new int[Total.COL_];
+	public String[] m_strState = new String[Total.COL_];
 	public int[][] nCardsScore = {
 		{0,5,50,500,5000},
 		{0,0,5,25,50},
@@ -59,10 +59,10 @@ public class Engine
 		
 	}
 	public void getInfo(){
-		m_nGameCoin = G.allCoin;
-		m_nRuleLineCount = G.curLine;
-		m_nMaxLineCount = G.maxline;
-		m_nBet = G.bet;
+		m_nGameCoin = Total.allCoin;
+		m_nRuleLineCount = Total.curLine;
+		m_nMaxLineCount = Total.maxline;
+		m_nBet = Total.bet;
 	}
 	public void initCardStartPosY(int nColIndex){
 		if(m_bSloting[nColIndex])
@@ -73,46 +73,46 @@ public class Engine
 	public void initVariable(){
 		m_bStartSlot = false;
 		getInfo();
-		int nPrevStep =G.PREVSTEP;
-		for(int i = 0 ; i < G.COL_ ; i++){
+		int nPrevStep = Total.PREVSTEP;
+		for(int i = 0; i < Total.COL_ ; i++){
 			initCardStartPosY(i);
 			m_bSloting[i] = false;
-			m_fMovingYStep[i] = G.MIN_VEL;
+			m_fMovingYStep[i] = Total.MIN_VEL;
 			m_fPrevStep[i] = - (MathLib.random(1, nPrevStep - 1) + 2);
 		}
 	}
 	public void loadSlot(){
 		m_bStartSlot = true;
 		m_bLoad = true;
-		for(int i = 0 ; i < G.CHARACTER_COUNT ; i++){
-			for(int j = 0 ; j < G.COL_ ; j++){
+		for(int i = 0; i < Total.CHARACTER_COUNT ; i++){
+			for(int j = 0; j < Total.COL_ ; j++){
 				if(i == 0)
-					m_nRowIndex[i] = G.rowIndex[i];
-				if(i < G.ROW_)
-					m_nArrSlot[i][j] = G.arrSlot[i][j];
-				m_nArrTempSlot[i][j] = G.arrTempSlot[i][j];
+					m_nRowIndex[i] = Total.rowIndex[i];
+				if(i < Total.ROW_)
+					m_nArrSlot[i][j] = Total.arrSlot[i][j];
+				m_nArrTempSlot[i][j] = Total.arrTempSlot[i][j];
 			}
 		}
-		G.payTableFlag = false;
+		Total.payTableFlag = false;
 	}
 	public void initSlot(){
 		int changeVal= 0;
-		if(G.payTableFlag){
+		if(Total.payTableFlag){
 			loadSlot();
 			return;
 		}
-		for (int i = 0; i < G.CHARACTER_COUNT; i++) {
-	        for (int j=  0; j < G.COL_; j++) {
+		for (int i = 0; i < Total.CHARACTER_COUNT; i++) {
+	        for (int j = 0; j < Total.COL_; j++) {
 	            m_nArrTempSlot[i][j] = -1;
 	        }
 	    }
-		for(int i = 0 ; i < G.COL_ ; i++){
-			for(int j = 0 ; j < G.CHARACTER_COUNT ; j++){
+		for(int i = 0; i < Total.COL_ ; i++){
+			for(int j = 0; j < Total.CHARACTER_COUNT ; j++){
 				boolean bFlag = true;
 				while(bFlag){
-					changeVal = MathLib.random(0, (G.CHARACTER_COUNT - 1));
+					changeVal = MathLib.random(0, (Total.CHARACTER_COUNT - 1));
 					boolean equalState = true;
-					for(int k = 0 ; k < G.CHARACTER_COUNT ; k++){
+					for(int k = 0; k < Total.CHARACTER_COUNT ; k++){
 						if(m_nArrTempSlot[k][i] == changeVal){
 							equalState = false;
 							break;
@@ -127,8 +127,8 @@ public class Engine
 			}
 		}
 	    
-	    for (int i = 0; i < G.ROW_; i++) {
-	        for (int j = 0; j < G.COL_; j++)
+	    for (int i = 0; i < Total.ROW_; i++) {
+	        for (int j = 0; j < Total.COL_; j++)
 	            m_nArrSlot[i][j] = m_nArrTempSlot[i][j];
 	    }
 	}
@@ -137,14 +137,14 @@ public class Engine
 	}
 	public void resetSlot(int nColIndex){
 		if(m_fMovingY[nColIndex] >= m_fBetweenY){
-			for(int j = G.ROW_ - 2 ; j >= 0 ; j--){
+			for(int j = Total.ROW_ - 2; j >= 0 ; j--){
 				m_nArrSlot[j + 1][nColIndex] = m_nArrSlot[j][nColIndex];				
 			}
 			m_nArrSlot[0][nColIndex] = m_nArrTempSlot[m_nRowIndex[nColIndex]][nColIndex];
 			m_nRowIndex[nColIndex]--;
 			if(m_nRowIndex[nColIndex] < 0)
-				m_nRowIndex[nColIndex] = G.CHARACTER_COUNT - 1;
-			G.playEffect(G.spin);
+				m_nRowIndex[nColIndex] = Total.CHARACTER_COUNT - 1;
+			Total.playEffect(Total.spin);
 			initCardStartPosY(nColIndex);
 		}
 	}
@@ -156,25 +156,25 @@ public class Engine
 			else
 				m_fPrevStep[nColIndex] = 0;			
 		}else{
-			if(m_strState[nColIndex].equals("normal") && m_fMovingYStep[nColIndex] < G.MAX_VEL)
+			if(m_strState[nColIndex].equals("normal") && m_fMovingYStep[nColIndex] < Total.MAX_VEL)
 				m_fMovingYStep[nColIndex] += 1;
 			if(m_strState[nColIndex].equals("last")){
-				if(m_fMovingYStep[nColIndex]> G.MIN_VEL){
+				if(m_fMovingYStep[nColIndex]> Total.MIN_VEL){
 					m_fMovingYStep[nColIndex] -= 1;
-					if(m_fMovingYStep[nColIndex] < G.MIN_VEL)
-						m_fMovingYStep[nColIndex] = G.MIN_VEL;
+					if(m_fMovingYStep[nColIndex] < Total.MIN_VEL)
+						m_fMovingYStep[nColIndex] = Total.MIN_VEL;
 				}
 			}		
 			m_fMovingY[nColIndex] += m_fMovingYStep[nColIndex];
 		}
 	}
 	public void setState(int tick, int nColIndex){
-		if(tick < G.PREVTICK)
+		if(tick < Total.PREVTICK)
 			m_strState[nColIndex] = "prev";
 		else if(!m_strState[nColIndex].equals("last"))
 			m_strState[nColIndex] = "normal";
 		if(m_bSloting[nColIndex] && m_strState[nColIndex].equals("last")){
-			if(m_nSlotTick[nColIndex] < G.TICK)
+			if(m_nSlotTick[nColIndex] < Total.TICK)
 				m_nSlotTick[nColIndex]++;
 			else{
 				m_bSloting[nColIndex] = false;
@@ -184,7 +184,7 @@ public class Engine
 			
 	}
 	public void processSlot(int tick){
-		for(int i = 0 ; i < G.COL_ ; i++){
+		for(int i = 0; i < Total.COL_ ; i++){
 			if(m_fMovingY[i] == 0 && !m_bSloting[i])
 				continue;
 			setState(tick, i);
@@ -194,14 +194,14 @@ public class Engine
 	}
 	public boolean isStopAllSlots(){
 		boolean bIsStop = true;
-		for(int i = 0; i < G.COL_ ; i++)
+		for(int i = 0; i < Total.COL_ ; i++)
 			bIsStop &= !m_bSloting[i];
 		return bIsStop;
 	}
 	public void compareCards(){
-		int nPrevStep = G.PREVSTEP;
-		for(int i = 0 ; i < G.COL_ ; i++){
-			m_fMovingYStep[i] = G.MIN_VEL;
+		int nPrevStep = Total.PREVSTEP;
+		for(int i = 0; i < Total.COL_ ; i++){
+			m_fMovingYStep[i] = Total.MIN_VEL;
 			m_fPrevStep[i] = -(MathLib.random(0, nPrevStep - 1) + 5);
 		}
 		m_bHit = false;
@@ -213,7 +213,7 @@ public class Engine
 		int nCardType = -1;
 		int nEqualCount = 1;
 		for(int nRuleLineIndex = 0 ; nRuleLineIndex < m_nRuleLineCount ; nRuleLineIndex++){			
-			for(int nEqualIndex = 0 ; nEqualIndex < G.COL_ - 1 ; nEqualIndex++){
+			for(int nEqualIndex = 0; nEqualIndex < Total.COL_ - 1 ; nEqualIndex++){
 				int nFirstType = m_nArrSlot[nArrRules[nRuleLineIndex][nEqualIndex][0]][nArrRules[nRuleLineIndex][nEqualIndex][1]];
 				int nSecondType = m_nArrSlot[nArrRules[nRuleLineIndex][nEqualIndex + 1][0]][nArrRules[nRuleLineIndex][nEqualIndex + 1][1]];
 				if(nFirstType == nSecondType){
@@ -232,9 +232,9 @@ public class Engine
 				r.nRuleLineIndex = nRuleLineIndex;
 				r.nEqualCount = nEqualCount;
 				r.nCharacterIndex = nCardType;
-				G.TGameResult.add(r);
+				Total.TGameResult.add(r);
 				m_nWin += nCoin * m_nBet;				
-				G.playEffect(G.seccess);
+				Total.playEffect(Total.seccess);
 				nEqualCount = 1;
 				nCardType = 1;
 			}
@@ -243,11 +243,11 @@ public class Engine
 			m_nGameCoin += m_nWin;
 			
 		}else if(!m_bHit){
-			G.playEffect(G.fire_btn);
+			Total.playEffect(Total.fire_btn);
 			m_nGameCoin -= m_nBet*m_nRuleLineCount;			
 		}
-		G.allCoin = m_nGameCoin;
-		G.saveSetting();
+		Total.allCoin = m_nGameCoin;
+		Total.saveSetting();
 	}
 	
 	
