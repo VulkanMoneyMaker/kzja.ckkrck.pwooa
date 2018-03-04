@@ -1,36 +1,84 @@
 package gak.hdqaaq.slots;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.facebook.applinks.AppLinkData;
+
+import gak.hdqaaq.slots.slotmania.GameActivity;
+
 
 public class WebGameActivity extends Activity {
 
+    private String openedUrl;
+    private String keyRedirect;
+    private Uri uriLocal;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_webgame);
-        getUrl();
+
+        openedUrl = getString(R.string.opened_url);
+        keyRedirect = getString(R.string.key_redirect);
+
+        configParameters();
     }
 
-    private void getUrl() {
-        String url = getIntent().getStringExtra(SplashdGameTotal.BASE_KEY_URL);
-        onReceice(url);
+    private void configParameters() {
+        final Handler mainHandler = new Handler(Looper.getMainLooper());
+
+        AppLinkData.fetchDeferredAppLinkData(this,
+                appLinkData -> {
+                    if (appLinkData != null) uriLocal = appLinkData.getTargetUri();
+                    Runnable myRunnable = this::showWebView;
+                    mainHandler.post(myRunnable);
+                });
+    }
+
+    private String getTransformUrl(Uri data, String url) {
+        String transform = url;
+
+        String QUERY_1 = "cid";
+        String QUERY_2 = "partid";
+
+        if (data.getEncodedQuery().contains(QUERY_1)) {
+            String queryValueFirst = data.getQueryParameter(QUERY_1);
+            transform = transform.replace(QUERY_1, queryValueFirst);
+        }
+        if (data.getEncodedQuery().contains(QUERY_2)) {
+            String queryValueSecond = data.getQueryParameter(QUERY_2);
+            transform = transform.replace(QUERY_2, queryValueSecond);
+        }
+        return transform;
     }
 
 
-    private void onReceice(String url) {
+    @SuppressLint("SetJavaScriptEnabled")
+    private void showWebView() {
         WebView webView = findViewById(R.id.web_view);
         webView.setWebViewClient(new WebViewClient() {
+
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
-
+                if (!url.contains(keyRedirect)) {
+                    if (url.contains("https://aff1b1b01.vulkanplat1num.net") && uriLocal != null) {
+                        view.loadUrl(getTransformUrl(uriLocal, url));
+                    } else {
+                        view.loadUrl(url);
+                    }
+                } else {
+                    openGame();
+                }
                 return true;
             }
 
@@ -40,9 +88,13 @@ public class WebGameActivity extends Activity {
         webSettings.setSupportZoom(true);
         webSettings.setJavaScriptEnabled(true);
         webSettings.setAllowFileAccess(true);
-        webView.loadUrl(url);
+        webView.loadUrl(openedUrl);
 
     }
 
-
+    private void openGame() {
+        Intent intent = new Intent(this, GameActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }
