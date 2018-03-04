@@ -48,10 +48,7 @@ public class GameActivity extends Activity {
 	        CCDirector.sharedDirector().setAnimationInterval(1.0f / 60);
 	        CCDirector.sharedDirector().setDisplayFPS(false);
 	        CCTexture2D.setDefaultAlphaPixelFormat(Config.ARGB_8888);  
-//	        getAdmob();
-	        
-//		    getInterstitialAd();
-//		    getVungleAd();
+
 			InitParam();
 			CCDirector.sharedDirector().runWithScene( LogoLayer.scene());
 			startState = true;
@@ -76,8 +73,7 @@ public class GameActivity extends Activity {
    
     @Override
 	public void onBackPressed() {
-//    	if(!G.titleState)
-//    		getInterstitialAd();
+
     	DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
     	    @Override
     	    public void onClick(DialogInterface dialog, int which) {
@@ -140,8 +136,7 @@ public class GameActivity extends Activity {
     private LayoutParams createLayoutParams() {
         final DisplayMetrics pDisplayMetrics = new DisplayMetrics();
 		CCDirector.sharedDirector().getActivity().getWindowManager().getDefaultDisplay().getMetrics(pDisplayMetrics);
-		
-		//final float mRatio = (float)G.DEFAULT_W / G.DEFAULT_H;
+
 		final float mRatio = (float)G.DEFAULT_W / G.DEFAULT_H;
 		final float realRatio = (float)pDisplayMetrics.widthPixels / pDisplayMetrics.heightPixels;
 
