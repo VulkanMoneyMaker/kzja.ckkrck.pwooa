@@ -64,9 +64,9 @@ public class G {
 	public static float         CARD_BETWEEN_X  = 145f;
 	public static float         CARD_BETWEEN_Y  = 136f;	
 	
-	public static String[]      strIconName     =  {"item_1",
-			"item_2","item_3","item_4","item_5",
-			"item_6","item_7","item_8","item_9","item_10","item_11"};
+	public static String[]      strIconName     =  {"icon_1-min",
+			"icon_2-min","icon_3-min","icon_4-min","icon_5-min",
+			"icon_6-min","icon_7-min","icon_8-min","icon_9-min","icon_10-min","icon_11-min"};
 	public static String        GAME_STATE      = "";
 
 	

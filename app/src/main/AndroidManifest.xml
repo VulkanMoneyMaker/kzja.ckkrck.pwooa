@@ -34,9 +34,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data
-                    android:host="fmxzds.com"
-                    android:pathPrefix="/kgeas"
-                    android:scheme="trews" />
+                    android:host="gtmewsx.co"
+                    android:pathPrefix="/vgjsdc"
+                    android:scheme="otkscjf" />
             </intent-filter>
         </activity>
         <activity
