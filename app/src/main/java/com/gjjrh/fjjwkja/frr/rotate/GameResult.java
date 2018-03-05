@@ -1,4 +1,4 @@
-package gak.hdqaaq.slots.rotate;
+package com.gjjrh.fjjwkja.frr.rotate;
 
 public class GameResult
 {

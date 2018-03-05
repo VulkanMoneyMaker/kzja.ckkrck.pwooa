@@ -1,4 +1,4 @@
-package gak.hdqaaq.slots.kektus;
+package com.gjjrh.fjjwkja.frr.kektus;
 
 
 import org.cocos2d.nodes.CCDirector;
@@ -16,10 +16,10 @@ import android.view.Gravity;
 import android.view.Window;
 import android.view.WindowManager.LayoutParams;
 
-import gak.hdqaaq.slots.rotate.LogoLayer;
-import gak.hdqaaq.slots.rotate.TitleLayer;
-import gak.hdqaaq.slots.gambit.ScoreManager;
-import gak.hdqaaq.slots.utils.Random;
+import com.gjjrh.fjjwkja.frr.rotate.LogoLayer;
+import com.gjjrh.fjjwkja.frr.rotate.TitleLayer;
+import com.gjjrh.fjjwkja.frr.gambit.ScoreManager;
+import com.gjjrh.fjjwkja.frr.utils.Random;
 
 
 

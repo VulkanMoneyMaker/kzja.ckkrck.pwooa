@@ -1,4 +1,4 @@
-package gak.hdqaaq.slots.rotate;
+package com.gjjrh.fjjwkja.frr.rotate;
 import java.util.Vector;
 
 import javax.microedition.khronos.opengles.GL10;
@@ -11,9 +11,9 @@ import org.cocos2d.nodes.CCSprite;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 
-import gak.hdqaaq.slots.kektus.Total;
+import com.gjjrh.fjjwkja.frr.kektus.Total;
 
-import gak.hdqaaq.slots.gambit.GrowButton;
+import com.gjjrh.fjjwkja.frr.gambit.GrowButton;
 
 import org.cocos2d.transitions.CCFadeTransition;
 import org.cocos2d.types.CGPoint;

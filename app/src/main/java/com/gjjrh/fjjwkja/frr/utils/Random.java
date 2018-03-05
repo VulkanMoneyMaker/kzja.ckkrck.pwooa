@@ -1,4 +1,4 @@
-package gak.hdqaaq.slots.utils;
+package com.gjjrh.fjjwkja.frr.utils;
 
 import java.util.Date;
 

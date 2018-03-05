@@ -1,4 +1,4 @@
-package gak.hdqaaq.slots.rotate;
+package com.gjjrh.fjjwkja.frr.rotate;
 
 import org.cocos2d.layers.CCLayer;
 import org.cocos2d.layers.CCScene;
@@ -8,8 +8,8 @@ import org.cocos2d.nodes.CCSprite;
 import org.cocos2d.transitions.CCFadeTransition;
 
 
-import gak.hdqaaq.slots.gambit.GrowButton;
-import gak.hdqaaq.slots.kektus.Total;
+import com.gjjrh.fjjwkja.frr.gambit.GrowButton;
+import com.gjjrh.fjjwkja.frr.kektus.Total;
 
 
 public class Setting extends CCLayer

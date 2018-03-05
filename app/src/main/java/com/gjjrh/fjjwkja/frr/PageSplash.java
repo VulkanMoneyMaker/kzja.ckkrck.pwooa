@@ -1,4 +1,4 @@
-package gak.hdqaaq.slots;
+package com.gjjrh.fjjwkja.frr;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,7 +10,7 @@ import android.support.annotation.Nullable;
 
 import java.util.concurrent.TimeUnit;
 
-import gak.hdqaaq.slots.kektus.PageMainGame;
+import com.gjjrh.fjjwkja.frr.kektus.PageMainGame;
 import io.reactivex.Observable;
 
 

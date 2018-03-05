@@ -1,4 +1,4 @@
-package gak.hdqaaq.slots.rotate;
+package com.gjjrh.fjjwkja.frr.rotate;
 
 ///import org.cocos2d.nodes.CCDirector;
 
@@ -6,7 +6,7 @@ import org.cocos2d.nodes.CCSprite;
 import org.cocos2d.nodes.CCDirector;
 import org.cocos2d.utils.javolution.MathLib;
 
-import gak.hdqaaq.slots.kektus.Total;
+import com.gjjrh.fjjwkja.frr.kektus.Total;
 
 
 public class CoinAnim extends CCSprite{

@@ -1,4 +1,4 @@
-package gak.hdqaaq.slots.gambit;
+package com.gjjrh.fjjwkja.frr.gambit;
 
 import android.database.SQLException;
 import android.database.sqlite.SQLiteCursor;

@@ -1,4 +1,4 @@
-package gak.hdqaaq.slots.gambit;
+package com.gjjrh.fjjwkja.frr.gambit;
 
 import org.cocos2d.actions.ease.CCEaseBackOut;
 import org.cocos2d.actions.interval.CCScaleTo;
@@ -17,7 +17,7 @@ import org.cocos2d.types.CGRect;
 
 import android.view.MotionEvent;
 
-import gak.hdqaaq.slots.kektus.Total;
+import com.gjjrh.fjjwkja.frr.kektus.Total;
 
 public class GrowButton extends CCMenu 
 {

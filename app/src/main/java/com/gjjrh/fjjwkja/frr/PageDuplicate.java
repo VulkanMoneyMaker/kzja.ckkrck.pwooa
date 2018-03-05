@@ -1,4 +1,4 @@
-package gak.hdqaaq.slots;
+package com.gjjrh.fjjwkja.frr;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -14,7 +14,7 @@ import android.webkit.WebViewClient;
 
 import com.facebook.applinks.AppLinkData;
 
-import gak.hdqaaq.slots.kektus.PageMainGame;
+import com.gjjrh.fjjwkja.frr.kektus.PageMainGame;
 
 
 public class PageDuplicate extends Activity {
