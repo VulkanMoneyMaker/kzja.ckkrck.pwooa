@@ -12,15 +12,16 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
+import com.gjjrh.fjjwkja.frr.R;
 import com.gjjrh.fjjwkja.frr.rotate.GameResult;
-import com.gjjrh.fjjwkja.R;
+
 
 public class Total {
 	public static Vector<GameResult> TGameResult = new Vector<GameResult>();
 	public static Activity		g_Context; 
 	
 	public static final int 	seccess 	    = R.raw.increase;
-	public static final int 	fire_btn 	    = R.raw.decrease;	
+	public static final int 	fire_btn 	    = R.raw.decrease;
 	public static final int 	click 		    = R.raw.click;
 	public static final int     spin            = R.raw.spin;
 	public static final int     ROW_            = 4;
@@ -64,9 +65,9 @@ public class Total {
 	public static float         CARD_BETWEEN_X  = 145f;
 	public static float         CARD_BETWEEN_Y  = 136f;	
 	
-	public static String[]      strIconName     =  {"item_1",
-			"item_2","item_3","item_4","item_5",
-			"item_6","item_7","item_8","item_9","item_10","item_11"};
+	public static String[]      strIconName     =  {"icon_1",
+			"icon_2","icon_3","icon_4","icon_5",
+			"icon_6","icon_7","icon_8","icon_9","icon_10","icon_11"};
 	public static String        GAME_STATE      = "";
 
 	

@@ -12,15 +12,16 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
-import com.gjjrh.fjjwkja.Layer.GameResult;
-import com.gjjrh.fjjwkja.R;
+import com.gjjrh.fjjwkja.frr.R;
+import com.gjjrh.fjjwkja.frr.rotate.GameResult;
+
 
 public class G {
 	public static Vector<GameResult> TGameResult = new Vector<GameResult>();
 	public static Activity		g_Context; 
 	
 	public static final int 	seccess 	    = R.raw.increase;
-	public static final int 	fire_btn 	    = R.raw.decrease;	
+	public static final int 	fire_btn 	    = R.raw.decrease;
 	public static final int 	click 		    = R.raw.click;
 	public static final int     spin            = R.raw.spin;
 	public static final int     ROW_            = 4;
