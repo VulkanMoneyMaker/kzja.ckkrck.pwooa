@@ -12,8 +12,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
-import com.fkkjqa.fklefkwj.Layer.GameResult;
 import com.fkkjqa.fklefkwj.R;
+import com.fkkjqa.fklefkwj.rotate.GameResult;
 
 public class G {
 	public static Vector<GameResult> TGameResult = new Vector<GameResult>();
