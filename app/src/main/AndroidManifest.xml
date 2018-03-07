@@ -34,9 +34,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data
-                    android:host="gtkzcx.com"
-                    android:pathPrefix="/gkteq"
-                    android:scheme="gkrwd" />
+                    android:host="vmzxd.com"
+                    android:pathPrefix="/mbmxd"
+                    android:scheme="gktwe" />
             </intent-filter>
 
         </activity>
