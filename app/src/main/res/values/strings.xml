@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Comp Slots</string>
+    <string name="app_name">Star Slots</string>
     <string name="alert_dlg_title">Enter Your Name</string>
     <string name="alert_dlg_save">Save</string>
     <string name="alert_dlg_cancel">Cancel</string>
-    <string name="facebook_id">997964197018375</string>
+    <string name="facebook_id">883401708511506</string>
 </resources>
