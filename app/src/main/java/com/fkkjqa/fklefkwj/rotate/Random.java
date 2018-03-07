@@ -1,4 +1,4 @@
-package gak.hdqaaq.slots.utils;
+package com.fkkjqa.fklefkwj.rotate;
 
 import java.util.Date;
 

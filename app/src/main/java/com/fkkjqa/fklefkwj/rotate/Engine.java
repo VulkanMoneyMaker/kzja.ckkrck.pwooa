@@ -1,9 +1,9 @@
-package gak.hdqaaq.slots.rotate;
+package com.fkkjqa.fklefkwj.rotate;
 
 
 import org.cocos2d.utils.javolution.MathLib;
 
-import gak.hdqaaq.slots.kektus.Total;
+import com.fkkjqa.fklefkwj.kektus.Total;
 
 public class Engine 
 {	

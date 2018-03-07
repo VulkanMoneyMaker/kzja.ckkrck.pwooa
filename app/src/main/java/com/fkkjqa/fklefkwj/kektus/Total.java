@@ -1,4 +1,4 @@
-package gak.hdqaaq.slots.slotmania;
+package com.fkkjqa.fklefkwj.kektus;
 
 
 import java.util.Vector;
@@ -12,10 +12,10 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
-import gak.hdqaaq.slots.Layer.GameResult;
-import gak.hdqaaq.slots.R;
+import com.fkkjqa.fklefkwj.rotate.GameResult;
+import com.fkkjqa.fklefkwj.R;
 
-public class G {
+public class Total {
 	public static Vector<GameResult> TGameResult = new Vector<GameResult>();
 	public static Activity		g_Context; 
 	
