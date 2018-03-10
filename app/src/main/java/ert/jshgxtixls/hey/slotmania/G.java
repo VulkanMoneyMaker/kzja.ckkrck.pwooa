@@ -25,7 +25,7 @@ public class G {
 	public static final int     spin            = R.raw.spin;
 	public static final int     ROW_            = 4;
 	public static final int     COL_            = 5;
-	public static final int     CHARACTER_COUNT = 11;
+	public static final int     CHARACTER_COUNT = 9;
 	public static final int     DEFAULT_RINDEX  = 6;
 	public static final int     RULE_LINE_COUNT = 9;	
 	public static final int[]   coinVal         = {500, 1000, 1500, 2000};
