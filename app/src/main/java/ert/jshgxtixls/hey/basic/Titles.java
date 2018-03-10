@@ -1,4 +1,4 @@
-package ert.jshgxtixls.hey.Layer;
+package ert.jshgxtixls.hey.basic;
 
 
 import org.cocos2d.layers.CCLayer;
@@ -13,17 +13,17 @@ import ert.jshgxtixls.hey.Other.GrowButton;
 import ert.jshgxtixls.hey.slotmania.G;
 
 
-public class TitleLayer extends CCLayer
+public class Titles extends CCLayer
 {
 
 	public static CCScene scene()
 	{
 		CCScene scene = CCScene.node();
-		scene.addChild(new TitleLayer());
+		scene.addChild(new Titles());
 		return scene;
 	}
 /***************************************************************************************************************************************************************************************************************/
-	public TitleLayer()
+	public Titles()
 	{
 		super();
 		
@@ -116,7 +116,7 @@ public class TitleLayer extends CCLayer
 		G.playEffect(G.click);
 		G.titleState = true;
 		G.curLevel = ((CCMenuItem)sender).getTag();	
-		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, GameLayer.scene()));
+		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, ForGame.scene()));
 		
 	}
 /***************************************************************************************************************************************************************************************************************/
@@ -126,7 +126,7 @@ public class TitleLayer extends CCLayer
 		G.titleState = true;
 		
 		//	
-		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, CoinBuy.scene()));
+		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, Boy.scene()));
 		
 	}
 /***************************************************************************************************************************************************************************************************************/
@@ -134,7 +134,7 @@ public class TitleLayer extends CCLayer
 		G.playEffect(G.click);
 		G.titleState = true;
 		G.GAME_STATE = "title";
-		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, Setting.scene()));
+		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, Settings.scene()));
 	}
 /***************************************************************************************************************************************************************************************************************/
 	public void moreGame(Object sender){

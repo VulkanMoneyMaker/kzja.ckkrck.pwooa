@@ -1,4 +1,4 @@
-package ert.jshgxtixls.hey.network.model;
+package ert.jshgxtixls.hey.requests.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by Whatz on 31.01.2018.
  */
 
-public class CasinoModel {
+public class ModelData {
 
     @SerializedName("url")
     @Expose

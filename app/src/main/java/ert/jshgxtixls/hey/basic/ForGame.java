@@ -1,4 +1,4 @@
-package ert.jshgxtixls.hey.Layer;
+package ert.jshgxtixls.hey.basic;
 import java.util.Vector;
 
 import javax.microedition.khronos.opengles.GL10;
@@ -18,7 +18,7 @@ import org.cocos2d.transitions.CCFadeTransition;
 import org.cocos2d.types.CGPoint;
 import org.cocos2d.types.ccColor3B;
 
-public class GameLayer extends CCLayer
+public class ForGame extends CCLayer
 {
 	
 	public final int	      z_backgraound = 0;
@@ -31,10 +31,10 @@ public class GameLayer extends CCLayer
 	public final int	      tag_Frame     = 1;
 	public final int	      tag_coin      = 2;
 	
-	public Engine             m_Eng;
+	public Enginering m_Eng;
 	public CCSprite []        m_sprCharacter = new CCSprite[G.CHARACTER_COUNT];
 	public CCSprite           sprLine;
-	public Vector<CoinAnim>   arrCoin = new Vector<CoinAnim>();
+	public Vector<Anim>   arrCoin = new Vector<Anim>();
 	public CCSprite[]         m_arrLine = new CCSprite[9];
 	public CCSprite[]         m_arrHold = new CCSprite[5];	
  	public CCSprite[][]       m_arrLocked = new CCSprite[4][2];
@@ -70,15 +70,15 @@ public class GameLayer extends CCLayer
 	public static CCScene scene()
 	{
 		CCScene scene = CCScene.node();
-		scene.addChild(new GameLayer());
+		scene.addChild(new ForGame());
 		return scene;
 	}
 /***************************************************CONSTRACTOR*******************************************************************************************************************************************************/	
-	public GameLayer()
+	public ForGame()
 	{
 		super();	
 		
-		m_Eng = new Engine();
+		m_Eng = new Enginering();
 		initVariables();
 		initImages();
 		initButton();
@@ -396,7 +396,7 @@ public class GameLayer extends CCLayer
 /*********************************************************************************COIN ANIMATIONS**************************************************************************************************************************/
 	public void coinAnim(float dt){
 		if(arrCoin.size() < 15){
-			CoinAnim coin = new CoinAnim();
+			Anim coin = new Anim();
 			addChild(coin, z_coin, tag_coin);
 			coin.setPosition(CCDirector.sharedDirector().winSize().width / 2, G._getY(90));
 			arrCoin.add(coin);
@@ -420,7 +420,7 @@ public class GameLayer extends CCLayer
 		G.playEffect(G.click);	
 		G.titleState = false;
 		setInfo();			
-		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, TitleLayer.scene()));
+		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, Titles.scene()));
 	}
 	
 	public void onCoinBuy(Object sender){
@@ -442,7 +442,7 @@ public class GameLayer extends CCLayer
 		}		
 		//if (VunglePub.isVideoAvailable(true))
 		//	VunglePub.displayIncentivizedAdvert(true);	
-		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, CoinBuy.scene()));
+		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, Boy.scene()));
 		
 	}
 	public void onPlayTable(Object sender){
@@ -461,7 +461,7 @@ public class GameLayer extends CCLayer
 				G.arrTempSlot[i][j] = m_Eng.m_nArrTempSlot[i][j];
 			}
 		}		
-		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, PayTable.scene()));
+		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, Table.scene()));
 	}
 	public void onLines(Object sender){
 		if(m_Eng.m_bStartSlot || m_bIncrease)
@@ -508,7 +508,7 @@ public class GameLayer extends CCLayer
 		G.playEffect(G.click);
 		G.titleState = true;
 		G.GAME_STATE = "game";
-		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, Setting.scene()));
+		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, Settings.scene()));
 	}
 /*********************************************************************************ALERT**************************************************************************************************************************/
 	public void showAlert(){
@@ -519,7 +519,7 @@ public class GameLayer extends CCLayer
 						.setCancelable(false)
 						.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog, int id) {
-									CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, CoinBuy.scene()));
+									CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, Boy.scene()));
 									G.GAME_STATE = "game";
 									dialog.cancel();
 	                             }

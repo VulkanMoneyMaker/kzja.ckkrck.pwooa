@@ -1,4 +1,4 @@
-package ert.jshgxtixls.hey.Layer;
+package ert.jshgxtixls.hey.basic;
 
 import org.cocos2d.layers.CCLayer;
 import org.cocos2d.layers.CCScene;
@@ -11,16 +11,16 @@ import org.cocos2d.transitions.CCFadeTransition;
 import ert.jshgxtixls.hey.Other.GrowButton;
 import ert.jshgxtixls.hey.slotmania.G;
 
-public class PayTable extends CCLayer
+public class Table extends CCLayer
 {
 	public static CCScene scene()
 	{
 		CCScene scene = CCScene.node();
-		scene.addChild(new PayTable());
+		scene.addChild(new Table());
 		return scene;
 	}
 /***************************************************************************************************************************************************************************************************************/	
-	public PayTable()
+	public Table()
 	{
 		super();
 		
@@ -39,6 +39,6 @@ public class PayTable extends CCLayer
 /***************************************************************************************************************************************************************************************************************/	
 	public void returnPayTable(Object sender){
 		G.playEffect(G.click);
-		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, GameLayer.scene()));		
+		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, ForGame.scene()));
 	}
 }

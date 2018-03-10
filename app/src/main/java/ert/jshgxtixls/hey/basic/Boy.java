@@ -1,4 +1,4 @@
-package ert.jshgxtixls.hey.Layer;
+package ert.jshgxtixls.hey.basic;
 
 ///import org.cocos2d.nodes.CCDirector;
 import org.cocos2d.layers.CCLayer;
@@ -11,7 +11,7 @@ import ert.jshgxtixls.hey.Other.GrowButton;
 
 import ert.jshgxtixls.hey.slotmania.G;
 
-public class CoinBuy extends CCLayer {
+public class Boy extends CCLayer {
 	public int coinCount = 0;
 	
 	private static long lastTime = 0;
@@ -20,12 +20,12 @@ public class CoinBuy extends CCLayer {
 
 	public static CCScene scene() {
 		CCScene scene = CCScene.node();
-		scene.addChild(new CoinBuy());
+		scene.addChild(new Boy());
 		return scene;
 	}
 
 	/*****************************************************************************************************************************************************************************************************************/
-	public CoinBuy() {
+	public Boy() {
 		super();
 		schedule("getInfo", 1.0f / 10.0f);
 	}
@@ -64,10 +64,10 @@ public class CoinBuy extends CCLayer {
 		if (G.GAME_STATE.equals("title")) {
 			G.titleState = false;
 			CCDirector.sharedDirector().replaceScene(
-					CCFadeTransition.transition(0.7f, TitleLayer.scene()));
+					CCFadeTransition.transition(0.7f, Titles.scene()));
 		} else if (G.GAME_STATE.equals("game")) {
 			CCDirector.sharedDirector().replaceScene(
-					CCFadeTransition.transition(0.7f, GameLayer.scene()));
+					CCFadeTransition.transition(0.7f, ForGame.scene()));
 		}
 	}
 

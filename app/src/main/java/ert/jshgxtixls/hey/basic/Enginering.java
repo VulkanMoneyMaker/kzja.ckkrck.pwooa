@@ -1,11 +1,11 @@
-package ert.jshgxtixls.hey.Layer;
+package ert.jshgxtixls.hey.basic;
 
 
 import org.cocos2d.utils.javolution.MathLib;
 
 import ert.jshgxtixls.hey.slotmania.G;
 
-public class Engine 
+public class Enginering
 {	
 	public int m_nArrSlot[][] = new int[G.ROW_][G.COL_];
 	public int m_nArrTempSlot[][] = new int[G.CHARACTER_COUNT][G.COL_];
@@ -52,7 +52,7 @@ public class Engine
 		{{1,0},{2,1},{2,2},{2,3},{1,4}},
 		{{3,0},{2,1},{2,2},{2,3},{3,4}}		
 	};	
-	public Engine()
+	public Enginering()
 	{
 		initVariable();
 		initSlot();
@@ -228,7 +228,7 @@ public class Engine
 				nCoin = nCardsScore[nCardType][nEqualCount - 1];
 			if(nCoin > 0){
 				m_bHit = true;
-				GameResult r = new GameResult();				
+				Resultative r = new Resultative();
 				r.nRuleLineIndex = nRuleLineIndex;
 				r.nEqualCount = nEqualCount;
 				r.nCharacterIndex = nCardType;

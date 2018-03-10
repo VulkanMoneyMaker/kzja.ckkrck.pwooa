@@ -1,6 +1,6 @@
-package ert.jshgxtixls.hey.Layer;
+package ert.jshgxtixls.hey.basic;
 
-public class GameResult
+public class Resultative
 {
 	public int nRuleLineIndex;
 	public int nEqualCount;

@@ -1,4 +1,4 @@
-package ert.jshgxtixls.hey.Layer;
+package ert.jshgxtixls.hey.basic;
 
 import org.cocos2d.layers.CCLayer;
 import org.cocos2d.layers.CCScene;
@@ -8,17 +8,17 @@ import org.cocos2d.transitions.CCFadeTransition;
 
 import ert.jshgxtixls.hey.slotmania.G;
 
-public class LogoLayer extends CCLayer
+public class ForLogo extends CCLayer
 {
 	public static CCScene scene(){		
 		G.setScale();
 		G.loadSetting();
 		CCScene scene = CCScene.node();
-		scene.addChild(new LogoLayer());		
+		scene.addChild(new ForLogo());
 		return scene;
 	}
 /***************************************************************************************************************************************************************************************************************/
-	public LogoLayer()
+	public ForLogo()
 	{
 		super();		
 		CCSprite sprite = CCSprite.sprite(G._getImg("backImages/splash-hd"));
@@ -34,6 +34,6 @@ public class LogoLayer extends CCLayer
 	{
 		unschedule("logoTimer");
 		G.playSound();
-		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.5f, TitleLayer.scene()));
+		CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.5f, Titles.scene()));
 	}
 }

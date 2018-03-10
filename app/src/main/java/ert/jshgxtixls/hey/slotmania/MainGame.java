@@ -16,14 +16,14 @@ import android.view.Gravity;
 import android.view.Window;
 import android.view.WindowManager.LayoutParams;
 
-import ert.jshgxtixls.hey.Layer.LogoLayer;
-import ert.jshgxtixls.hey.Layer.TitleLayer;
+import ert.jshgxtixls.hey.basic.ForLogo;
+import ert.jshgxtixls.hey.basic.Titles;
 import ert.jshgxtixls.hey.Other.ScoreManager;
 import ert.jshgxtixls.hey.utils.Random;
 
 
 
-public class GameActivity extends Activity {
+public class MainGame extends Activity {
 	private CCGLSurfaceView mGLSurfaceView;	
 	private boolean startState ;
 
@@ -53,7 +53,7 @@ public class GameActivity extends Activity {
 //		    getInterstitialAd();
 //		    getVungleAd();
 			InitParam();
-			CCDirector.sharedDirector().runWithScene( LogoLayer.scene());
+			CCDirector.sharedDirector().runWithScene( ForLogo.scene());
 			startState = true;
         }
 	    
@@ -85,7 +85,7 @@ public class GameActivity extends Activity {
     	        case DialogInterface.BUTTON_POSITIVE:
     	        	if(G.titleState){
     					G.titleState = false;
-    					CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.5f, TitleLayer.scene()));								
+    					CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.5f, Titles.scene()));
     				}else{
     					G.stopSound();    					
     					CCDirector.sharedDirector().end();
@@ -171,7 +171,7 @@ public class GameActivity extends Activity {
 	private void review() {
 		int random = Random.random.nextInt(100);
 		if (random < 15) {
-			GameActivity.this.showReviewDialog();
+			MainGame.this.showReviewDialog();
 		}
 	}
 

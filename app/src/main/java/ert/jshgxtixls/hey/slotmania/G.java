@@ -12,11 +12,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
-import ert.jshgxtixls.hey.Layer.GameResult;
+import ert.jshgxtixls.hey.basic.Resultative;
 import ert.jshgxtixls.hey.R;
 
 public class G {
-	public static Vector<GameResult> TGameResult = new Vector<GameResult>();
+	public static Vector<Resultative> TGameResult = new Vector<Resultative>();
 	public static Activity		g_Context; 
 	
 	public static final int 	seccess 	    = R.raw.increase;

@@ -1,4 +1,4 @@
-package ert.jshgxtixls.hey.Layer;
+package ert.jshgxtixls.hey.basic;
 
 import org.cocos2d.layers.CCLayer;
 import org.cocos2d.layers.CCScene;
@@ -12,7 +12,7 @@ import ert.jshgxtixls.hey.Other.GrowButton;
 import ert.jshgxtixls.hey.slotmania.G;
 
 
-public class Setting extends CCLayer
+public class Settings extends CCLayer
 {
 	GrowButton on1;
 	GrowButton off1;
@@ -21,11 +21,11 @@ public class Setting extends CCLayer
 	public static CCScene scene()
 	{
 		CCScene scene = CCScene.node();
-		scene.addChild(new Setting());
+		scene.addChild(new Settings());
 		return scene;
 	}
 /*****************************************************************************************************************************************************************************************************************/	
-	public Setting()
+	public Settings()
 	{
 		super();
 		CCSprite im_back = CCSprite.sprite(G._getImg("setting/setting"));
@@ -112,9 +112,9 @@ public class Setting extends CCLayer
 		G.playEffect(G.click);
 		G.titleState = false;
 		if(G.GAME_STATE.equals("title"))
-			CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, TitleLayer.scene()));
+			CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, Titles.scene()));
 		else
-			CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, GameLayer.scene()));		
+			CCDirector.sharedDirector().replaceScene(CCFadeTransition.transition(0.7f, ForGame.scene()));
 	}
 /*****************************************************************************************************************************************************************************************************************/
 	public void setOnOff1(Object sender){

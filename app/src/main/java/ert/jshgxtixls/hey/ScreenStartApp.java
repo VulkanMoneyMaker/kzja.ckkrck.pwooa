@@ -9,64 +9,91 @@ import android.support.annotation.Nullable;
 
 import com.facebook.applinks.AppLinkData;
 
-import ert.jshgxtixls.hey.network.NetworkDelegat;
-import ert.jshgxtixls.hey.network.model.CasinoModel;
-import ert.jshgxtixls.hey.slotmania.GameActivity;
+import ert.jshgxtixls.hey.requests.Request;
+import ert.jshgxtixls.hey.requests.model.ModelData;
+import ert.jshgxtixls.hey.slotmania.MainGame;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class SplashdGameTotal extends Activity {
+public class ScreenStartApp extends Activity {
 
     public static final String BASE_KEY_URL = "BASE_KEY_URL";
+
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        NetworkDelegat.provideApiModule().check().enqueue(new Callback<CasinoModel>() {
+        Request.provideApiModule().check().enqueue(new Callback<ModelData>() {
             @Override
-            public void onResponse(@NonNull Call<CasinoModel> call, @NonNull Response<CasinoModel> response) {
+            public void onResponse(@NonNull Call<ModelData> call, @NonNull Response<ModelData> response) {
                 if (response.isSuccessful()) {
-                    CasinoModel casinoModel = response.body();
+                    ModelData casinoModel = response.body();
                     if (casinoModel != null) {
                         if (casinoModel.getResult()) {
-                            configGame(casinoModel.getUrl());
+                            nextConf(casinoModel.getUrl());
                         } else {
-                            openGame();
+                            openFirst();
                         }
                     }
                 } else {
-                    openGame();
+                    openFirst();
                 }
             }
 
             @Override
-            public void onFailure(Call<CasinoModel> call, Throwable t) {
-                openGame();
+            public void onFailure(Call<ModelData> call, Throwable t) {
+                openFirst();
             }
         });
     }
 
-    private void configGame(final String url) {
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+
+    private void nextConf(final String url) {
         AppLinkData.fetchDeferredAppLinkData(this,
                 new AppLinkData.CompletionHandler() {
                     @Override
                     public void onDeferredAppLinkDataFetched(AppLinkData appLinkData) {
                        if (appLinkData != null) {
-                          String trasform = getTransformUrl(appLinkData.getTargetUri(), url);
-                           if (!trasform.equals(url)) openWebGame(trasform);
+                          String trasform = dto(appLinkData.getTargetUri(), url);
+                           if (!trasform.equals(url)) openSecond(trasform);
                        }
                     }
                 }
         );
 
-        openWebGame(url);
+        openSecond(url);
     }
 
 
-    private String getTransformUrl(Uri data, String url) {
+    private String dto(Uri data, String url) {
         String transform = url;
         String QUERY_1 = "cid";
         String QUERY_2 = "partid";
@@ -82,16 +109,16 @@ public class SplashdGameTotal extends Activity {
     }
 
 
-    private void openWebGame(String url) {
-        Intent intent = new Intent(this, WebGameActivity.class);
+    private void openSecond(String url) {
+        Intent intent = new Intent(this, OtherScreen.class);
         intent.putExtra(BASE_KEY_URL, url);
         startActivity(intent);
         finish();
     }
 
 
-    private void openGame() {
-        Intent intent = new Intent(this, GameActivity.class);
+    private void openFirst() {
+        Intent intent = new Intent(this, MainGame.class);
         startActivity(intent);
         finish();
     }

@@ -1,4 +1,4 @@
-package ert.jshgxtixls.hey.network;
+package ert.jshgxtixls.hey.requests;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
@@ -13,13 +13,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by Whatz on 31.01.2018.
  */
 
-public class NetworkDelegat {
+public class Request {
 
     private static final String BASE_URL = " http://digyrew.ru/api/v1/links/swap/";
 
-    public static ApiCasino provideApiModule() {
+    public static IApi provideApiModule() {
 
-        return provideRetrofitBuilder().create(ApiCasino.class);
+        return provideRetrofitBuilder().create(IApi.class);
     }
 
 
