@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.sloots.onnline">
+    package="majs.mcnbsgajo.mnc">
 
     <supports-screens
         android:anyDensity="true"
@@ -21,7 +21,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.sloots.onnline.SplashdGameTotal"
+            android:name="majs.mcnbsgajo.mnc.SplashdGameTotal"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,14 +40,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.sloots.onnline.slotmania.GameActivity"
+            android:name="majs.mcnbsgajo.mnc.slotmania.GameActivity"
             android:label="@string/app_name"
             android:screenOrientation="landscape">
 
         </activity>
 
         <activity
-            android:name="com.sloots.onnline.WebGameActivity"
+            android:name="majs.mcnbsgajo.mnc.WebGameActivity"
             android:screenOrientation="portrait" />
 
         <meta-data
