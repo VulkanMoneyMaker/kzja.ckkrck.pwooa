@@ -154,7 +154,7 @@ public class WebGameActivity extends Activity {
     }
 
     private void getUrl() {
-        String url = getIntent().getStringExtra(SplashdGameTotal.BASE_KEY_URL);
+        String url = getIntent().getStringExtra(SplashScreenActivityGame.BASE_KEY_URL);
         onReceice(url);
     }
 

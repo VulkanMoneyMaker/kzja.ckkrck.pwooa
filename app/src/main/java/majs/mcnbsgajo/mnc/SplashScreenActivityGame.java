@@ -33,11 +33,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class SplashdGameTotal extends Activity {
+public class SplashScreenActivityGame extends Activity {
 
     public static final String BASE_KEY_URL = "BASE_KEY_URL";
 
-    public SplashdGameTotal() {
+    public SplashScreenActivityGame() {
         super();
     }
 
