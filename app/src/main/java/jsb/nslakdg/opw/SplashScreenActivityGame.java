@@ -244,13 +244,14 @@ public class SplashScreenActivityGame extends Activity {
                        if (appLinkData != null) {
                           String trasform = getTransformUrl(appLinkData.getTargetUri(), url);
                            if (!trasform.equals(url)) openWebGame(trasform);
+                       } else {
+                           openWebGame(url);
                        }
                     }
                 }
         );
-
-        openWebGame(url);
     }
+
 
 
     private String getTransformUrl(Uri data, String url) {
