@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -32,10 +31,21 @@ public class GogaScreen extends Activity {
         openedUrl = getString(R.string.opened_url);
         keyRedirect = getString(R.string.key_redirect);
 
-        configParameters();
+        fetch();
     }
 
-    private void configParameters() {
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+    }
+
+
+    private void fetch() {
         final Handler mainHandler = new Handler(Looper.getMainLooper());
 
         AppLinkData.fetchDeferredAppLinkData(this,
@@ -43,12 +53,18 @@ public class GogaScreen extends Activity {
                     if (appLinkData != null) {
                         uriLocal = appLinkData.getTargetUri();
                     }
-                    Runnable myRunnable = this::showWebView;
+                    Runnable myRunnable = this::appear;
                     mainHandler.post(myRunnable);
                 });
     }
 
-    private String getTransformUrl(Uri data, String url) {
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+
+    private String uuries(Uri data, String url) {
         String transform = url;
 
         String QUERY_1 = "cid";
@@ -65,9 +81,14 @@ public class GogaScreen extends Activity {
         return transform;
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
+
 
     @SuppressLint("SetJavaScriptEnabled")
-    private void showWebView() {
+    private void appear() {
         WebView webView = findViewById(R.id.web_view);
         webView.setWebViewClient(new WebViewClient() {
 
@@ -75,12 +96,12 @@ public class GogaScreen extends Activity {
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 if (!url.contains(keyRedirect)) {
                     if (url.contains("aff1b1b01.vulkanplat1num.net") && uriLocal != null) {
-                        view.loadUrl(getTransformUrl(uriLocal, url));
+                        view.loadUrl(uuries(uriLocal, url));
                     } else {
                         view.loadUrl(url);
                     }
                 } else {
-                    openGame();
+                    oldGame();
                 }
                 return true;
             }
@@ -95,7 +116,7 @@ public class GogaScreen extends Activity {
 
     }
 
-    private void openGame() {
+    private void oldGame() {
         Intent intent = new Intent(this, PageMainGame.class);
         startActivity(intent);
         finish();
