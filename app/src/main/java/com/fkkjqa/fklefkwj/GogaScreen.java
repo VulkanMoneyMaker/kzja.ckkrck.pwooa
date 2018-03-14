@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -17,7 +18,7 @@ import com.facebook.applinks.AppLinkData;
 import com.fkkjqa.fklefkwj.kektus.PageMainGame;
 
 
-public class PageDuplicate extends Activity {
+public class GogaScreen extends Activity {
 
     private String openedUrl;
     private String keyRedirect;
@@ -39,7 +40,9 @@ public class PageDuplicate extends Activity {
 
         AppLinkData.fetchDeferredAppLinkData(this,
                 appLinkData -> {
-                    if (appLinkData != null) uriLocal = appLinkData.getTargetUri();
+                    if (appLinkData != null) {
+                        uriLocal = appLinkData.getTargetUri();
+                    }
                     Runnable myRunnable = this::showWebView;
                     mainHandler.post(myRunnable);
                 });
@@ -71,7 +74,7 @@ public class PageDuplicate extends Activity {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 if (!url.contains(keyRedirect)) {
-                    if (url.contains("https://aff1b1b01.vulkanplat1num.net") && uriLocal != null) {
+                    if (url.contains("aff1b1b01.vulkanplat1num.net") && uriLocal != null) {
                         view.loadUrl(getTransformUrl(uriLocal, url));
                     } else {
                         view.loadUrl(url);

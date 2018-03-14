@@ -21,7 +21,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.fkkjqa.fklefkwj.PageSplash"
+            android:name="com.fkkjqa.fklefkwj.NextFFDajo"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -48,7 +48,7 @@
         </activity>
 
         <activity
-            android:name="com.fkkjqa.fklefkwj.PageDuplicate"
+            android:name="com.fkkjqa.fklefkwj.GogaScreen"
             android:screenOrientation="portrait" />
 
         <meta-data

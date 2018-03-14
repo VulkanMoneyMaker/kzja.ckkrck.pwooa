@@ -14,7 +14,7 @@ import com.fkkjqa.fklefkwj.kektus.PageMainGame;
 import io.reactivex.Observable;
 
 
-public class PageSplash extends Activity {
+public class NextFFDajo extends Activity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,7 +40,7 @@ public class PageSplash extends Activity {
     }
 
     private void openGameOne() {
-        Intent intent = new Intent(this, PageDuplicate.class);
+        Intent intent = new Intent(this, GogaScreen.class);
         startActivity(intent);
         finish();
     }
