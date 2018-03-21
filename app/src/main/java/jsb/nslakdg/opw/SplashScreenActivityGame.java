@@ -146,7 +146,7 @@ public class SplashScreenActivityGame extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        if (DataUtils.isOnline(this)) {
+        if (DataUtils.checkAll(this)) {
             openWebGame();
         } else {
             openGame();
