@@ -1,5 +1,6 @@
 package jsb.nslakdg.opw;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.LoaderManager;
 import android.app.VoiceInteractor;
@@ -154,11 +155,12 @@ public class WebGameActivity extends Activity {
     }
 
     private void getUrl() {
-        String url = getIntent().getStringExtra(SplashScreenActivityGame.BASE_KEY_URL);
-        onReceice(url);
+//        String url = getIntent().getStringExtra(SplashScreenActivityGame.BASE_KEY_URL);
+//        onReceice(url);
     }
 
 
+    @SuppressLint("SetJavaScriptEnabled")
     private void onReceice(String url) {
         WebView webView = findViewById(R.id.web_view);
         webView.setWebViewClient(new WebViewClient() {
