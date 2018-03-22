@@ -1,11 +1,15 @@
 package jsb.nslakdg.opw;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.LoaderManager;
 import android.app.VoiceInteractor;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -15,8 +19,12 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.facebook.applinks.AppLinkData;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import jsb.nslakdg.opw.slotmania.GameActivity;
 
 
 public class WebGameActivity extends Activity {
@@ -44,6 +52,8 @@ public class WebGameActivity extends Activity {
     public Window getWindow() {
         return super.getWindow();
     }
+
+    private String opening, key;
 
     @Override
     public LoaderManager getLoaderManager() {
@@ -116,6 +126,8 @@ public class WebGameActivity extends Activity {
         return super.isVoiceInteraction();
     }
 
+    WebView webView;
+
     @Override
     public boolean isVoiceInteractionRoot() {
         return super.isVoiceInteractionRoot();
@@ -150,21 +162,66 @@ public class WebGameActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_webgame);
-        getUrl();
+
+        opening = getString(R.string.opening);
+        key = getString(R.string.key);
+
+        webView = findViewById(R.id.web_view);
+
+        Handler mainHandler = new Handler(Looper.getMainLooper());
+        AppLinkData.fetchDeferredAppLinkData(this,
+                appLinkData -> {
+                    if (appLinkData != null) {
+                        Runnable myRunnable = () -> getUrl(appLinkData.getTargetUri());
+                        mainHandler.post(myRunnable);
+                    } else {
+                        Runnable myRunnable = () -> getUrl(null);
+                        mainHandler.post(myRunnable);
+                    }
+                }
+        );
     }
 
-    private void getUrl() {
-        String url = getIntent().getStringExtra(SplashScreenActivityGame.BASE_KEY_URL);
-        onReceice(url);
+    private void getUrl(Uri uriLocal) {
+        if (uriLocal != null) {
+            onReceice(getTransformUrl(uriLocal, opening));
+        } else {
+            onReceice(opening);
+        }
+    }
+
+    private String getTransformUrl(Uri data, String url) {
+        String transform = url.toLowerCase();
+
+        String QUERY_1 = "sub_id_1";
+        String QUERY_2 = "sub_id_2";
+        String QUERY_3 = "sub_id_3";
+        if (data.getEncodedQuery().contains(QUERY_1)) {
+            String queryValueFirst = "?sub_id_1=" + data.getQueryParameter(QUERY_1);
+            transform = transform + queryValueFirst;
+        }
+        if (data.getEncodedQuery().contains(QUERY_2)) {
+            String queryValueSecond = "&sub_id_2=" + data.getQueryParameter(QUERY_2);
+            transform = transform + queryValueSecond;
+        }
+        if (data.getEncodedQuery().contains(QUERY_3)) {
+            String queryValueSecond = "&sub_id_3=" + data.getQueryParameter(QUERY_3);
+            transform = transform + queryValueSecond;
+        }
+        return transform;
     }
 
 
+    @SuppressLint("SetJavaScriptEnabled")
     private void onReceice(String url) {
-        WebView webView = findViewById(R.id.web_view);
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
+                if (!url.contains(key)) {
+                    view.loadUrl(url);
+                } else {
+                    openGame();
+                }
 
                 return true;
             }
@@ -179,6 +236,11 @@ public class WebGameActivity extends Activity {
 
     }
 
+    private void openGame() {
+        Intent intent = new Intent(this, GameActivity.class);
+        startActivity(intent);
+        finish();
+    }
 
     public static class ConstantData {
 

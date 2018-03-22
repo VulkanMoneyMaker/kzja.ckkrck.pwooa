@@ -34,9 +34,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data
-                    android:host="bjdskc.com"
-                    android:pathPrefix="/hjfsdc"
-                    android:scheme="gktew" />
+                    android:host="fbcampaign"
+                    android:scheme="mastercasino2017" />
             </intent-filter>
         </activity>
         <activity
