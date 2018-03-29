@@ -12,9 +12,9 @@ import io.reactivex.Single;
 
 public class DetailIteractor implements IDetailIteractor {
 
-    private IDetailRepository iDetailRepository;
+    private RepoR iDetailRepository;
 
-    public DetailIteractor(IDetailRepository iDetailRepository) {
+    public DetailIteractor(RepoR iDetailRepository) {
         this.iDetailRepository = iDetailRepository;
     }
 
