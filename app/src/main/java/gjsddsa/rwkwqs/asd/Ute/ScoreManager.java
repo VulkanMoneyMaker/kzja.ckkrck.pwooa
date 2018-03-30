@@ -1,4 +1,4 @@
-package gjsddsa.rwkwqs.asd.Other;
+package gjsddsa.rwkwqs.asd.Ute;
 
 import android.database.SQLException;
 import android.database.sqlite.SQLiteCursor;

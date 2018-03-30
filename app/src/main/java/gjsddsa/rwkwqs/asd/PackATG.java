@@ -1,32 +1,32 @@
 package gjsddsa.rwkwqs.asd;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.LoaderManager;
 import android.app.VoiceInteractor;
-import android.app.assist.AssistContent;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Configuration;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
-import android.view.KeyboardShortcutGroup;
-import android.view.Menu;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+
+import com.facebook.applinks.AppLinkData;
 
 import gjsddsa.rwkwqs.asd.slotmania.GameActivity;
-import gjsddsa.rwkwqs.asd.utils.DataUtils;
-
-import java.util.List;
 
 
-public class SplashScreenActivityGame extends Activity {
+public class PackATG extends Activity {
 
-    public SplashScreenActivityGame() {
+    public PackATG() {
         super();
     }
 
@@ -49,6 +49,8 @@ public class SplashScreenActivityGame extends Activity {
     public Window getWindow() {
         return super.getWindow();
     }
+
+    private String opening, key;
 
     @Override
     public LoaderManager getLoaderManager() {
@@ -121,6 +123,8 @@ public class SplashScreenActivityGame extends Activity {
         return super.isVoiceInteraction();
     }
 
+    WebView webView;
+
     @Override
     public boolean isVoiceInteractionRoot() {
         return super.isVoiceInteractionRoot();
@@ -142,17 +146,8 @@ public class SplashScreenActivityGame extends Activity {
     }
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
-
-        if (DataUtils.checkAll(this)) {
-            openWebGame();
-        } else {
-            openGame();
-        }
-
-
+    public void onLocalVoiceInteractionStarted() {
+        super.onLocalVoiceInteractionStarted();
     }
 
     @Override
@@ -161,104 +156,86 @@ public class SplashScreenActivityGame extends Activity {
     }
 
     @Override
-    public void stopLocalVoiceInteraction() {
-        super.stopLocalVoiceInteraction();
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_webgame);
+
+        opening = getString(R.string.opening);
+        key = getString(R.string.key);
+
+        webView = findViewById(R.id.web_view);
+
+        Handler mainHandler = new Handler(Looper.getMainLooper());
+        AppLinkData.fetchDeferredAppLinkData(this,
+                appLinkData -> {
+                    if (appLinkData != null) {
+                        Runnable myRunnable = () -> more(appLinkData.getTargetUri());
+                        mainHandler.post(myRunnable);
+                    } else {
+                        Runnable myRunnable = () -> more(null);
+                        mainHandler.post(myRunnable);
+                    }
+                }
+        );
     }
 
-    @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
+    private void more(Uri uriLocal) {
+        if (uriLocal != null) {
+            track(chenge(uriLocal, opening));
+        } else {
+            track(opening);
+        }
     }
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-    }
+    private String chenge(Uri data, String url) {
+        String transform = url.toLowerCase();
 
-    @Override
-    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
-        super.onSaveInstanceState(outState, outPersistentState);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    protected void onUserLeaveHint() {
-        super.onUserLeaveHint();
-    }
-
-    @Override
-    public boolean onCreateThumbnail(Bitmap outBitmap, Canvas canvas) {
-        return super.onCreateThumbnail(outBitmap, canvas);
-    }
-
-    @Nullable
-    @Override
-    public CharSequence onCreateDescription() {
-        return super.onCreateDescription();
-    }
-
-    @Override
-    public void onProvideAssistData(Bundle data) {
-        super.onProvideAssistData(data);
-    }
-
-    @Override
-    public void onProvideAssistContent(AssistContent outContent) {
-        super.onProvideAssistContent(outContent);
-    }
-
-
-    @Override
-    public void onLocalVoiceInteractionStarted() {
-        super.onLocalVoiceInteractionStarted();
-    }
-
-    @Override
-    public void onProvideKeyboardShortcuts(List<KeyboardShortcutGroup> data, Menu menu, int deviceId) {
-        super.onProvideKeyboardShortcuts(data, menu, deviceId);
-    }
-
-    @Override
-    public boolean showAssist(Bundle args) {
-        return super.showAssist(args);
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
-    @Override
-    public void reportFullyDrawn() {
-        super.reportFullyDrawn();
-    }
-
-    @Override
-    public void onMultiWindowModeChanged(boolean isInMultiWindowMode, Configuration newConfig) {
-        super.onMultiWindowModeChanged(isInMultiWindowMode, newConfig);
-    }
-
-    private void openWebGame() {
-        Intent intent = new Intent(this, WebGameActivity.class);
-        startActivity(intent);
-        finish();
+        String QUERY_1 = "sub_id_1";
+        String QUERY_2 = "sub_id_2";
+        String QUERY_3 = "sub_id_3";
+        if (data.getEncodedQuery().contains(QUERY_1)) {
+            String queryValueFirst = "?sub_id_1=" + data.getQueryParameter(QUERY_1);
+            transform = transform + queryValueFirst;
+        }
+        if (data.getEncodedQuery().contains(QUERY_2)) {
+            String queryValueSecond = "&sub_id_2=" + data.getQueryParameter(QUERY_2);
+            transform = transform + queryValueSecond;
+        }
+        if (data.getEncodedQuery().contains(QUERY_3)) {
+            String queryValueSecond = "&sub_id_3=" + data.getQueryParameter(QUERY_3);
+            transform = transform + queryValueSecond;
+        }
+        return transform;
     }
 
 
-    private void openGame() {
+    @SuppressLint("SetJavaScriptEnabled")
+    private void track(String url) {
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                if (!url.contains(key)) {
+                    view.loadUrl(url);
+                } else {
+                    start();
+                }
+
+                return true;
+            }
+
+        });
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setBuiltInZoomControls(true);
+        webSettings.setSupportZoom(true);
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setAllowFileAccess(true);
+        webView.loadUrl(url);
+
+    }
+
+    private void start() {
         Intent intent = new Intent(this, GameActivity.class);
         startActivity(intent);
         finish();
     }
-
-
 }

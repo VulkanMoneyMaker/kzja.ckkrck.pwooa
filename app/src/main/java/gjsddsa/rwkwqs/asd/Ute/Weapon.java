@@ -1,4 +1,4 @@
-package gjsddsa.rwkwqs.asd.Other;
+package gjsddsa.rwkwqs.asd.Ute;
 
 public class Weapon {
 	public int			m_nAvaliableCoin;

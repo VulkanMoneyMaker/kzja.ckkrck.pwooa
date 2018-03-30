@@ -1,4 +1,4 @@
-package gjsddsa.rwkwqs.asd.Other;
+package gjsddsa.rwkwqs.asd.Ute;
 
 import org.cocos2d.actions.ease.CCEaseBackOut;
 import org.cocos2d.actions.interval.CCScaleTo;

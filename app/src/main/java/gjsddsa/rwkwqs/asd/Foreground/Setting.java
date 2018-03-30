@@ -1,4 +1,4 @@
-package gjsddsa.rwkwqs.asd.Layer;
+package gjsddsa.rwkwqs.asd.Foreground;
 
 import org.cocos2d.layers.CCLayer;
 import org.cocos2d.layers.CCScene;
@@ -8,7 +8,7 @@ import org.cocos2d.nodes.CCSprite;
 import org.cocos2d.transitions.CCFadeTransition;
 
 
-import gjsddsa.rwkwqs.asd.Other.GrowButton;
+import gjsddsa.rwkwqs.asd.Ute.GrowButton;
 import gjsddsa.rwkwqs.asd.slotmania.G;
 
 

@@ -16,10 +16,10 @@ import android.view.Gravity;
 import android.view.Window;
 import android.view.WindowManager.LayoutParams;
 
-import gjsddsa.rwkwqs.asd.Layer.LogoLayer;
-import gjsddsa.rwkwqs.asd.Layer.TitleLayer;
-import gjsddsa.rwkwqs.asd.Other.ScoreManager;
-import gjsddsa.rwkwqs.asd.utils.Random;
+import gjsddsa.rwkwqs.asd.Foreground.LogoLayer;
+import gjsddsa.rwkwqs.asd.Foreground.TitleLayer;
+import gjsddsa.rwkwqs.asd.Ute.ScoreManager;
+import gjsddsa.rwkwqs.asd.instruments.Random;
 
 
 public class GameActivity extends Activity {

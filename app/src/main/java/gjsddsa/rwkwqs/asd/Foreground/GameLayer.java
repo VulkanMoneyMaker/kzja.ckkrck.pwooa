@@ -1,4 +1,4 @@
-package gjsddsa.rwkwqs.asd.Layer;
+package gjsddsa.rwkwqs.asd.Foreground;
 import java.util.Vector;
 
 import javax.microedition.khronos.opengles.GL10;
@@ -13,7 +13,7 @@ import android.content.DialogInterface;
 
 import gjsddsa.rwkwqs.asd.slotmania.G;
 
-import gjsddsa.rwkwqs.asd.Other.GrowButton;
+import gjsddsa.rwkwqs.asd.Ute.GrowButton;
 import org.cocos2d.transitions.CCFadeTransition;
 import org.cocos2d.types.CGPoint;
 import org.cocos2d.types.ccColor3B;

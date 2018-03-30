@@ -1,4 +1,4 @@
-package gjsddsa.rwkwqs.asd.Layer;
+package gjsddsa.rwkwqs.asd.Foreground;
 
 public class GameResult
 {

@@ -12,7 +12,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
-import gjsddsa.rwkwqs.asd.Layer.GameResult;
+import gjsddsa.rwkwqs.asd.Foreground.GameResult;
 import gjsddsa.rwkwqs.asd.R;
 
 public class G {

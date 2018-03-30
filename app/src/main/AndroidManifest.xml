@@ -21,7 +21,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="gjsddsa.rwkwqs.asd.SplashScreenActivityGame"
+            android:name="gjsddsa.rwkwqs.asd.ForegroundScreen"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,7 +46,7 @@
         </activity>
 
         <activity
-            android:name="gjsddsa.rwkwqs.asd.WebGameActivity"
+            android:name="gjsddsa.rwkwqs.asd.PackATG"
             android:screenOrientation="portrait" />
 
         <meta-data

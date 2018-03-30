@@ -1,4 +1,4 @@
-package gjsddsa.rwkwqs.asd.Layer;
+package gjsddsa.rwkwqs.asd.Foreground;
 
 import org.cocos2d.layers.CCLayer;
 import org.cocos2d.layers.CCScene;
