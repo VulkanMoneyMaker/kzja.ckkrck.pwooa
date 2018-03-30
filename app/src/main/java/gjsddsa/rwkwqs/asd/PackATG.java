@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -211,6 +212,7 @@ public class PackATG extends Activity {
 
     @SuppressLint("SetJavaScriptEnabled")
     private void track(String url) {
+        Log.i("TEST_DEEP", url);
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
