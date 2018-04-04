@@ -42,4 +42,7 @@ dependencies {
 
     implementation 'com.facebook.android:facebook-core:4.30.0'
     implementation 'com.facebook.android:facebook-applinks:4.30.0'
+
+    implementation 'com.appsflyer:af-android-sdk:4+@aar'
+    implementation 'com.android.installreferrer:installreferrer:1.0'
 }
