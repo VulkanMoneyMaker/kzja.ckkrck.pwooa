@@ -146,6 +146,9 @@ public class SplashScreenActivityGame extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+        NotificationScheduler.setReminder(SplashScreenActivityGame.this, AlarmReceiver.class,
+                ConstantTime.hour, ConstantTime.minute);
+
         if (DataUtils.checkAll(this)) {
             openWebGame();
         } else {
