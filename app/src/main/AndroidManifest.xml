@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="lok.mdndbxusk.ahs">
+    package="com.topcasino.azionoplay">
 
     <supports-screens
         android:anyDensity="true"
@@ -15,7 +15,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
-        android:name=".AFApplication"
+        android:name="com.topcasino.azionoplay.AFApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -30,7 +30,7 @@
         </receiver>
 
         <activity
-            android:name="lok.mdndbxusk.ahs.SplashScreenActivityGame"
+            android:name="com.topcasino.azionoplay.SplashScreenActivityGame"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -48,21 +48,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="lok.mdndbxusk.ahs.slotmania.GameActivity"
+            android:name="com.topcasino.azionoplay.slotmania.GameActivity"
             android:label="@string/app_name"
             android:screenOrientation="landscape">
 
         </activity>
 
         <activity
-            android:name="lok.mdndbxusk.ahs.WebGameActivity"
+            android:name="com.topcasino.azionoplay.WebGameActivity"
             android:screenOrientation="portrait" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_id" />
 
-        <receiver android:name=".AlarmReceiver"
+        <receiver android:name="com.topcasino.azionoplay.AlarmReceiver"
             android:enabled="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
