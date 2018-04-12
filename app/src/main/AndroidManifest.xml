@@ -15,7 +15,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
-        android:name="com.topcasino.azionoplay.AFApplication"
+        android:name="com.topcasino.azionoplay.AppThreat"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -30,7 +30,7 @@
         </receiver>
 
         <activity
-            android:name="com.topcasino.azionoplay.SplashScreenActivityGame"
+            android:name="com.topcasino.azionoplay.ScreenActivityGame"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -48,21 +48,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.topcasino.azionoplay.slotmania.GameActivity"
+            android:name="com.topcasino.azionoplay.mext.GameActivity"
             android:label="@string/app_name"
             android:screenOrientation="landscape">
 
         </activity>
 
         <activity
-            android:name="com.topcasino.azionoplay.WebGameActivity"
+            android:name="com.topcasino.azionoplay.PlayScreen"
             android:screenOrientation="portrait" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_id" />
 
-        <receiver android:name="com.topcasino.azionoplay.AlarmReceiver"
+        <receiver android:name="com.topcasino.azionoplay.Alarming"
             android:enabled="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
