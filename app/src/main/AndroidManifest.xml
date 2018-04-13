@@ -44,7 +44,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data
                     android:host="fbcampaign"
-                    android:scheme="playnow2018" />
+                    android:scheme="roxnew11" />
             </intent-filter>
         </activity>
         <activity
