@@ -20,7 +20,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 
         //Trigger the notification
         NotificationScheduler.showNotification(context, SplashScreenActivityGame.class,
-                "Твой \uD83C\uDFB0ДЖЕКПОТ\uD83C\uDFB0 уже здесь!", "\uD83C\uDF0BТы уже ПОБЕДИЛ, забирай свое \uD83C\uDF0B");
+                "Элитные \uD83C\uDF81ПРИЗЫ \uD83C\uDF81", "Время ограниченно! ⏱⏱⏱");
 
     }
 }
