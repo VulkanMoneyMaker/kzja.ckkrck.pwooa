@@ -9,8 +9,8 @@ import com.appsflyer.AppsFlyerLib;
 import java.util.Map;
 
 
-public class AFApplication extends Application {
-    private static final String TAG = AFApplication.class.getSimpleName();
+public class SSApp extends Application {
+    private static final String TAG = SSApp.class.getSimpleName();
     private static final String AF_DEV_KEY = "scA85DtfhxLRsw6NpixhEF";
     private AppsFlyerConversionListener conversionDataListener;
     @Override

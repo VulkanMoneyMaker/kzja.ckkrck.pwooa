@@ -1,4 +1,4 @@
-package com.slotclubparty.tophard.Other;
+package com.slotclubparty.tophard.trash;
 
 import android.database.SQLException;
 import android.database.sqlite.SQLiteCursor;

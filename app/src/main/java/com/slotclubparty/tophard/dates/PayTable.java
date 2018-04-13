@@ -1,4 +1,4 @@
-package com.slotclubparty.tophard.Layer;
+package com.slotclubparty.tophard.dates;
 
 import org.cocos2d.layers.CCLayer;
 import org.cocos2d.layers.CCScene;
@@ -8,8 +8,8 @@ import org.cocos2d.nodes.CCSprite;
 import org.cocos2d.transitions.CCFadeTransition;
 
 
-import com.slotclubparty.tophard.Other.GrowButton;
-import com.slotclubparty.tophard.slotmania.G;
+import com.slotclubparty.tophard.trash.GrowButton;
+import com.slotclubparty.tophard.all.G;
 
 public class PayTable extends CCLayer
 {

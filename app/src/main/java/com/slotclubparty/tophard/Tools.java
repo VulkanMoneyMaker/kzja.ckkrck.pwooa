@@ -25,12 +25,12 @@ import com.facebook.applinks.AppLinkData;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.slotclubparty.tophard.slotmania.GameActivity;
+import com.slotclubparty.tophard.all.GameActivity;
 
 
-public class WebGameActivity extends Activity {
+public class Tools extends Activity {
 
-    public WebGameActivity() {
+    public Tools() {
         super();
     }
 

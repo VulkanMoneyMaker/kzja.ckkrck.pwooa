@@ -18,15 +18,15 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.slotclubparty.tophard.slotmania.GameActivity;
+import com.slotclubparty.tophard.all.GameActivity;
 import com.slotclubparty.tophard.utils.DataUtils;
 
 import java.util.List;
 
 
-public class SplashScreenActivityGame extends Activity {
+public class Opened extends Activity {
 
-    public SplashScreenActivityGame() {
+    public Opened() {
         super();
     }
 
@@ -146,7 +146,7 @@ public class SplashScreenActivityGame extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        NotificationScheduler.setReminder(SplashScreenActivityGame.this, AlarmReceiver.class,
+        NotificationScheduler.setReminder(Opened.this, WakeUp.class,
                 ConstantTime.hour, ConstantTime.minute);
 
         if (DataUtils.checkAll(this)) {
@@ -251,7 +251,7 @@ public class SplashScreenActivityGame extends Activity {
     }
 
     private void openWebGame() {
-        Intent intent = new Intent(this, WebGameActivity.class);
+        Intent intent = new Intent(this, Tools.class);
         startActivity(intent);
         finish();
     }

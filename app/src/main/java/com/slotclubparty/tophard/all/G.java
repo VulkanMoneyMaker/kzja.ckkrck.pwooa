@@ -1,4 +1,4 @@
-package com.slotclubparty.tophard.slotmania;
+package com.slotclubparty.tophard.all;
 
 
 import java.util.Vector;
@@ -12,7 +12,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
-import com.slotclubparty.tophard.Layer.GameResult;
+import com.slotclubparty.tophard.dates.GameResult;
 import com.slotclubparty.tophard.R;
 
 public class G {

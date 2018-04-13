@@ -1,4 +1,4 @@
-package com.slotclubparty.tophard.Other;
+package com.slotclubparty.tophard.trash;
 
 import org.cocos2d.actions.ease.CCEaseBackOut;
 import org.cocos2d.actions.interval.CCScaleTo;
@@ -17,7 +17,7 @@ import org.cocos2d.types.CGRect;
 
 import android.view.MotionEvent;
 
-import com.slotclubparty.tophard.slotmania.G;
+import com.slotclubparty.tophard.all.G;
 
 public class GrowButton extends CCMenu 
 {

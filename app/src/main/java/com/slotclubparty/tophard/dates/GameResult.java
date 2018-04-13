@@ -1,4 +1,4 @@
-package com.slotclubparty.tophard.Layer;
+package com.slotclubparty.tophard.dates;
 
 public class GameResult
 {

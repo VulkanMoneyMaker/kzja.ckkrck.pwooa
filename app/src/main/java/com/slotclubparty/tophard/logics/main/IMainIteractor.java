@@ -1,4 +1,4 @@
-package com.slotclubparty.tophard.business.main;
+package com.slotclubparty.tophard.logics.main;
 
 
 import java.util.List;

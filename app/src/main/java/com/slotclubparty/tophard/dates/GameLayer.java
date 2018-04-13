@@ -1,4 +1,4 @@
-package com.slotclubparty.tophard.Layer;
+package com.slotclubparty.tophard.dates;
 import java.util.Vector;
 
 import javax.microedition.khronos.opengles.GL10;
@@ -11,9 +11,9 @@ import org.cocos2d.nodes.CCSprite;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 
-import com.slotclubparty.tophard.slotmania.G;
+import com.slotclubparty.tophard.all.G;
 
-import com.slotclubparty.tophard.Other.GrowButton;
+import com.slotclubparty.tophard.trash.GrowButton;
 import org.cocos2d.transitions.CCFadeTransition;
 import org.cocos2d.types.CGPoint;
 import org.cocos2d.types.ccColor3B;

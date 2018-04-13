@@ -1,9 +1,9 @@
-package com.slotclubparty.tophard.Layer;
+package com.slotclubparty.tophard.dates;
 
 
 import org.cocos2d.utils.javolution.MathLib;
 
-import com.slotclubparty.tophard.slotmania.G;
+import com.slotclubparty.tophard.all.G;
 
 public class Engine 
 {	

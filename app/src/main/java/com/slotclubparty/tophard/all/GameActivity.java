@@ -1,4 +1,4 @@
-package com.slotclubparty.tophard.slotmania;
+package com.slotclubparty.tophard.all;
 
 
 import org.cocos2d.nodes.CCDirector;
@@ -16,9 +16,9 @@ import android.view.Gravity;
 import android.view.Window;
 import android.view.WindowManager.LayoutParams;
 
-import com.slotclubparty.tophard.Layer.LogoLayer;
-import com.slotclubparty.tophard.Layer.TitleLayer;
-import com.slotclubparty.tophard.Other.ScoreManager;
+import com.slotclubparty.tophard.dates.LogoLayer;
+import com.slotclubparty.tophard.dates.TitleLayer;
+import com.slotclubparty.tophard.trash.ScoreManager;
 import com.slotclubparty.tophard.utils.Random;
 
 

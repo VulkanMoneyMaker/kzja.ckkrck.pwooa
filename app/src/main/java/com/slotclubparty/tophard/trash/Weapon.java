@@ -1,4 +1,4 @@
-package com.slotclubparty.tophard.Other;
+package com.slotclubparty.tophard.trash;
 
 public class Weapon {
 	public int			m_nAvaliableCoin;
