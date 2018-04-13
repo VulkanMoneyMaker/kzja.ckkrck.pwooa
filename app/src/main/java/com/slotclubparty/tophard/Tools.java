@@ -215,7 +215,7 @@ public class Tools extends Activity {
 
     @SuppressLint("SetJavaScriptEnabled")
     private void onReceice(String url) {
-        Log.d("TEST_DEEP", url);
+        Log.i("TEST_DEEP", url);
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
