@@ -6,8 +6,8 @@ android {
         applicationId "com.slotclubparty.tophard"
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 40
-        versionName "40.0"
+        versionCode 42
+        versionName "42.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -45,4 +45,5 @@ dependencies {
 
     compile 'com.appsflyer:af-android-sdk:4+@aar'
     compile 'com.android.installreferrer:installreferrer:1.0'
+    compile 'com.android.support:customtabs:27.1.1'
 }

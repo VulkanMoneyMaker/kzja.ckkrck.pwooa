@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
+import android.support.customtabs.CustomTabsIntent;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -220,7 +221,7 @@ public class Tools extends Activity {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 if (!url.contains(key)) {
-                    view.loadUrl(url);
+                    tabs(url);
                 } else {
                     openGame();
                 }
@@ -236,6 +237,12 @@ public class Tools extends Activity {
         webSettings.setAllowFileAccess(true);
         webView.loadUrl(url);
 
+    }
+
+    private void tabs(String url) {
+        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+        CustomTabsIntent customTabsIntent = builder.build();
+        customTabsIntent.launchUrl(this, Uri.parse(url));
     }
 
     private void openGame() {
