@@ -20,7 +20,7 @@ public class WakeUp extends BroadcastReceiver {
 
         //Trigger the notification
         NotificationScheduler.showNotification(context, Opened.class,
-                "Элитные \uD83C\uDF81ПРИЗЫ \uD83C\uDF81", "Время ограниченно! ⏱⏱⏱");
+                "ПРИЗЫ ЖДУТ⏱", "Сказочные призы в твоих руках!");
 
     }
 }
