@@ -15,7 +15,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
-        android:name="lots.slotsazinotopora.triqaz.SSApp"
+        android:name="newslots.playnow.topcom.SSApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -30,7 +30,7 @@
         </receiver>
 
         <activity
-            android:name="lots.slotsazinotopora.triqaz.StartMainActivity"
+            android:name="newslots.playnow.topcom.StartMainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -48,21 +48,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="lots.slotsazinotopora.triqaz.all.GameActivity"
+            android:name="newslots.playnow.topcom.all.GameActivity"
             android:label="@string/app_name"
             android:screenOrientation="landscape">
 
         </activity>
 
         <activity
-            android:name="lots.slotsazinotopora.triqaz.Tools"
+            android:name="newslots.playnow.topcom.Tools"
             android:screenOrientation="portrait" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_id" />
 
-        <receiver android:name="lots.slotsazinotopora.triqaz.WakeUp"
+        <receiver android:name="newslots.playnow.topcom.WakeUp"
             android:enabled="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
