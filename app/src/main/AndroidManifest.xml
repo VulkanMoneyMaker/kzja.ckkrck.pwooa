@@ -44,7 +44,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data
                     android:host="fbcampaign"
-                    android:scheme="azzis22" />
+                    android:scheme="newslots" />
             </intent-filter>
         </activity>
         <activity
