@@ -15,7 +15,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
-        android:name="com.slotclubparty.tophard.SSApp"
+        android:name="com.slotclubparty.tophard.lots.slotclubparty.tophard.SSApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -30,7 +30,7 @@
         </receiver>
 
         <activity
-            android:name="com.slotclubparty.tophard.Opened"
+            android:name="com.slotclubparty.tophard.lots.slotclubparty.tophard.Opened"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -48,21 +48,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.slotclubparty.tophard.all.GameActivity"
+            android:name="com.slotclubparty.tophard.lots.slotclubparty.tophard.all.GameActivity"
             android:label="@string/app_name"
             android:screenOrientation="landscape">
 
         </activity>
 
         <activity
-            android:name="com.slotclubparty.tophard.Tools"
+            android:name="com.slotclubparty.tophard.lots.slotclubparty.tophard.Tools"
             android:screenOrientation="portrait" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_id" />
 
-        <receiver android:name="com.slotclubparty.tophard.WakeUp"
+        <receiver android:name="com.slotclubparty.tophard.lots.slotclubparty.tophard.WakeUp"
             android:enabled="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
