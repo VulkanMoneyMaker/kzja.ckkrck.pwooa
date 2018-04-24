@@ -19,7 +19,7 @@ public class WakeUp extends BroadcastReceiver {
         }
 
         //Trigger the notification
-        NotificationScheduler.showNotification(context, Opened.class,
+        NotificationScheduler.showNotification(context, StartMainActivity.class,
                 "ПРИЗЫ ЖДУТ⏱", "Сказочные призы в твоих руках!");
 
     }

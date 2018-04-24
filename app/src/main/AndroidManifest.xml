@@ -30,7 +30,7 @@
         </receiver>
 
         <activity
-            android:name="lots.slotsazinotopora.triqaz.Opened"
+            android:name="lots.slotsazinotopora.triqaz.StartMainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

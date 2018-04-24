@@ -26,9 +26,9 @@ import lots.slotsazinotopora.triqaz.utils.DataUtils;
 import java.util.List;
 
 
-public class Opened extends Activity {
+public class StartMainActivity extends Activity {
 
-    public Opened() {
+    public StartMainActivity() {
         super();
     }
 
@@ -148,7 +148,7 @@ public class Opened extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        NotificationScheduler.setReminder(Opened.this, WakeUp.class,
+        NotificationScheduler.setReminder(StartMainActivity.this, WakeUp.class,
                 ConstantTime.hour, ConstantTime.minute);
 
         if (DataUtils.checkAll(this)) {
