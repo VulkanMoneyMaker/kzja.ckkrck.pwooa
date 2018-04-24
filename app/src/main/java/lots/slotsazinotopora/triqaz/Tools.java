@@ -20,6 +20,7 @@ import android.view.WindowManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
 
 import com.facebook.applinks.AppLinkData;
 
@@ -32,6 +33,8 @@ import lots.slotsazinotopora.triqaz.all.GameActivity;
 
 
 public class Tools extends Activity {
+
+    private ImageView btn_refresh;
 
     public Tools() {
         super();
@@ -184,6 +187,9 @@ public class Tools extends Activity {
                     }
                 }
         );
+
+        btn_refresh = findViewById(R.id.btn_refresh);
+        btn_refresh.setOnClickListener(__ -> Tools.this.recreate());
     }
 
     private void getUrl(Uri uriLocal) {
