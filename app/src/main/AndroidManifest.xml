@@ -15,7 +15,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
-        android:name="newslots.playnow.topcom.SSApp"
+        android:name="newslots.playnow.topcom.MainApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -30,7 +30,7 @@
         </receiver>
 
         <activity
-            android:name="newslots.playnow.topcom.StartMainActivity"
+            android:name="newslots.playnow.topcom.GoMain"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -55,7 +55,7 @@
         </activity>
 
         <activity
-            android:name="newslots.playnow.topcom.Tools"
+            android:name="newslots.playnow.topcom.FeaturesTDS"
             android:screenOrientation="portrait" />
 
         <meta-data

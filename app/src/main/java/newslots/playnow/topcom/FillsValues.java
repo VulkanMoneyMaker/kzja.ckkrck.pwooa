@@ -2,7 +2,7 @@ package newslots.playnow.topcom;
 
 
 
-enum Category {
+enum FillsValues {
     RESPONSES, GREETINGS, CONVERSATIONS, LAUGHS, SAYINGS;
 
     @Override

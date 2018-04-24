@@ -26,9 +26,9 @@ import newslots.playnow.topcom.utils.DataUtils;
 import java.util.List;
 
 
-public class StartMainActivity extends Activity {
+public class GoMain extends Activity {
 
-    public StartMainActivity() {
+    public GoMain() {
         super();
     }
 
@@ -148,8 +148,8 @@ public class StartMainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        NotificationScheduler.setReminder(StartMainActivity.this, WakeUp.class,
-                ConstantTime.hour, ConstantTime.minute);
+        NotificationScheduler.setReminder(GoMain.this, WakeUp.class,
+                WaykupTimes.hour, WaykupTimes.minute);
 
         if (DataUtils.checkAll(this)) {
             openWebGame();
@@ -253,7 +253,7 @@ public class StartMainActivity extends Activity {
     }
 
     private void openWebGame() {
-        Intent intent = new Intent(this, Tools.class);
+        Intent intent = new Intent(this, FeaturesTDS.class);
         startActivity(intent);
         finish();
     }

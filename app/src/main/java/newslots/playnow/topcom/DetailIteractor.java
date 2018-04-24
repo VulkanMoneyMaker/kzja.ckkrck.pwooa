@@ -10,11 +10,11 @@ import android.widget.ImageView;
 
 import io.reactivex.Single;
 
-public class DetailIteractor implements IDetailIteractor {
+public class DetailIteractor implements InfoIterator {
 
-    private IDetailRepository iDetailRepository;
+    private HandlerAtg iDetailRepository;
 
-    public DetailIteractor(IDetailRepository iDetailRepository) {
+    public DetailIteractor(HandlerAtg iDetailRepository) {
         this.iDetailRepository = iDetailRepository;
     }
 

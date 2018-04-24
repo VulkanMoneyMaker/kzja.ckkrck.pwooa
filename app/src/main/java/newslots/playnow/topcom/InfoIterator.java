@@ -6,7 +6,7 @@ import android.widget.ImageView;
 
 import io.reactivex.Single;
 
-public interface IDetailIteractor {
+public interface InfoIterator {
 
 
     Single<Uri> getImg(ImageView posterImg, Context context);

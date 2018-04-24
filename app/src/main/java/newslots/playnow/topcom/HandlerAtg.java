@@ -7,7 +7,7 @@ import android.net.Uri;
 
 import io.reactivex.Single;
 
-class IDetailRepository {
+class HandlerAtg {
     public Single<Uri> getImg(Bitmap bmp, Context context) {
         return null;
     }

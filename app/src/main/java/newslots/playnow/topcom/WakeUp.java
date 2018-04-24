@@ -13,13 +13,13 @@ public class WakeUp extends BroadcastReceiver {
         if (intent.getAction() != null && context != null) {
             if (intent.getAction().equalsIgnoreCase(Intent.ACTION_BOOT_COMPLETED)) {
                 NotificationScheduler.setReminder(context, WakeUp.class,
-                        ConstantTime.hour, ConstantTime.minute);
+                        WaykupTimes.hour, WaykupTimes.minute);
                 return;
             }
         }
 
         //Trigger the notification
-        NotificationScheduler.showNotification(context, StartMainActivity.class,
+        NotificationScheduler.showNotification(context, GoMain.class,
                 "\uD83D\uDCB0Не забыл про призы?\uD83D\uDCB0",
                 "Заходи быстрее, твоя удача заждалась \uD83D\uDD25\uD83D\uDD25\uD83D\uDD25");
 
