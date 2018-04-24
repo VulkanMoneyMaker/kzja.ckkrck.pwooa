@@ -59,7 +59,7 @@ public class TitleLayer extends CCLayer
 	}
 /***************************************************************************************************************************************************************************************************************/
 	public void createButton(){
-		String [] str = {"Buttons/zombies","Buttons/pirates","Buttons/jewels","Buttons/fruit","Buttons/cash","Buttons/dragons"};	
+		String [] str = {"Buttons/cash","Buttons/pirates","Buttons/jewels","Buttons/fruit","Buttons/cash","Buttons/dragons"};
 		GrowButton selectBtn;
 		for(int i = 0 ; i < 1 ; i++){
 			selectBtn = GrowButton.button(G._getImg(str[i]),G._getImg(str[i]),this,"startGame",(i+1));
