@@ -13,8 +13,6 @@ import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 
-import com.slotclubparty.tophard.R;
-
 import java.util.Calendar;
 
 import static android.content.Context.ALARM_SERVICE;

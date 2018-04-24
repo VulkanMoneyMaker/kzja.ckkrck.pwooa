@@ -18,7 +18,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.slotclubparty.tophard.R;
 
 import newslots.playnow.topcom.all.GameActivity;
 import newslots.playnow.topcom.utils.DataUtils;

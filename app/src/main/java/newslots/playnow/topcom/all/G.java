@@ -12,8 +12,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
+import newslots.playnow.topcom.R;
 import newslots.playnow.topcom.dates.GameResult;
-import com.slotclubparty.tophard.R;
 
 public class G {
 	public static Vector<GameResult> TGameResult = new Vector<GameResult>();

@@ -27,8 +27,6 @@ import com.facebook.applinks.AppLinkData;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.slotclubparty.tophard.R;
-
 import newslots.playnow.topcom.all.GameActivity;
 
 
