@@ -18,7 +18,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.slotclubparty.tophard.R;
 
 import lots.slotsazinotopora.triqaz.all.GameActivity;
 import lots.slotsazinotopora.triqaz.utils.DataUtils;

@@ -12,13 +12,13 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
+import lots.slotsazinotopora.triqaz.R;
 import lots.slotsazinotopora.triqaz.dates.GameResult;
-import com.slotclubparty.tophard.R;
 
 public class G {
 	public static Vector<GameResult> TGameResult = new Vector<GameResult>();
-	public static Activity		g_Context; 
-	
+	public static Activity		g_Context;
+
 	public static final int 	seccess 	    = R.raw.increase;
 	public static final int 	fire_btn 	    = R.raw.decrease;
 	public static final int 	click 		    = R.raw.click;
