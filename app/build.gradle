@@ -6,8 +6,8 @@ android {
         applicationId "lots.slotsazinotopora.triqaz"
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 42
-        versionName "42.0"
+        versionCode 45
+        versionName "45.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
